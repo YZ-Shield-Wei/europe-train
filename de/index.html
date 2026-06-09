@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Europa Zugreise Guide - Deutsch</title>
+    <meta name="description" content="Umfassender Leitfaden für Zugreisen in Europa. Finden Sie Routen, vergleichen Sie Tickets und entdecken Sie die besten Pässe für Ihre Reise.">
+    <link rel="canonical" href="https://www.europe-train.com/de/">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #e65100;
+            --primary-dark: #bf360c;
+            --secondary: #00c853;
+            --accent: #ffab00;
+            --text: #202124;
+            --text-light: #5f6368;
+            --bg: #ffffff;
+            --bg-light: #fff8e1;
+            --border: #ffe0b2;
+            --shadow: 0 1px 2px 0 rgba(230,81,0,0.2), 0 1px 3px 1px rgba(230,81,0,0.15);
+            --shadow-lg: 0 4px 8px 3px rgba(230,81,0,0.15), 0 1px 1px 0 rgba(230,81,0,0.1);
+            --radius: 8px;
+            --radius-lg: 16px;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+        }
+        .header {
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+        }
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .nav {
+            display: flex;
+            gap: 32px;
+        }
+        .nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav a:hover {
+            color: var(--primary);
+        }
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 50%, rgba(255,179,0,0.8) 100%),
+                        url('../images/hero.jpg') center/cover;
+            color: white;
+            padding: 80px 24px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero p {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        .search-box {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            gap: 12px;
+            background: white;
+            padding: 8px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-lg);
+        }
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            outline: none;
+            background: transparent;
+        }
+        .search-box button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .search-box button:hover {
+            background: var(--primary-dark);
+        }
+        .features {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 64px 24px;
+        }
+        .features h2 {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .feature-card {
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .feature-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        .feature-content {
+            padding: 24px;
+        }
+        .feature-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .feature-content p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+        .routes {
+            background: var(--bg-light);
+            padding: 64px 24px;
+        }
+        .routes-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .routes h2 {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .route-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .route-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .route-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .route-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .route-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+        }
+        .route-title {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            z-index: 1;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        .route-content {
+            padding: 24px;
+        }
+        .route-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .route-content p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        .route-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        .route-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .route-meta span::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            margin-right: 4px;
+        }
+        .languages {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 64px 24px;
+            text-align: center;
+        }
+        .languages h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .languages p {
+            color: var(--text-light);
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+        .lang-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .lang-btn:hover:not(.disabled) {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .lang-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        .footer {
+            background: var(--text);
+            color: white;
+            padding: 48px 24px;
+            text-align: center;
+        }
+        .footer p {
+            opacity: 0.7;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .nav { display: none; }
+            .feature-grid,
+            .route-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <div class="logo-icon">ET</div>
+                Europe Train
+            </a>
+            <nav class="nav">
+                <a href="#routes">Routen</a>
+                <a href="#tickets">Tickets</a>
+                <a href="#passes">Pässe</a>
+                <a href="#guides">Guides</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Europa mit dem Zug erkunden</h1>
+        <p>Ihr umfassender Leitfaden für Zugreisen in Europa. Finden Sie Routen, vergleichen Sie Tickets und entdecken Sie die besten Pässe für Ihre Reise.</p>
+        <div class="search-box">
+            <input type="text" placeholder="Ziele, Routen oder Zugtypen suchen...">
+            <button>Suchen</button>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>Warum mit dem Zug reisen?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-image" style="background-image: url('../images/eco.jpg')"></div>
+                <div class="feature-content">
+                    <h3>Umweltfreundlich</h3>
+                    <p>Züge produzieren bis zu 90% weniger Emissionen als Flüge. Reisen Sie nachhaltig durch Europa.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-image" style="background-image: url('../images/comfort.jpg')"></div>
+                <div class="feature-content">
+                    <h3>Komfortabel</h3>
+                    <p>Geräumige Sitze, Speisewagen und kostenloses WLAN. Genießen Sie die Reise so sehr wie das Ziel.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-image" style="background-image: url('../images/city.jpg')"></div>
+                <div class="feature-content">
+                    <h3>Stadtzentrum zu Stadtzentrum</h3>
+                    <p>Keine Flughafentransfers nötig. Kommen Sie direkt im Herzen jeder europäischen Stadt an.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-image" style="background-image: url('../images/cost.jpg')"></div>
+                <div class="feature-content">
+                    <h3>Kosteneffektiv</h3>
+                    <p>Sparen Sie Geld mit Bahnpässen und Frühbucherrabatten. Flexible Optionen für jedes Budget.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="routes" id="routes">
+        <div class="routes-inner">
+            <h2>Beliebte Routen</h2>
+            <div class="route-grid">
+                <div class="route-card">
+                    <div class="route-image" style="background-image: url('../images/comfort.jpg')">
+                        <span class="route-title">London → Paris</span>
+                    </div>
+                    <div class="route-content">
+                        <h3>Eurostar</h3>
+                        <p>Reisen Sie von London nach Paris in nur 2 Stunden 15 Minuten durch den Ärmelkanaltunnel.</p>
+                        <div class="route-meta">
+                            <span>2h 15m</span>
+                            <span>High Speed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="route-card">
+                    <div class="route-image" style="background-image: url('../images/city.jpg')">
+                        <span class="route-title">Paris → Amsterdam</span>
+                    </div>
+                    <div class="route-content">
+                        <h3>Thalys</h3>
+                        <p>Verbinden Sie diese beiden schönen Hauptstädte in nur 3 Stunden 20 Minuten.</p>
+                        <div class="route-meta">
+                            <span>3h 20m</span>
+                            <span>High Speed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="route-card">
+                    <div class="route-image" style="background-image: url('../images/berlin-munich.jpg')">
+                        <span class="route-title">Berlin → München</span>
+                    </div>
+                    <div class="route-content">
+                        <h3>ICE</h3>
+                        <p>Deutschlands Flaggschiff-Hochgeschwindigkeitsdienst verbindet Großstädte mit 300 km/h.</p>
+                        <div class="route-meta">
+                            <span>3h 58m</span>
+                            <span>High Speed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="route-card">
+                    <div class="route-image" style="background-image: url('../images/cost.jpg')">
+                        <span class="route-title">Rom → Florenz</span>
+                    </div>
+                    <div class="route-content">
+                        <h3>Frecciarossa</h3>
+                        <p>Italienische Hochgeschwindigkeitsbahn verbindet historische Städte in unter 90 Minuten.</p>
+                        <div class="route-meta">
+                            <span>1h 30m</span>
+                            <span>High Speed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="route-card">
+                    <div class="route-image" style="background-image: url('../images/barcelona-madrid.jpg')">
+                        <span class="route-title">Barcelona → Madrid</span>
+                    </div>
+                    <div class="route-content">
+                        <h3>AVE</h3>
+                        <p>Spaniens Hochgeschwindigkeitsnetz verbindet Barcelona und Madrid in 2,5 Stunden.</p>
+                        <div class="route-meta">
+                            <span>2h 30m</span>
+                            <span>High Speed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="route-card">
+                    <div class="route-image" style="background-image: url('../images/zurich-milan.jpg')">
+                        <span class="route-title">Zürich → Mailand</span>
+                    </div>
+                    <div class="route-content">
+                        <h3>EC via Gotthard</h3>
+                        <p>Malerische Route durch die Schweizer Alpen mit atemberaubenden Bergblicken.</p>
+                        <div class="route-meta">
+                            <span>3h 26m</span>
+                            <span>Scenic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="languages">
+        <h2>Demnächst: 8 Sprachen</h2>
+        <p>Wir arbeiten an Übersetzungen. Derzeit verfügbar auf Englisch und Chinesisch.</p>
+        <div class="lang-grid">
+            <a href="/en/" class="lang-btn">🇺🇸 English</a>
+            <a href="/zh/" class="lang-btn">🇨🇳 中文</a>
+            <span class="lang-btn disabled">🇩🇪 Deutsch</span>
+            <span class="lang-btn disabled">🇫🇷 Français</span>
+            <span class="lang-btn disabled">🇪🇸 Español</span>
+            <span class="lang-btn disabled">🇯🇵 日本語</span>
+            <span class="lang-btn disabled">🇰🇷 한국어</span>
+            <span class="lang-btn disabled">🇵🇹 Português</span>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 Europe Train Travel Guide. Alle Rechte vorbehalten.</p>
+    </footer>
+</body>
+</html>
