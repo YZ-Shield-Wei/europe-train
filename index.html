@@ -77,8 +77,27 @@
             font-weight: 500;
             transition: color 0.2s;
         }
-        .nav a:hover {
+        .lang-switcher {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .lang-switcher a {
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-light);
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .lang-switcher a:hover {
             color: var(--primary);
+            background: var(--bg-light);
+        }
+        .lang-switcher a.active {
+            color: var(--primary);
+            background: var(--bg-light);
         }
         .hero {
             position: relative;
@@ -349,6 +368,16 @@
                 <a href="#passes">Passes</a>
                 <a href="#guides">Guides</a>
             </nav>
+            <div class="lang-switcher">
+                <a href="/en/" class="active">EN</a>
+                <a href="/zh/">中文</a>
+                <a href="/de/">DE</a>
+                <a href="/fr/">FR</a>
+                <a href="/es/">ES</a>
+                <a href="/ja/">JP</a>
+                <a href="/ko/">KR</a>
+                <a href="/pt/">PT</a>
+            </div>
         </div>
     </header>
 
@@ -365,14 +394,14 @@
         <h2>Why Travel by Train?</h2>
         <div class="feature-grid">
             <div class="feature-card">
-                <div class="feature-image" style="background-image: url('images/eco.jpg')"></div>
+                <div class="feature-image" style="background-image: url('images/hero.jpg')"></div>
                 <div class="feature-content">
                     <h3>Eco-Friendly</h3>
                     <p>Trains produce up to 90% less emissions than flights. Travel sustainably across Europe.</p>
                 </div>
             </div>
             <div class="feature-card">
-                <div class="feature-image" style="background-image: url('images/comfort.jpg')"></div>
+                <div class="feature-image" style="background-image: url('images/berlin-munich.jpg')"></div>
                 <div class="feature-content">
                     <h3>Comfortable</h3>
                     <p>Spacious seats, dining cars, and free WiFi. Enjoy the journey as much as the destination.</p>
@@ -386,7 +415,7 @@
                 </div>
             </div>
             <div class="feature-card">
-                <div class="feature-image" style="background-image: url('images/cost.jpg')"></div>
+                <div class="feature-image" style="background-image: url('images/barcelona-madrid.jpg')"></div>
                 <div class="feature-content">
                     <h3>Cost Effective</h3>
                     <p>Save money with rail passes and early booking discounts. Flexible options for every budget.</p>
@@ -400,7 +429,7 @@
             <h2>Popular Routes</h2>
             <div class="route-grid">
                 <div class="route-card">
-                    <div class="route-image" style="background-image: url('images/comfort.jpg')">
+                    <div class="route-image" style="background-image: url('images/hero.jpg')">
                         <span class="route-title">London &rarr; Paris</span>
                     </div>
                     <div class="route-content">
@@ -439,7 +468,7 @@
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-image" style="background-image: url('images/cost.jpg')">
+                    <div class="route-image" style="background-image: url('images/zurich-milan.jpg')">
                         <span class="route-title">Rome &rarr; Florence</span>
                     </div>
                     <div class="route-content">
@@ -481,19 +510,19 @@
         </div>
     </section>
 
-    <!-- 语言选择 - 建设中提示 -->
-    <section class="languages">
-        <h2>Coming Soon: 8 Languages</h2>
-        <p>We're working on translations. Currently available in English and Chinese.</p>
+    <!-- 语言选择已移至顶部导航栏 -->
+    <section class="languages" style="display:none;">
+        <h2>8 Languages Available</h2>
+        <p>Choose your preferred language to explore European train travel</p>
         <div class="lang-grid">
             <a href="/en/" class="lang-btn">🇺🇸 English</a>
             <a href="/zh/" class="lang-btn">🇨🇳 中文</a>
-            <span class="lang-btn disabled">🇩🇪 Deutsch (Soon)</span>
-            <span class="lang-btn disabled">🇫🇷 Français (Soon)</span>
-            <span class="lang-btn disabled">🇪🇸 Español (Soon)</span>
-            <span class="lang-btn disabled">🇯🇵 日本語 (Soon)</span>
-            <span class="lang-btn disabled">🇰🇷 한국어 (Soon)</span>
-            <span class="lang-btn disabled">🇵🇹 Português (Soon)</span>
+            <a href="/de/" class="lang-btn">🇩🇪 Deutsch</a>
+            <a href="/fr/" class="lang-btn">🇫🇷 Français</a>
+            <a href="/es/" class="lang-btn">🇪🇸 Español</a>
+            <a href="/ja/" class="lang-btn">🇯🇵 日本語</a>
+            <a href="/ko/" class="lang-btn">🇰🇷 한국어</a>
+            <a href="/pt/" class="lang-btn">🇵🇹 Português</a>
         </div>
     </section>
 
