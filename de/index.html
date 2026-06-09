@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Europa Zugreise Guide - Deutsch</title>
-    <meta name="description" content="Umfassender Leitfaden für Zugreisen in Europa. Finden Sie Routen, vergleichen Sie Tickets und entdecken Sie die besten Pässe für Ihre Reise.">
-    <link rel="canonical" href="https://www.europe-train.com/de/">
+    <title>Europe Train Travel Guide | 欧洲火车旅行指南</title>
+    <meta name="description" content="Comprehensive European train travel guide covering routes, tickets, passes and tips in 8 languages.">
+    <link rel="canonical" href="https://www.europe-train.com/">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -77,14 +77,33 @@
             font-weight: 500;
             transition: color 0.2s;
         }
-        .nav a:hover {
+        .lang-switcher {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .lang-switcher a {
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-light);
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .lang-switcher a:hover {
             color: var(--primary);
+            background: var(--bg-light);
+        }
+        .lang-switcher a.active {
+            color: var(--primary);
+            background: var(--bg-light);
         }
         .hero {
             position: relative;
             height: 600px;
             background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 50%, rgba(255,179,0,0.8) 100%),
-                        url('../images/hero.jpg') center/cover;
+                        url('images/hero.jpg') center/cover;
             color: white;
             padding: 80px 24px;
             text-align: center;
@@ -344,52 +363,62 @@
                 Europe Train
             </a>
             <nav class="nav">
-                <a href="#routes">Routen</a>
+                <a href="#routes">Routes</a>
                 <a href="#tickets">Tickets</a>
-                <a href="#passes">Pässe</a>
+                <a href="#passes">Passes</a>
                 <a href="#guides">Guides</a>
             </nav>
+            <div class="lang-switcher">
+                <a href="/de/">EN</a>
+                <a href="/zh/">中文</a>
+                <a href="/de/">DE</a>
+                <a href="/fr/">FR</a>
+                <a href="/es/">ES</a>
+                <a href="/ja/">JP</a>
+                <a href="/ko/">KR</a>
+                <a href="/pt/">PT</a>
+            </div>
         </div>
     </header>
 
     <section class="hero">
-        <h1>Europa mit dem Zug erkunden</h1>
-        <p>Ihr umfassender Leitfaden für Zugreisen in Europa. Finden Sie Routen, vergleichen Sie Tickets und entdecken Sie die besten Pässe für Ihre Reise.</p>
+        <h1>Explore Europe by Train</h1>
+        <p>Your complete guide to European rail travel. Find routes, compare tickets, and discover the best passes for your journey.</p>
         <div class="search-box">
-            <input type="text" placeholder="Ziele, Routen oder Zugtypen suchen...">
-            <button>Suchen</button>
+            <input type="text" placeholder="Search destinations, routes, or train types...">
+            <button>Search</button>
         </div>
     </section>
 
     <section class="features">
-        <h2>Warum mit dem Zug reisen?</h2>
+        <h2>Why Travel by Train?</h2>
         <div class="feature-grid">
             <div class="feature-card">
-                <div class="feature-image" style="background-image: url('../images/eco.jpg')"></div>
+                <div class="feature-image" style="background-image: url('images/hero.jpg')"></div>
                 <div class="feature-content">
-                    <h3>Umweltfreundlich</h3>
-                    <p>Züge produzieren bis zu 90% weniger Emissionen als Flüge. Reisen Sie nachhaltig durch Europa.</p>
+                    <h3>Eco-Friendly</h3>
+                    <p>Trains produce up to 90% less emissions than flights. Travel sustainably across Europe.</p>
                 </div>
             </div>
             <div class="feature-card">
-                <div class="feature-image" style="background-image: url('../images/comfort.jpg')"></div>
+                <div class="feature-image" style="background-image: url('images/berlin-munich.jpg')"></div>
                 <div class="feature-content">
-                    <h3>Komfortabel</h3>
-                    <p>Geräumige Sitze, Speisewagen und kostenloses WLAN. Genießen Sie die Reise so sehr wie das Ziel.</p>
+                    <h3>Comfortable</h3>
+                    <p>Spacious seats, dining cars, and free WiFi. Enjoy the journey as much as the destination.</p>
                 </div>
             </div>
             <div class="feature-card">
-                <div class="feature-image" style="background-image: url('../images/city.jpg')"></div>
+                <div class="feature-image" style="background-image: url('images/city.jpg')"></div>
                 <div class="feature-content">
-                    <h3>Stadtzentrum zu Stadtzentrum</h3>
-                    <p>Keine Flughafentransfers nötig. Kommen Sie direkt im Herzen jeder europäischen Stadt an.</p>
+                    <h3>City Center to City Center</h3>
+                    <p>No airport transfers needed. Arrive directly in the heart of every European city.</p>
                 </div>
             </div>
             <div class="feature-card">
-                <div class="feature-image" style="background-image: url('../images/cost.jpg')"></div>
+                <div class="feature-image" style="background-image: url('images/barcelona-madrid.jpg')"></div>
                 <div class="feature-content">
-                    <h3>Kosteneffektiv</h3>
-                    <p>Sparen Sie Geld mit Bahnpässen und Frühbucherrabatten. Flexible Optionen für jedes Budget.</p>
+                    <h3>Cost Effective</h3>
+                    <p>Save money with rail passes and early booking discounts. Flexible options for every budget.</p>
                 </div>
             </div>
         </div>
@@ -397,15 +426,15 @@
 
     <section class="routes" id="routes">
         <div class="routes-inner">
-            <h2>Beliebte Routen</h2>
+            <h2>Popular Routes</h2>
             <div class="route-grid">
                 <div class="route-card">
-                    <div class="route-image" style="background-image: url('../images/comfort.jpg')">
-                        <span class="route-title">London → Paris</span>
+                    <div class="route-image" style="background-image: url('images/hero.jpg')">
+                        <span class="route-title">London &rarr; Paris</span>
                     </div>
                     <div class="route-content">
                         <h3>Eurostar</h3>
-                        <p>Reisen Sie von London nach Paris in nur 2 Stunden 15 Minuten durch den Ärmelkanaltunnel.</p>
+                        <p>Travel from London to Paris in just 2 hours 15 minutes through the Channel Tunnel.</p>
                         <div class="route-meta">
                             <span>2h 15m</span>
                             <span>High Speed</span>
@@ -413,12 +442,12 @@
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-image" style="background-image: url('../images/city.jpg')">
-                        <span class="route-title">Paris → Amsterdam</span>
+                    <div class="route-image" style="background-image: url('images/city.jpg')">
+                        <span class="route-title">Paris &rarr; Amsterdam</span>
                     </div>
                     <div class="route-content">
                         <h3>Thalys</h3>
-                        <p>Verbinden Sie diese beiden schönen Hauptstädte in nur 3 Stunden 20 Minuten.</p>
+                        <p>Connect these two beautiful capitals in just 3 hours 20 minutes.</p>
                         <div class="route-meta">
                             <span>3h 20m</span>
                             <span>High Speed</span>
@@ -426,12 +455,12 @@
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-image" style="background-image: url('../images/berlin-munich.jpg')">
-                        <span class="route-title">Berlin → München</span>
+                    <div class="route-image" style="background-image: url('images/berlin-munich.jpg')">
+                        <span class="route-title">Berlin &rarr; Munich</span>
                     </div>
                     <div class="route-content">
                         <h3>ICE</h3>
-                        <p>Deutschlands Flaggschiff-Hochgeschwindigkeitsdienst verbindet Großstädte mit 300 km/h.</p>
+                        <p>Germany's flagship high-speed service connecting major cities at 300km/h.</p>
                         <div class="route-meta">
                             <span>3h 58m</span>
                             <span>High Speed</span>
@@ -439,12 +468,12 @@
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-image" style="background-image: url('../images/cost.jpg')">
-                        <span class="route-title">Rom → Florenz</span>
+                    <div class="route-image" style="background-image: url('images/zurich-milan.jpg')">
+                        <span class="route-title">Rome &rarr; Florence</span>
                     </div>
                     <div class="route-content">
                         <h3>Frecciarossa</h3>
-                        <p>Italienische Hochgeschwindigkeitsbahn verbindet historische Städte in unter 90 Minuten.</p>
+                        <p>Italy's high-speed rail connecting historic cities in under 90 minutes.</p>
                         <div class="route-meta">
                             <span>1h 30m</span>
                             <span>High Speed</span>
@@ -452,12 +481,12 @@
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-image" style="background-image: url('../images/barcelona-madrid.jpg')">
-                        <span class="route-title">Barcelona → Madrid</span>
+                    <div class="route-image" style="background-image: url('images/barcelona-madrid.jpg')">
+                        <span class="route-title">Barcelona &rarr; Madrid</span>
                     </div>
                     <div class="route-content">
                         <h3>AVE</h3>
-                        <p>Spaniens Hochgeschwindigkeitsnetz verbindet Barcelona und Madrid in 2,5 Stunden.</p>
+                        <p>Spain's high-speed network linking Barcelona and Madrid in 2.5 hours.</p>
                         <div class="route-meta">
                             <span>2h 30m</span>
                             <span>High Speed</span>
@@ -465,12 +494,12 @@
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-image" style="background-image: url('../images/zurich-milan.jpg')">
-                        <span class="route-title">Zürich → Mailand</span>
+                    <div class="route-image" style="background-image: url('images/zurich-milan.jpg')">
+                        <span class="route-title">Zurich &rarr; Milan</span>
                     </div>
                     <div class="route-content">
                         <h3>EC via Gotthard</h3>
-                        <p>Malerische Route durch die Schweizer Alpen mit atemberaubenden Bergblicken.</p>
+                        <p>Scenic route through the Swiss Alps with breathtaking mountain views.</p>
                         <div class="route-meta">
                             <span>3h 26m</span>
                             <span>Scenic</span>
@@ -481,23 +510,24 @@
         </div>
     </section>
 
-    <section class="languages">
-        <h2>Demnächst: 8 Sprachen</h2>
-        <p>Wir arbeiten an Übersetzungen. Derzeit verfügbar auf Englisch und Chinesisch.</p>
+    <!-- 语言选择已移至顶部导航栏 -->
+    <section class="languages" style="display:none;">
+        <h2>8 Languages Available</h2>
+        <p>Choose your preferred language to explore European train travel</p>
         <div class="lang-grid">
-            <a href="/en/" class="lang-btn">🇺🇸 English</a>
+            <a href="/de/" class="lang-btn">🇺🇸 English</a>
             <a href="/zh/" class="lang-btn">🇨🇳 中文</a>
-            <span class="lang-btn disabled">🇩🇪 Deutsch</span>
-            <span class="lang-btn disabled">🇫🇷 Français</span>
-            <span class="lang-btn disabled">🇪🇸 Español</span>
-            <span class="lang-btn disabled">🇯🇵 日本語</span>
-            <span class="lang-btn disabled">🇰🇷 한국어</span>
-            <span class="lang-btn disabled">🇵🇹 Português</span>
+            <a href="/de/" class="lang-btn">🇩🇪 Deutsch</a>
+            <a href="/fr/" class="lang-btn">🇫🇷 Français</a>
+            <a href="/es/" class="lang-btn">🇪🇸 Español</a>
+            <a href="/ja/" class="lang-btn">🇯🇵 日本語</a>
+            <a href="/ko/" class="lang-btn">🇰🇷 한국어</a>
+            <a href="/pt/" class="lang-btn">🇵🇹 Português</a>
         </div>
     </section>
 
     <footer class="footer">
-        <p>© 2026 Europe Train Travel Guide. Alle Rechte vorbehalten.</p>
+        <p>© 2026 Europe Train Travel Guide. All rights reserved.</p>
     </footer>
 </body>
 </html>
