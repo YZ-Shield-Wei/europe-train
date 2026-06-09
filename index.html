@@ -3,328 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>欧洲火车旅行指南 | 省钱攻略、路线推荐、购票技巧 | Europe-Train.com</title>
-    <meta name="description" content="最实用的欧洲火车旅行攻略网站，分享法国、意大利、德国、瑞士等国家的火车票购买技巧、省钱攻略、路线规划和旅行经验。">
-    <meta name="keywords" content="欧洲火车旅行,欧洲火车票攻略,欧洲火车通票,法国火车票,欧洲铁路旅行,省钱攻略">
-    
+    <title>欧洲火车旅行指南 | 省钱攻略、路线推荐 | Europe-Train.com</title>
+    <meta name="description" content="最实用的欧洲火车旅行攻略，分享购票技巧、省钱攻略、路线规划。法国、意大利、瑞士、德国全覆盖。">
+    <meta name="keywords" content="欧洲火车旅行,欧洲火车票攻略,欧洲火车通票,法国火车票,欧洲铁路旅行">
     <link rel="canonical" href="https://www.europe-train.com/">
-    <meta property="og:title" content="欧洲火车旅行指南 | 省钱攻略、路线推荐、购票技巧">
-    <meta property="og:description" content="最实用的欧洲火车旅行攻略网站，分享购票技巧和省钱攻略">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.europe-train.com/">
-    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #fafafa; color: #333; line-height: 1.6; }
         
         /* Header */
-        header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 2rem 0; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .header-content { text-align: center; }
-        .logo { font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; }
-        .logo span { color: #e74c3c; }
-        .tagline { font-size: 1.1rem; opacity: 0.9; margin-bottom: 1.5rem; }
-        .header-stats { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
-        .stat-item { text-align: center; }
-        .stat-number { font-size: 1.5rem; font-weight: bold; color: #e74c3c; }
-        .stat-label { font-size: 0.85rem; opacity: 0.8; }
+        header { background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: #1a1a2e; letter-spacing: -0.5px; }
+        .logo span { color: #ff6b6b; }
+        .nav { display: flex; gap: 2rem; }
+        .nav a { text-decoration: none; color: #666; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+        .nav a:hover { color: #ff6b6b; }
         
-        /* Navigation */
-        nav { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; height: 60px; }
-        .nav-logo { font-weight: bold; font-size: 1.2rem; color: #1a1a2e; }
-        .nav-logo span { color: #e74c3c; }
-        .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { text-decoration: none; color: #555; font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: #e74c3c; }
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 4rem 20px; text-align: center; }
+        .hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem; }
+        .hero-search { max-width: 500px; margin: 0 auto; display: flex; background: white; border-radius: 50px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        .hero-search input { flex: 1; border: none; padding: 1rem 1.5rem; font-size: 1rem; outline: none; }
+        .hero-search button { background: #ff6b6b; color: white; border: none; padding: 1rem 2rem; font-weight: 600; cursor: pointer; }
         
-        /* Main Content */
-        main { max-width: 1200px; margin: 0 auto; padding: 2rem 20px; }
+        /* Tags */
+        .tags { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+        .tag { background: rgba(255,255,255,0.2); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; }
         
-        /* Featured Section */
-        .featured { background: white; border-radius: 12px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .featured-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
-        .featured-header h2 { font-size: 1.5rem; color: #1a1a2e; }
-        .featured-badge { background: #e74c3c; color: white; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.75rem; }
-        
-        .featured-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .featured-card { border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
-        .featured-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .card-image { height: 180px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; }
-        .card-content { padding: 1.5rem; }
-        .card-category { color: #e74c3c; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        .card-title { font-size: 1.2rem; margin: 0.5rem 0; color: #1a1a2e; }
-        .card-excerpt { color: #666; font-size: 0.9rem; line-height: 1.6; }
-        .card-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #eee; font-size: 0.85rem; color: #888; }
-        .card-author { display: flex; align-items: center; gap: 0.5rem; }
-        .author-avatar { width: 28px; height: 28px; border-radius: 50%; background: #ddd; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+        /* Main */
+        main { max-width: 1200px; margin: 0 auto; padding: 3rem 20px; }
         
         /* Section */
-        .section { margin-bottom: 2rem; }
-        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-        .section-title { font-size: 1.5rem; color: #1a1a2e; }
-        .view-all { color: #e74c3c; text-decoration: none; font-weight: 500; }
+        .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
         
-        .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-        .article-card { background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: transform 0.3s; }
-        .article-card:hover { transform: translateY(-3px); }
-        .article-tag { display: inline-block; background: #f0f0f0; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; color: #666; margin-bottom: 0.5rem; }
-        .article-title { font-size: 1.1rem; color: #1a1a2e; margin-bottom: 0.5rem; }
-        .article-excerpt { color: #666; font-size: 0.9rem; line-height: 1.5; }
-        .article-footer { display: flex; justify-content: space-between; margin-top: 1rem; font-size: 0.85rem; color: #888; }
+        /* Featured Cards - Pinterest Style */
+        .featured { margin-bottom: 3rem; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
+        .card-img { height: 200px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+        .card-body { padding: 1.5rem; }
+        .card-tag { color: #ff6b6b; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .card-title { font-size: 1.2rem; font-weight: 700; margin: 0.5rem 0; color: #1a1a2e; line-height: 1.4; }
+        .card-desc { color: #666; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #999; }
+        .card-author { display: flex; align-items: center; gap: 0.5rem; }
+        .avatar { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: 600; }
         
-        /* Sidebar */
-        .content-layout { display: grid; grid-template-columns: 1fr 300px; gap: 2rem; }
+        /* Article List */
+        .articles { margin-bottom: 3rem; }
+        .article-list { display: flex; flex-direction: column; gap: 1rem; }
+        .article-item { background: white; border-radius: 12px; padding: 1.5rem; display: flex; gap: 1.5rem; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .article-item:hover { transform: translateX(5px); }
+        .article-thumb { width: 120px; height: 80px; border-radius: 8px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0; }
+        .article-info { flex: 1; }
+        .article-tag { display: inline-block; background: #f0f0f0; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; color: #666; margin-bottom: 0.5rem; }
+        .article-title { font-size: 1.1rem; font-weight: 600; color: #1a1a2e; margin-bottom: 0.3rem; }
+        .article-meta { font-size: 0.85rem; color: #999; }
         
-        .sidebar { }
-        .sidebar-widget { background: white; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .widget-title { font-size: 1.1rem; color: #1a1a2e; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e74c3c; }
-        .widget-list { list-style: none; }
-        .widget-list li { padding: 0.6rem 0; border-bottom: 1px solid #f0f0f0; }
-        .widget-list li:last-child { border-bottom: none; }
-        .widget-list a { text-decoration: none; color: #555; font-size: 0.9rem; transition: color 0.3s; }
-        .widget-list a:hover { color: #e74c3c; }
-        .widget-list .number { display: inline-block; width: 24px; height: 24px; background: #e74c3c; color: white; border-radius: 50%; text-align: center; line-height: 24px; font-size: 0.8rem; margin-right: 0.5rem; }
-        
-        .cta-box { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; border-radius: 8px; padding: 1.5rem; text-align: center; }
-        .cta-box h3 { margin-bottom: 0.5rem; }
-        .cta-box p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 1rem; }
-        .cta-button { display: inline-block; background: white; color: #e74c3c; padding: 0.6rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: transform 0.3s; }
-        .cta-button:hover { transform: scale(1.05); }
+        /* CTA */
+        .cta-section { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 20px; padding: 3rem; text-align: center; color: white; margin: 3rem 0; }
+        .cta-section h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .cta-section p { opacity: 0.8; margin-bottom: 2rem; }
+        .cta-btn { display: inline-block; background: #ff6b6b; color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: transform 0.3s; }
+        .cta-btn:hover { transform: scale(1.05); }
         
         /* Footer */
-        footer { background: #1a1a2e; color: white; padding: 2rem 0; margin-top: 3rem; }
-        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .footer-section h3 { margin-bottom: 1rem; color: #e74c3c; }
-        .footer-section p, .footer-section a { color: #aaa; font-size: 0.9rem; line-height: 1.8; text-decoration: none; }
-        .footer-section a:hover { color: white; }
-        .footer-bottom { text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #333; color: #666; font-size: 0.85rem; }
+        footer { background: #1a1a2e; color: #aaa; padding: 3rem 20px 2rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .footer-col h3 { color: white; margin-bottom: 1rem; font-size: 1.1rem; }
+        .footer-col a { display: block; color: #aaa; text-decoration: none; padding: 0.3rem 0; transition: color 0.2s; }
+        .footer-col a:hover { color: #ff6b6b; }
+        .footer-bottom { text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #333; font-size: 0.85rem; }
         
-        /* Mobile */
         @media (max-width: 768px) {
-            .content-layout { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .header-stats { gap: 1rem; }
-            .featured-grid, .article-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.8rem; }
+            .card-grid { grid-template-columns: 1fr; }
+            .article-item { flex-direction: column; text-align: center; }
+            .article-thumb { width: 100%; height: 150px; }
+            .nav { display: none; }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">Europe<span>-Train</span>.com</div>
-                <p class="tagline">最真实的欧洲火车旅行攻略，来自旅行者的经验分享</p>
-                <div class="header-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">篇原创攻略</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">15</div>
-                        <div class="stat-label">个国家覆盖</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">1000+</div>
-                        <div class="stat-label">条实用建议</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    
-    <nav>
-        <div class="nav-container">
-            <div class="nav-logo">Europe<span>-Train</span></div>
-            <div class="nav-links">
+        <div class="header-inner">
+            <div class="logo">Europe<span>-Train</span>.com</div>
+            <nav class="nav">
                 <a href="/">首页</a>
                 <a href="/guides/">购票攻略</a>
                 <a href="/routes/">热门路线</a>
                 <a href="/countries/">国家指南</a>
                 <a href="/tips/">省钱技巧</a>
-                <a href="/about.html">关于</a>
-            </div>
+            </nav>
         </div>
-    </nav>
+    </header>
+    
+    <section class="hero">
+        <h1>欧洲火车旅行指南</h1>
+        <p>最真实的购票攻略、路线规划和省钱技巧，来自旅行者的经验分享</p>
+        <div class="hero-search">
+            <input type="text" placeholder="搜索攻略：法国火车票、瑞士通票...">
+            <button>搜索</button>
+        </div>
+        <div class="tags">
+            <span class="tag">🇫🇷 法国</span>
+            <span class="tag">🇨🇭 瑞士</span>
+            <span class="tag">🇮🇹 意大利</span>
+            <span class="tag">🇩🇪 德国</span>
+            <span class="tag">🇬🇧 英国</span>
+        </div>
+    </section>
     
     <main>
-        <div class="content-layout">
-            <div class="main-content">
-                <section class="featured">
-                    <div class="featured-header">
-                        <h2>🔥 精选攻略</h2>
-                        <span class="featured-badge">本周热门</span>
-                    </div>
-                    <div class="featured-grid">
-                        <div class="featured-card">
-                            <div class="card-image">🇫🇷</div>
-                            <div class="card-content">
-                                <div class="card-category">法国攻略</div>
-                                <h3 class="card-title">2025法国火车票购买完全指南</h3>
-                                <p class="card-excerpt">从巴黎到里昂，从TGV到区域列车，手把手教你如何在法国买到最便宜的火车票。包含SNCF官网购票、早鸟票技巧、青年卡攻略...</p>
-                                <div class="card-meta">
-                                    <div class="card-author">
-                                        <div class="author-avatar">旅</div>
-                                        <span>旅行达人小王</span>
-                                    </div>
-                                    <span>15分钟阅读</span>
-                                </div>
+        <section class="featured">
+            <h2 class="section-title">🔥 精选攻略</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-img">🇫🇷</div>
+                    <div class="card-body">
+                        <div class="card-tag">法国攻略</div>
+                        <h3 class="card-title">2025法国火车票购买完全指南</h3>
+                        <p class="card-desc">从SNCF官网到第三方平台，手把手教你买到最便宜的法国火车票。早鸟票技巧、青年卡攻略...</p>
+                        <div class="card-footer">
+                            <div class="card-author">
+                                <div class="avatar">旅</div>
+                                <span>旅行达人</span>
                             </div>
-                        </div>
-                        
-                        <div class="featured-card">
-                            <div class="card-image">🇨🇭</div>
-                            <div class="card-content">
-                                <div class="card-category">瑞士攻略</div>
-                                <h3 class="card-title">瑞士通票 vs 点对点车票：哪个更划算？</h3>
-                                <p class="card-excerpt">实测对比：瑞士旅行通票、半价卡、点对点车票，7天行程哪种方案最省钱？包含真实价格对比和购买建议...</p>
-                                <div class="card-meta">
-                                    <div class="card-author">
-                                        <div class="author-avatar">游</div>
-                                        <span>欧洲游侠</span>
-                                    </div>
-                                    <span>12分钟阅读</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="featured-card">
-                            <div class="card-image">🇮🇹</div>
-                            <div class="card-content">
-                                <div class="card-category">意大利攻略</div>
-                                <h3 class="card-title">意大利火车旅行：Frecciarossa体验报告</h3>
-                                <p class="card-excerpt">从罗马到米兰，Frecciarossa高速列车全程体验。座位选择、餐食评价、WiFi速度、准点率实测...</p>
-                                <div class="card-meta">
-                                    <div class="card-author">
-                                        <div class="author-avatar">探</div>
-                                        <span>探路者</span>
-                                    </div>
-                                    <span>10分钟阅读</span>
-                                </div>
-                            </div>
+                            <span>15分钟</span>
                         </div>
                     </div>
-                </section>
+                </div>
                 
-                <section class="section">
-                    <div class="section-header">
-                        <h2 class="section-title">📚 最新攻略</h2>
-                        <a href="/guides/" class="view-all">查看全部 →</a>
-                    </div>
-                    <div class="article-grid">
-                        <div class="article-card">
-                            <span class="article-tag">购票技巧</span>
-                            <h3 class="article-title">欧洲火车票早鸟票攻略：提前多久买最划算？</h3>
-                            <p class="article-excerpt">德铁、法铁、意铁早鸟票释放时间各不相同，掌握规律能省30-50%...</p>
-                            <div class="article-footer">
-                                <span>2025-06-08</span>
-                                <span>8分钟阅读</span>
+                <div class="card">
+                    <div class="card-img">🇨🇭</div>
+                    <div class="card-body">
+                        <div class="card-tag">瑞士攻略</div>
+                        <h3 class="card-title">瑞士通票 vs 点对点：哪个更划算？</h3>
+                        <p class="card-desc">7天瑞士行程实测对比，通票、半价卡、单票哪种方案最省钱？包含真实价格对比...</p>
+                        <div class="card-footer">
+                            <div class="card-author">
+                                <div class="avatar">游</div>
+                                <span>欧洲游侠</span>
                             </div>
-                        </div>
-                        
-                        <div class="article-card">
-                            <span class="article-tag">路线规划</span>
-                            <h3 class="article-title">欧洲经典火车路线：巴黎-苏黎世-米兰</h3>
-                            <p class="article-excerpt">10天欧洲火车环线，途经法国、瑞士、意大利，每日行程详细规划...</p>
-                            <div class="article-footer">
-                                <span>2025-06-07</span>
-                                <span>15分钟阅读</span>
-                            </div>
-                        </div>
-                        
-                        <div class="article-card">
-                            <span class="article-tag">省钱攻略</span>
-                            <h3 class="article-title">欧洲火车通票2025：Eurail Pass值不值？</h3>
-                            <p class="article-excerpt">深度分析Eurail Pass的优缺点，适合哪些旅行者，如何最大化利用...</p>
-                            <div class="article-footer">
-                                <span>2025-06-06</span>
-                                <span>12分钟阅读</span>
-                            </div>
-                        </div>
-                        
-                        <div class="article-card">
-                            <span class="article-tag">实用信息</span>
-                            <h3 class="article-title">欧洲火车站存行李指南： lockers & 人工寄存</h3>
-                            <p class="article-excerpt">巴黎、伦敦、罗马、柏林主要火车站行李寄存价格、位置、开放时间...</p>
-                            <div class="article-footer">
-                                <span>2025-06-05</span>
-                                <span>6分钟阅读</span>
-                            </div>
-                        </div>
-                        
-                        <div class="article-card">
-                            <span class="article-tag">经验分享</span>
-                            <h3 class="article-title">欧洲火车延误怎么办？索赔经验分享</h3>
-                            <p class="article-excerpt">亲身经历：德铁延误2小时，成功获得全额退款+补偿的完整流程...</p>
-                            <div class="article-footer">
-                                <span>2025-06-04</span>
-                                <span>10分钟阅读</span>
-                            </div>
-                        </div>
-                        
-                        <div class="article-card">
-                            <span class="article-tag">APP评测</span>
-                            <h3 class="article-title">欧洲火车APP对比：Trainline vs Omio vs 官方APP</h3>
-                            <p class="article-excerpt">手续费、汇率、功能、客服全方位对比，哪个APP买欧洲火车票最划算...</p>
-                            <div class="article-footer">
-                                <span>2025-06-03</span>
-                                <span>8分钟阅读</span>
-                            </div>
+                            <span>12分钟</span>
                         </div>
                     </div>
-                </section>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">🇮🇹</div>
+                    <div class="card-body">
+                        <div class="card-tag">意大利攻略</div>
+                        <h3 class="card-title">意大利Frecciarossa体验报告</h3>
+                        <p class="card-desc">罗马到米兰全程体验，座位选择、餐食评价、WiFi速度、准点率实测...</p>
+                        <div class="card-footer">
+                            <div class="card-author">
+                                <div class="avatar">探</div>
+                                <span>探路者</span>
+                            </div>
+                            <span>10分钟</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <aside class="sidebar">
-                <div class="sidebar-widget">
-                    <h3 class="widget-title">🔥 热门搜索</h3>
-                    <ul class="widget-list">
-                        <li><a href="#"><span class="number">1</span>法国火车票怎么买</a></li>
-                        <li><a href="#"><span class="number">2</span>欧洲火车通票官网</a></li>
-                        <li><a href="#"><span class="number">3</span>欧洲火车票APP推荐</a></li>
-                        <li><a href="#"><span class="number">4</span>欧洲之星订票攻略</a></li>
-                        <li><a href="#"><span class="number">5</span>瑞士旅行通票价格</a></li>
-                    </ul>
+        </section>
+        
+        <section class="articles">
+            <h2 class="section-title">📚 最新攻略</h2>
+            <div class="article-list">
+                <div class="article-item">
+                    <div class="article-thumb">🎫</div>
+                    <div class="article-info">
+                        <span class="article-tag">购票技巧</span>
+                        <h3 class="article-title">欧洲火车票早鸟票攻略：提前多久买最划算？</h3>
+                        <div class="article-meta">2025-06-08 · 8分钟阅读</div>
+                    </div>
                 </div>
                 
-                <div class="sidebar-widget">
-                    <h3 class="widget-title">📍 热门国家</h3>
-                    <ul class="widget-list">
-                        <li><a href="#">🇫🇷 法国火车攻略</a></li>
-                        <li><a href="#">🇨🇭 瑞士火车攻略</a></li>
-                        <li><a href="#">🇮🇹 意大利火车攻略</a></li>
-                        <li><a href="#">🇩🇪 德国火车攻略</a></li>
-                        <li><a href="#">🇬🇧 英国火车攻略</a></li>
-                    </ul>
+                <div class="article-item">
+                    <div class="article-thumb">🗺️</div>
+                    <div class="article-info">
+                        <span class="article-tag">路线规划</span>
+                        <h3 class="article-title">欧洲经典火车路线：巴黎-苏黎世-米兰10天环线</h3>
+                        <div class="article-meta">2025-06-07 · 15分钟阅读</div>
+                    </div>
                 </div>
                 
-                <div class="cta-box">
-                    <h3>计划欧洲火车之旅？</h3>
-                    <p>获取专业购票建议，省时省钱</p>
-                    <a href="#" class="cta-button">免费咨询</a>
+                <div class="article-item">
+                    <div class="article-thumb">💰</div>
+                    <div class="article-info">
+                        <span class="article-tag">省钱攻略</span>
+                        <h3 class="article-title">欧洲火车通票2025：Eurail Pass值不值？</h3>
+                        <div class="article-meta">2025-06-06 · 12分钟阅读</div>
+                    </div>
                 </div>
-            </aside>
-        </div>
+                
+                <div class="article-item">
+                    <div class="article-thumb">🧳</div>
+                    <div class="article-info">
+                        <span class="article-tag">实用信息</span>
+                        <h3 class="article-title">欧洲火车站存行李指南：lockers & 人工寄存</h3>
+                        <div class="article-meta">2025-06-05 · 6分钟阅读</div>
+                    </div>
+                </div>
+                
+                <div class="article-item">
+                    <div class="article-thumb">📱</div>
+                    <div class="article-info">
+                        <span class="article-tag">APP评测</span>
+                        <h3 class="article-title">欧洲火车APP对比：Trainline vs Omio vs 官方APP</h3>
+                        <div class="article-meta">2025-06-03 · 8分钟阅读</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>计划你的欧洲火车之旅？</h2>
+            <p>获取专业购票建议，省时省钱，让旅行更完美</p>
+            <a href="#" class="cta-btn">免费咨询 →</a>
+        </section>
     </main>
     
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
+        <div class="footer-inner">
+            <div class="footer-col">
                 <h3>Europe-Train.com</h3>
-                <p>最真实的欧洲火车旅行攻略网站，由旅行爱好者共同维护。分享购票技巧、路线规划和省钱经验。</p>
+                <p style="color: #aaa; font-size: 0.9rem; line-height: 1.8;">最真实的欧洲火车旅行攻略，由旅行爱好者共同维护。</p>
             </div>
-            <div class="footer-section">
+            <div class="footer-col">
                 <h3>快速链接</h3>
-                <p><a href="/">首页</a></p>
-                <p><a href="/guides/">购票攻略</a></p>
-                <p><a href="/routes/">热门路线</a></p>
-                <p><a href="/countries/">国家指南</a></p>
+                <a href="/">首页</a>
+                <a href="/guides/">购票攻略</a>
+                <a href="/routes/">热门路线</a>
+                <a href="/countries/">国家指南</a>
             </div>
-            <div class="footer-section">
-                <h3>关于我们</h3>
-                <p><a href="/about.html">关于网站</a></p>
-                <p><a href="/contact.html">联系方式</a></p>
-                <p><a href="/privacy.html">隐私政策</a></p>
+            <div class="footer-col">
+                <h3>热门国家</h3>
+                <a href="#">🇫🇷 法国</a>
+                <a href="#">🇨🇭 瑞士</a>
+                <a href="#">🇮🇹 意大利</a>
+                <a href="#">🇩🇪 德国</a>
+                <a href="#">🇬🇧 英国</a>
             </div>
         </div>
         <div class="footer-bottom">
