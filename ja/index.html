@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ヨーロッパ鉄道旅行ガイド - 日本語</title>
-    <meta name="description" content="ヨーロッパ鉄道旅行の完全ガイド。路線を検索し、切符を比較し、あなたの旅に最適なパスを見つけてください。">
-    <link rel="canonical" href="https://www.europe-train.com/ja/">
+    <title>Europe Train Travel Guide | 欧洲火车旅行指南</title>
+    <meta name="description" content="Comprehensive European train travel guide covering routes, tickets, passes and tips in 8 languages.">
+    <link rel="canonical" href="https://www.europe-train.com/">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -77,14 +77,33 @@
             font-weight: 500;
             transition: color 0.2s;
         }
-        .nav a:hover {
+        .lang-switcher {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .lang-switcher a {
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-light);
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .lang-switcher a:hover {
             color: var(--primary);
+            background: var(--bg-light);
+        }
+        .lang-switcher a.active {
+            color: var(--primary);
+            background: var(--bg-light);
         }
         .hero {
             position: relative;
             height: 600px;
             background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 50%, rgba(255,179,0,0.8) 100%),
-                        url('../images/hero.jpg') center/cover;
+                        url('images/hero.jpg') center/cover;
             color: white;
             padding: 80px 24px;
             text-align: center;
@@ -344,52 +363,62 @@
                 Europe Train
             </a>
             <nav class="nav">
-                <a href="#routes">路線</a>
-                <a href="#tickets">切符</a>
-                <a href="#passes">パス</a>
-                <a href="#guides">ガイド</a>
+                <a href="#routes">Routes</a>
+                <a href="#tickets">Tickets</a>
+                <a href="#passes">Passes</a>
+                <a href="#guides">Guides</a>
             </nav>
+            <div class="lang-switcher">
+                <a href="/ja/">EN</a>
+                <a href="/zh/">中文</a>
+                <a href="/de/">DE</a>
+                <a href="/fr/">FR</a>
+                <a href="/es/">ES</a>
+                <a href="/ja/">JP</a>
+                <a href="/ko/">KR</a>
+                <a href="/pt/">PT</a>
+            </div>
         </div>
     </header>
 
     <section class="hero">
-        <h1>鉄道でヨーロッパを探索</h1>
-        <p>ヨーロッパ鉄道旅行の完全ガイド。路線を検索し、切符を比較し、あなたの旅に最適なパスを見つけてください。</p>
+        <h1>Explore Europe by Train</h1>
+        <p>Your complete guide to European rail travel. Find routes, compare tickets, and discover the best passes for your journey.</p>
         <div class="search-box">
-            <input type="text" placeholder="目的地、路線、列車タイプを検索...">
-            <button>検索</button>
+            <input type="text" placeholder="Search destinations, routes, or train types...">
+            <button>Search</button>
         </div>
     </section>
 
     <section class="features">
-        <h2>なぜ鉄道で旅するのか？</h2>
+        <h2>Why Travel by Train?</h2>
         <div class="feature-grid">
             <div class="feature-card">
-                <div class="feature-image" style="background-image: url('../images/eco.jpg')"></div>
+                <div class="feature-image" style="background-image: url('images/hero.jpg')"></div>
                 <div class="feature-content">
-                    <h3>エコフレンドリー</h3>
-                    <p>列車は航空機に比べて最大90%少ない排出量を生み出します。ヨーロッパを持続可能に旅しましょう。</p>
+                    <h3>Eco-Friendly</h3>
+                    <p>Trains produce up to 90% less emissions than flights. Travel sustainably across Europe.</p>
                 </div>
             </div>
             <div class="feature-card">
-                <div class="feature-image" style="background-image: url('../images/comfort.jpg')"></div>
+                <div class="feature-image" style="background-image: url('images/berlin-munich.jpg')"></div>
                 <div class="feature-content">
-                    <h3>快適</h3>
-                    <p>広々とした座席、食堂車、無料WiFi。目的地と同じくらい旅を楽しんでください。</p>
+                    <h3>Comfortable</h3>
+                    <p>Spacious seats, dining cars, and free WiFi. Enjoy the journey as much as the destination.</p>
                 </div>
             </div>
             <div class="feature-card">
-                <div class="feature-image" style="background-image: url('../images/city.jpg')"></div>
+                <div class="feature-image" style="background-image: url('images/city.jpg')"></div>
                 <div class="feature-content">
-                    <h3>市中心部から市中心部へ</h3>
-                    <p>空港送迎は不要です。ヨーロッパの各都市の中心部に直接到着します。</p>
+                    <h3>City Center to City Center</h3>
+                    <p>No airport transfers needed. Arrive directly in the heart of every European city.</p>
                 </div>
             </div>
             <div class="feature-card">
-                <div class="feature-image" style="background-image: url('../images/cost.jpg')"></div>
+                <div class="feature-image" style="background-image: url('images/barcelona-madrid.jpg')"></div>
                 <div class="feature-content">
-                    <h3>コスト効率的</h3>
-                    <p>レールパスと早期予約割引でお金を節約。あらゆる予算に対応する柔軟なオプション。</p>
+                    <h3>Cost Effective</h3>
+                    <p>Save money with rail passes and early booking discounts. Flexible options for every budget.</p>
                 </div>
             </div>
         </div>
@@ -397,83 +426,83 @@
 
     <section class="routes" id="routes">
         <div class="routes-inner">
-            <h2>人気の路線</h2>
+            <h2>Popular Routes</h2>
             <div class="route-grid">
                 <div class="route-card">
-                    <div class="route-image" style="background-image: url('../images/comfort.jpg')">
-                        <span class="route-title">ロンドン → パリ</span>
+                    <div class="route-image" style="background-image: url('images/hero.jpg')">
+                        <span class="route-title">London &rarr; Paris</span>
                     </div>
                     <div class="route-content">
-                        <h3>ユーロスター</h3>
-                        <p>英仏海峡トンネルを通って、ロンドンからパリまでわずか2時間15分で移動。</p>
+                        <h3>Eurostar</h3>
+                        <p>Travel from London to Paris in just 2 hours 15 minutes through the Channel Tunnel.</p>
                         <div class="route-meta">
-                            <span>2時間15分</span>
-                            <span>高速列車</span>
+                            <span>2h 15m</span>
+                            <span>High Speed</span>
                         </div>
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-image" style="background-image: url('../images/city.jpg')">
-                        <span class="route-title">パリ → アムステルダム</span>
+                    <div class="route-image" style="background-image: url('images/city.jpg')">
+                        <span class="route-title">Paris &rarr; Amsterdam</span>
                     </div>
                     <div class="route-content">
-                        <h3>タリス</h3>
-                        <p>この2つの美しい首都をわずか3時間20分で結びます。</p>
+                        <h3>Thalys</h3>
+                        <p>Connect these two beautiful capitals in just 3 hours 20 minutes.</p>
                         <div class="route-meta">
-                            <span>3時間20分</span>
-                            <span>高速列車</span>
+                            <span>3h 20m</span>
+                            <span>High Speed</span>
                         </div>
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-image" style="background-image: url('../images/berlin-munich.jpg')">
-                        <span class="route-title">ベルリン → ミュンヘン</span>
+                    <div class="route-image" style="background-image: url('images/berlin-munich.jpg')">
+                        <span class="route-title">Berlin &rarr; Munich</span>
                     </div>
                     <div class="route-content">
                         <h3>ICE</h3>
-                        <p>ドイツの旗艦高速サービスが主要都市を時速300kmで結びます。</p>
+                        <p>Germany's flagship high-speed service connecting major cities at 300km/h.</p>
                         <div class="route-meta">
-                            <span>3時間58分</span>
-                            <span>高速列車</span>
+                            <span>3h 58m</span>
+                            <span>High Speed</span>
                         </div>
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-image" style="background-image: url('../images/cost.jpg')">
-                        <span class="route-title">ローマ → フィレンツェ</span>
+                    <div class="route-image" style="background-image: url('images/zurich-milan.jpg')">
+                        <span class="route-title">Rome &rarr; Florence</span>
                     </div>
                     <div class="route-content">
-                        <h3>フレッチャロッサ</h3>
-                        <p>イタリアの高速鉄道が歴史的都市を90分以内で結びます。</p>
+                        <h3>Frecciarossa</h3>
+                        <p>Italy's high-speed rail connecting historic cities in under 90 minutes.</p>
                         <div class="route-meta">
-                            <span>1時間30分</span>
-                            <span>高速列車</span>
+                            <span>1h 30m</span>
+                            <span>High Speed</span>
                         </div>
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-image" style="background-image: url('../images/barcelona-madrid.jpg')">
-                        <span class="route-title">バルセロナ → マドリード</span>
+                    <div class="route-image" style="background-image: url('images/barcelona-madrid.jpg')">
+                        <span class="route-title">Barcelona &rarr; Madrid</span>
                     </div>
                     <div class="route-content">
                         <h3>AVE</h3>
-                        <p>スペインの高速ネットワークがバルセロナとマドリードを2.5時間で結びます。</p>
+                        <p>Spain's high-speed network linking Barcelona and Madrid in 2.5 hours.</p>
                         <div class="route-meta">
-                            <span>2時間30分</span>
-                            <span>高速列車</span>
+                            <span>2h 30m</span>
+                            <span>High Speed</span>
                         </div>
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-image" style="background-image: url('../images/zurich-milan.jpg')">
-                        <span class="route-title">チューリッヒ → ミラノ</span>
+                    <div class="route-image" style="background-image: url('images/zurich-milan.jpg')">
+                        <span class="route-title">Zurich &rarr; Milan</span>
                     </div>
                     <div class="route-content">
-                        <h3>EC via ゴッタルド</h3>
-                        <p>スイスアルプスを通る景観路線。息をのむ山の景色を楽しめます。</p>
+                        <h3>EC via Gotthard</h3>
+                        <p>Scenic route through the Swiss Alps with breathtaking mountain views.</p>
                         <div class="route-meta">
-                            <span>3時間26分</span>
-                            <span>景観路線</span>
+                            <span>3h 26m</span>
+                            <span>Scenic</span>
                         </div>
                     </div>
                 </div>
@@ -481,18 +510,19 @@
         </div>
     </section>
 
-    <section class="languages">
-        <h2>近日公開：8言語</h2>
-        <p>翻訳作業中です。現在英語と中国語でご利用いただけます。</p>
+    <!-- 语言选择已移至顶部导航栏 -->
+    <section class="languages" style="display:none;">
+        <h2>8 Languages Available</h2>
+        <p>Choose your preferred language to explore European train travel</p>
         <div class="lang-grid">
-            <a href="/en/" class="lang-btn">🇺🇸 English</a>
+            <a href="/ja/" class="lang-btn">🇺🇸 English</a>
             <a href="/zh/" class="lang-btn">🇨🇳 中文</a>
-            <span class="lang-btn disabled">🇩🇪 Deutsch</span>
-            <span class="lang-btn disabled">🇫🇷 Français</span>
-            <span class="lang-btn disabled">🇪🇸 Español</span>
-            <span class="lang-btn disabled">🇯🇵 日本語</span>
-            <span class="lang-btn disabled">🇰🇷 한국어</span>
-            <span class="lang-btn disabled">🇵🇹 Português</span>
+            <a href="/de/" class="lang-btn">🇩🇪 Deutsch</a>
+            <a href="/fr/" class="lang-btn">🇫🇷 Français</a>
+            <a href="/es/" class="lang-btn">🇪🇸 Español</a>
+            <a href="/ja/" class="lang-btn">🇯🇵 日本語</a>
+            <a href="/ko/" class="lang-btn">🇰🇷 한국어</a>
+            <a href="/pt/" class="lang-btn">🇵🇹 Português</a>
         </div>
     </section>
 
