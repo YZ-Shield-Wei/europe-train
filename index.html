@@ -80,25 +80,35 @@
             color: var(--primary);
         }
         .hero {
-            background: linear-gradient(135deg, #ff6f00 0%, #ff8f00 50%, #ffb300 100%);
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 50%, rgba(255,179,0,0.8) 100%),
+                        url('https://images.unsplash.com/photo-1471623432079-b009d30b6729?w=1920&q=80') center/cover;
             color: white;
             padding: 80px 24px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         .hero h1 {
             font-size: 48px;
             font-weight: 700;
             margin-bottom: 16px;
             line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         .hero p {
             font-size: 20px;
-            opacity: 0.9;
+            opacity: 0.95;
             max-width: 600px;
             margin: 0 auto 32px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
         .search-box {
             max-width: 600px;
+            width: 100%;
             margin: 0 auto;
             display: flex;
             gap: 12px;
@@ -148,31 +158,27 @@
         .feature-card {
             background: var(--bg-light);
             border-radius: var(--radius-lg);
-            padding: 32px;
+            overflow: hidden;
             transition: transform 0.2s, box-shadow 0.2s;
         }
         .feature-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
         }
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--primary);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            margin-bottom: 20px;
+        .feature-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
         }
-        .feature-card h3 {
+        .feature-content {
+            padding: 24px;
+        }
+        .feature-content h3 {
             font-size: 20px;
             font-weight: 600;
             margin-bottom: 12px;
         }
-        .feature-card p {
+        .feature-content p {
             color: var(--text-light);
             font-size: 15px;
         }
@@ -208,13 +214,28 @@
         }
         .route-image {
             height: 200px;
-            background: linear-gradient(135deg, #ff6f00 0%, #ff8f00 50%, #ffb300 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .route-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+        }
+        .route-title {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
             color: white;
             font-size: 18px;
             font-weight: 600;
+            z-index: 1;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
         .route-content {
             padding: 24px;
@@ -329,24 +350,32 @@
         <h2>Why Travel by Train?</h2>
         <div class="feature-grid">
             <div class="feature-card">
-                <div class="feature-icon">🌍</div>
-                <h3>Eco-Friendly</h3>
-                <p>Trains produce up to 90% less emissions than flights. Travel sustainably across Europe.</p>
+                <div class="feature-image" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80')"></div>
+                <div class="feature-content">
+                    <h3>Eco-Friendly</h3>
+                    <p>Trains produce up to 90% less emissions than flights. Travel sustainably across Europe.</p>
+                </div>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">💺</div>
-                <h3>Comfortable</h3>
-                <p>Spacious seats, dining cars, and free WiFi. Enjoy the journey as much as the destination.</p>
+                <div class="feature-image" style="background-image: url('https://images.unsplash.com/photo-1545987796-200677ee1011?w=800&q=80')"></div>
+                <div class="feature-content">
+                    <h3>Comfortable</h3>
+                    <p>Spacious seats, dining cars, and free WiFi. Enjoy the journey as much as the destination.</p>
+                </div>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>City Center to City Center</h3>
-                <p>No airport transfers needed. Arrive directly in the heart of every European city.</p>
+                <div class="feature-image" style="background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80')"></div>
+                <div class="feature-content">
+                    <h3>City Center to City Center</h3>
+                    <p>No airport transfers needed. Arrive directly in the heart of every European city.</p>
+                </div>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">💰</div>
-                <h3>Cost Effective</h3>
-                <p>Save money with rail passes and early booking discounts. Flexible options for every budget.</p>
+                <div class="feature-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80')"></div>
+                <div class="feature-content">
+                    <h3>Cost Effective</h3>
+                    <p>Save money with rail passes and early booking discounts. Flexible options for every budget.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -356,7 +385,9 @@
             <h2>Popular Routes</h2>
             <div class="route-grid">
                 <div class="route-card">
-                    <div class="route-image">London → Paris</div>
+                    <div class="route-image" style="background-image: url('https://images.unsplash.com/photo-1545987796-200677ee1011?w=800&q=80')">
+                        <span class="route-title">London → Paris</span>
+                    </div>
                     <div class="route-content">
                         <h3>Eurostar</h3>
                         <p>Travel from London to Paris in just 2 hours 15 minutes through the Channel Tunnel.</p>
@@ -367,7 +398,9 @@
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-image">Paris → Amsterdam</div>
+                    <div class="route-image" style="background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80')">
+                        <span class="route-title">Paris → Amsterdam</span>
+                    </div>
                     <div class="route-content">
                         <h3>Thalys</h3>
                         <p>Connect these two beautiful capitals in just 3 hours 20 minutes.</p>
@@ -378,7 +411,9 @@
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-image">Berlin → Munich</div>
+                    <div class="route-image" style="background-image: url('https://images.unsplash.com/photo-1566297463310-0f4e3f86cacc?w=800&q=80')">
+                        <span class="route-title">Berlin → Munich</span>
+                    </div>
                     <div class="route-content">
                         <h3>ICE</h3>
                         <p>Germany's flagship high-speed service connecting major cities at 300km/h.</p>
@@ -389,7 +424,9 @@
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-image">Rome → Florence</div>
+                    <div class="route-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80')">
+                        <span class="route-title">Rome → Florence</span>
+                    </div>
                     <div class="route-content">
                         <h3>Frecciarossa</h3>
                         <p>Italy's high-speed rail connecting historic cities in under 90 minutes.</p>
@@ -400,7 +437,9 @@
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-image">Barcelona → Madrid</div>
+                    <div class="route-image" style="background-image: url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&q=80')">
+                        <span class="route-title">Barcelona → Madrid</span>
+                    </div>
                     <div class="route-content">
                         <h3>AVE</h3>
                         <p>Spain's high-speed network linking Barcelona and Madrid in 2.5 hours.</p>
@@ -411,7 +450,9 @@
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-image">Zurich → Milan</div>
+                    <div class="route-image" style="background-image: url('https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80')">
+                        <span class="route-title">Zurich → Milan</span>
+                    </div>
                     <div class="route-content">
                         <h3>EC via Gotthard</h3>
                         <p>Scenic route through the Swiss Alps with breathtaking mountain views.</p>
