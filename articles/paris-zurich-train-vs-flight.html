@@ -12,7 +12,7 @@
             width: 100%;
             height: 400px;
             background: linear-gradient(135deg, rgba(255,111,0,0.6) 0%, rgba(255,143,0,0.6) 100%),
-                        url('../images/hero.jpg') center/cover;
+                        url('../images/berlin-munich.jpg') center/cover;
             border-radius: 16px;
             margin-bottom: 32px;
             display: flex;
@@ -22,6 +22,54 @@
             font-size: 24px;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .quick-summary {
+            background: var(--primary);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .quick-summary h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+        .quick-summary ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .quick-summary li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            color: white;
+        }
+        .quick-summary li:last-child {
+            border-bottom: none;
+        }
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            background: var(--bg-light);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .tag:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .quick-summary strong {
+            color: white;
+            font-weight: 700;
         }
     </style>
 </head>
@@ -157,11 +205,11 @@
         <div class="article-footer">
             <p>本文由 Europe Train 编辑部撰写，基于2025年1月实际体验。票价和时刻可能变动，请查询最新信息。</p>
             <div class="article-tags">
-                <span class="tag">TGV Lyria</span>
-                <span class="tag">巴黎</span>
-                <span class="tag">苏黎世</span>
-                <span class="tag">费用对比</span>
-                <span class="tag">瑞士旅行</span>
+                <a href="/articles/tag-tgv-lyria.html" class="tag">TGV Lyria</a>
+                <a href="/articles/tag-paris.html" class="tag">巴黎</a>
+                <a href="/articles/tag-zurich.html" class="tag">苏黎世</a>
+                <a href="/articles/tag-comparison.html" class="tag">费用对比</a>
+                <a href="/articles/tag-switzerland.html" class="tag">瑞士旅行</a>
             </div>
         </div>
     </article>
