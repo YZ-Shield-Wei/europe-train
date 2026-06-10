@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>热门路线 | Europe Train - 欧洲火车旅行路线推荐</title>
+    <meta name="description" content="Europe Train 热门欧洲火车旅行路线：TGV、ICE、Frecciarossa、AVE等高速列车路线推荐与攻略。">
+    <link rel="canonical" href="https://www.europe-train.com/routes.html">
+    <link rel="stylesheet" href="css/article.css">
+    <style>
+        .hero-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 100%),
+                        url('images/hero.jpg') center/cover;
+            border-radius: 16px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .routes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+        .route-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .route-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .route-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .route-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+        }
+        .route-title {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            z-index: 1;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        .route-content {
+            padding: 24px;
+        }
+        .route-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .route-content p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        .route-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        .route-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .route-meta span::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            margin-right: 4px;
+        }
+        .country-section {
+            margin-bottom: 48px;
+        }
+        .country-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text);
+            border-left: 4px solid var(--primary);
+            padding-left: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <div class="logo-icon">ET</div>
+                Europe Train
+            </a>
+            <nav class="nav">
+                <a href="/">首页</a>
+                <a href="/articles/">旅行指南</a>
+                <a href="/routes.html" style="color: var(--primary);">热门路线</a>
+            </nav>
+            <div class="lang-switcher">
+                <a href="/routes.html" class="active">中文</a>
+                <a href="/en/routes.html">EN</a>
+            </div>
+        </div>
+    </header>
+
+    <article class="article">
+        <div class="hero-image">
+            热门路线
+        </div>
+
+        <div class="article-content">
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 32px;">
+                精选欧洲最经典、最 scenic 的火车路线，从高速列车到景观列车
+            </p>
+
+            <div class="country-section">
+                <h2 class="country-title">法国</h2>
+                <div class="routes-grid">
+                    <div class="route-card">
+                        <div class="route-image" style="background-image: url('images/hero.jpg')">
+                            <span class="route-title">巴黎 → 苏黎世</span>
+                        </div>
+                        <div class="route-content">
+                            <h3>TGV Lyria</h3>
+                            <p>穿越法瑞边境，经过侏罗山脉和纳沙泰尔湖，4小时直达瑞士。</p>
+                            <div class="route-meta">
+                                <span>4小时3分钟</span>
+                                <span>高速列车</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="route-card">
+                        <div class="route-image" style="background-image: url('images/city.jpg')">
+                            <span class="route-title">巴黎 → 阿姆斯特丹</span>
+                        </div>
+                        <div class="route-content">
+                            <h3>Thalys / Eurostar</h3>
+                            <p>连接两大首都，3小时20分钟穿越比利时平原。</p>
+                            <div class="route-meta">
+                                <span>3小时20分钟</span>
+                                <span>高速列车</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="country-section">
+                <h2 class="country-title">德国</h2>
+                <div class="routes-grid">
+                    <div class="route-card">
+                        <div class="route-image" style="background-image: url('images/berlin-munich.jpg')">
+                            <span class="route-title">柏林 → 慕尼黑</span>
+                        </div>
+                        <div class="route-content">
+                            <h3>ICE</h3>
+                            <p>德国旗舰高速列车，时速300公里穿越德国心脏地带。</p>
+                            <div class="route-meta">
+                                <span>3小时58分钟</span>
+                                <span>高速列车</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="country-section">
+                <h2 class="country-title">意大利</h2>
+                <div class="routes-grid">
+                    <div class="route-card">
+                        <div class="route-image" style="background-image: url('images/zurich-milan.jpg')">
+                            <span class="route-title">罗马 → 佛罗伦萨</span>
+                        </div>
+                        <div class="route-content">
+                            <h3>Frecciarossa</h3>
+                            <p>90分钟穿越托斯卡纳，意大利最受欢迎的高速线路。</p>
+                            <div class="route-meta">
+                                <span>1小时30分钟</span>
+                                <span>高速列车</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="country-section">
+                <h2 class="country-title">瑞士</h2>
+                <div class="routes-grid">
+                    <div class="route-card">
+                        <div class="route-image" style="background-image: url('images/zurich-milan.jpg')">
+                            <span class="route-title">苏黎世 → 米兰</span>
+                        </div>
+                        <div class="route-content">
+                            <h3>EC via Gotthard</h3>
+                            <p>穿越阿尔卑斯山，经过卢塞恩湖和圣哥达隧道，风景壮丽。</p>
+                            <div class="route-meta">
+                                <span>3小时26分钟</span>
+                                <span>景观路线</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="country-section">
+                <h2 class="country-title">西班牙</h2>
+                <div class="routes-grid">
+                    <div class="route-card">
+                        <div class="route-image" style="background-image: url('images/barcelona-madrid.jpg')">
+                            <span class="route-title">巴塞罗那 → 马德里</span>
+                        </div>
+                        <div class="route-content">
+                            <h3>AVE</h3>
+                            <p>西班牙高速列车，2.5小时穿越伊比利亚半岛。</p>
+                            <div class="route-meta">
+                                <span>2小时30分钟</span>
+                                <span>高速列车</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <p>© 2026 Europe Train Travel Guide. All rights reserved.</p>
+    </footer>
+</body>
+</html>
