@@ -1,0 +1,16 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Europe Train",
+  "url": "https://www.europe-train.com",
+  "logo": "https://www.europe-train.com/images/logo.png",
+  "description": "Comprehensive European train travel guide covering routes, tickets, passes and travel tips in 8 languages.",
+  "sameAs": [
+    "https://www.europe-train.com"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "availableLanguage": ["English", "Chinese", "German", "French", "Spanish", "Japanese", "Korean", "Portuguese"]
+  }
+}
