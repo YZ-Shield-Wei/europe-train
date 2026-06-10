@@ -7,109 +7,23 @@
     <meta name="description" content="Europe Train 热门欧洲火车旅行路线：TGV、ICE、Frecciarossa、AVE等高速列车路线推荐与攻略。">
     <link rel="canonical" href="https://www.europe-train.com/routes.html">
     <link rel="stylesheet" href="css/article.css">
-    <style>
-        .hero-image {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 100%),
-                        url('images/hero.jpg') center/cover;
-            border-radius: 16px;
-            margin-bottom: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 28px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-        .routes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 32px;
-        }
-        .route-card {
-            background: white;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .route-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-        .route-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-        .route-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
-        }
-        .route-title {
-            position: absolute;
-            bottom: 16px;
-            left: 16px;
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-            z-index: 1;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-        }
-        .route-content {
-            padding: 24px;
-        }
-        .route-content h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .route-content p {
-            color: var(--text-light);
-            font-size: 14px;
-            margin-bottom: 16px;
-        }
-        .route-meta {
-            display: flex;
-            gap: 16px;
-            font-size: 13px;
-            color: var(--text-light);
-        }
-        .route-meta span {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .route-meta span::before {
-            content: '';
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            background: var(--primary);
-            border-radius: 50%;
-            margin-right: 4px;
-        }
-        .country-section {
-            margin-bottom: 48px;
-        }
-        .country-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: var(--text);
-            border-left: 4px solid var(--primary);
-            padding-left: 16px;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="css/global.css">
+    <!-- Open Graph Tags -->
+    <meta property="og:site_name" content="Europe Train">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.europe-train.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.europe-train.com/images/og-image.jpg">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JWY9K5ZRSF"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'G-JWY9K5ZRSF');
+</script>
 </head>
 <body>
     <header class="header">
@@ -143,7 +57,7 @@
         </div>
 
         <div class="article-content">
-            <p style="text-align: center; color: var(--text-light); margin-bottom: 32px;">
+            <p >
                 精选欧洲最经典、最 scenic 的火车路线，从高速列车到景观列车
             </p>
 
