@@ -12,7 +12,7 @@
             width: 100%;
             height: 400px;
             background: linear-gradient(135deg, rgba(255,111,0,0.6) 0%, rgba(255,143,0,0.6) 100%),
-                        url('../images/hero.jpg') center/cover;
+                        url('../images/city.jpg') center/cover;
             border-radius: 16px;
             margin-bottom: 32px;
             display: flex;
@@ -22,6 +22,54 @@
             font-size: 24px;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .quick-summary {
+            background: var(--primary);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .quick-summary h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+        .quick-summary ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .quick-summary li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            color: white;
+        }
+        .quick-summary li:last-child {
+            border-bottom: none;
+        }
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            background: var(--bg-light);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .tag:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .quick-summary strong {
+            color: white;
+            font-weight: 700;
         }
     </style>
 </head>
@@ -330,13 +378,13 @@
         <div class="article-footer">
             <p>本文由 Europe Train 编辑部撰写，基于2025年1月实际体验。规则可能变动，请以各铁路公司最新规定为准。</p>
             <div class="article-tags">
-                <span class="tag">SNCF</span>
-                <span class="tag">DB</span>
-                <span class="tag">Trenitalia</span>
-                <span class="tag">SBB</span>
-                <span class="tag">Renfe</span>
-                <span class="tag">车票规则</span>
-                <span class="tag">硬核科普</span>
+                <a href="/articles/tag-sncf.html" class="tag">SNCF</a>
+                <a href="/articles/tag-db.html" class="tag">DB</a>
+                <a href="/articles/tag-trenitalia.html" class="tag">Trenitalia</a>
+                <a href="/articles/tag-sbb.html" class="tag">SBB</a>
+                <a href="/articles/tag-renfe.html" class="tag">Renfe</a>
+                <a href="/articles/tag-ticket-rules.html" class="tag">车票规则</a>
+                <a href="/articles/tag-guide.html" class="tag">硬核科普</a>
             </div>
         </div>
     </article>
