@@ -103,7 +103,7 @@
             position: relative;
             height: 600px;
             background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 50%, rgba(255,179,0,0.8) 100%),
-                        url('../images/hero.jpg') center/cover;
+                        url('images/hero.jpg') center/cover;
             color: white;
             padding: 80px 24px;
             text-align: center;
@@ -363,13 +363,13 @@
                 Europe Train
             </a>
             <nav class="nav">
-                <a href="#routes">Routes</a>
-                <a href="#tickets">Tickets</a>
-                <a href="#passes">Passes</a>
-                <a href="#guides">Guides</a>
+                <a href="/fr/articles/">旅行指南</a>
+                <a href="/routes.html">热门路线</a>
+                <a href="/tickets.html">车票预订</a>
+                <a href="/passes.html">通票</a>
             </nav>
             <div class="lang-switcher">
-                <a href="/fr/">EN</a>
+                <a href="/en/" class="active">EN</a>
                 <a href="/zh/">中文</a>
                 <a href="/de/">DE</a>
                 <a href="/fr/">FR</a>
@@ -419,6 +419,56 @@
                 <div class="feature-content">
                     <h3>Cost Effective</h3>
                     <p>Save money with rail passes and early booking discounts. Flexible options for every budget.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="articles" id="articles">
+        <div class="articles-inner" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px;">
+            <h2>最新旅行指南</h2>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 32px;">深度对比、列车体验、硬核科普，助你规划完美欧洲火车之旅</p>
+            <div class="articles-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                <div class="article-card" style="background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s;">
+                    <div class="article-image" style="height: 180px; background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 100%), url('images/hero.jpg') center/cover; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">
+                        费用对比
+                    </div>
+                    <div class="article-content" style="padding: 24px;">
+                        <h3><a href="articles/paris-zurich-train-vs-flight.html" style="color: var(--text); text-decoration: none;">巴黎到苏黎世：火车 vs 飞机 vs 自驾</a></h3>
+                        <p style="color: var(--text-light); font-size: 14px; margin: 8px 0;">487公里旅程，三种交通方式全面对比。TGV Lyria €49起，4小时直达市中心...</p>
+                        <div style="display: flex; gap: 8px; margin-top: 12px;">
+                            <span style="background: var(--bg-light); color: var(--primary); padding: 2px 8px; border-radius: 12px; font-size: 12px;">费用对比</span>
+                            <span style="color: var(--text-light); font-size: 12px;">2025-01-15</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card" style="background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s;">
+                    <div class="article-image" style="height: 180px; background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 100%), url('images/comfort.jpg') center/cover; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">
+                        列车体验
+                    </div>
+                    <div class="article-content" style="padding: 24px;">
+                        <h3><a href="articles/tgv-lyria-experience.html" style="color: var(--text); text-decoration: none;">TGV Lyria 列车体验：巴黎到洛桑</a></h3>
+                        <p style="color: var(--text-light); font-size: 14px; margin: 8px 0;">睡到自然醒，步行到车站，享受餐车咖啡，三小时漫步瑞士湖畔...</p>
+                        <div style="display: flex; gap: 8px; margin-top: 12px;">
+                            <span style="background: var(--bg-light); color: var(--primary); padding: 2px 8px; border-radius: 12px; font-size: 12px;">列车体验</span>
+                            <span style="color: var(--text-light); font-size: 12px;">2025-01-20</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card" style="background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s;">
+                    <div class="article-image" style="height: 180px; background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 100%), url('images/city.jpg') center/cover; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">
+                        硬核科普
+                    </div>
+                    <div class="article-content" style="padding: 24px;">
+                        <h3><a href="articles/europe-train-ticket-rules.html" style="color: var(--text); text-decoration: none;">欧洲各国火车票使用规则完全指南</a></h3>
+                        <p style="color: var(--text-light); font-size: 14px; margin: 8px 0;">看懂车票上的每一个代码和符号，避免罚款和尴尬。5国对比...</p>
+                        <div style="display: flex; gap: 8px; margin-top: 12px;">
+                            <span style="background: var(--bg-light); color: var(--primary); padding: 2px 8px; border-radius: 12px; font-size: 12px;">硬核科普</span>
+                            <span style="color: var(--text-light); font-size: 12px;">2025-01-25</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -515,7 +565,7 @@
         <h2>8 Languages Available</h2>
         <p>Choose your preferred language to explore European train travel</p>
         <div class="lang-grid">
-            <a href="/fr/" class="lang-btn">🇺🇸 English</a>
+            <a href="/en/" class="lang-btn">🇺🇸 English</a>
             <a href="/zh/" class="lang-btn">🇨🇳 中文</a>
             <a href="/de/" class="lang-btn">🇩🇪 Deutsch</a>
             <a href="/fr/" class="lang-btn">🇫🇷 Français</a>
