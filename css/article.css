@@ -285,19 +285,16 @@ tr.highlight td {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
 }
-.article-card .article-image {
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.article-card .article-image .image-title {
     color: white;
     font-weight: 700;
     font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     text-shadow: 0 2px 8px rgba(0,0,0,0.7);
-    border-radius: 0;
-    margin: 0;
+    background: rgba(0,0,0,0.3);
+    padding: 8px 16px;
+    border-radius: 4px;
 }
 .article-card .article-content {
     padding: 20px;
