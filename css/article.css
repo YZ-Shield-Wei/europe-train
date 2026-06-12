@@ -299,10 +299,11 @@ tr.highlight td {
     font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
-    background: rgba(0,0,0,0.3);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.6);
     padding: 8px 16px;
     border-radius: 4px;
+    display: inline-block;
 }
 .article-card .article-content {
     padding: 20px;
