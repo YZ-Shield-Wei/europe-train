@@ -285,6 +285,14 @@ tr.highlight td {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
 }
+.article-card .article-image {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    margin: 0;
+}
 .article-card .article-image .image-title {
     color: white;
     font-weight: 700;
