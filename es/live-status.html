@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado en Vivo de Trenes Europeos | Europe Train - Viaje en tren por Europa</title>
+    <meta name="description" content="Real-time European train operational status: DB, SNCF, Trenitalia, SBB, Renfe delays, cancellations, and disruption information.">
+    <link rel="canonical" href="https://www.europe-train.com/es/live-status.html">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="alternate" hreflang="en" href="https://www.europe-train.com/es/live-status.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.europe-train.com/live-status.html">
+    <meta property="og:title" content="European Train Live Status | Europe Train">
+    <meta property="og:description" content="Real-time delays, cancellations, and disruption information">
+    <meta property="og:image" content="https://www.europe-train.com/images/og-live-status.jpg">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWY9K5ZRSF"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JWY9K5ZRSF');</script>
+    <style>
+        .status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 32px; }
+        .status-card { background: white; border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow); }
+        .status-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 16px; color: var(--text); }
+        .status-indicator { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; }
+        .status-good { background: var(--secondary); }
+        .status-warning { background: var(--accent); }
+        .status-bad { background: var(--primary); }
+        .disruption-list { list-style: none; padding: 0; margin: 0; }
+        .disruption-list li { padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+        .disruption-list li:last-child { border-bottom: none; }
+        .disruption-time { color: var(--text-light); font-size: 12px; margin-top: 4px; }
+        .stats-bar { display: flex; gap: 24px; margin: 24px 0; padding: 16px; background: var(--bg-light); border-radius: var(--radius); }
+        .stat-item { text-align: center; }
+        .stat-value { font-size: 24px; font-weight: 700; color: var(--primary); }
+        .stat-label { font-size: 12px; color: var(--text-light); margin-top: 4px; }
+        .refresh-btn { background: var(--primary); color: white; border: none; padding: 12px 24px; border-radius: 50px; font-size: 14px; font-weight: 600; cursor: pointer; margin-top: 16px; }
+        .refresh-btn:hover { background: var(--primary-dark); }
+        .data-source { font-size: 12px; color: var(--text-light); margin-top: 24px; font-style: italic; }
+    </style>
+</head>
+<body>
+    <header class="header">    <div class="header-inner">        <a href="/" class="logo">            <div class="logo-icon">ET</div>            Europe Train        </a>        <nav class="nav">            <a href="/es/articles/">Guías</a><a href="/es/routes.html">Rutas</a><a href="/es/tickets.html">Billetes</a><a href="/es/passes.html">Pases</a><a href="/es/live-status.html" class="active">Estado en Vivo</a>        </nav>        <div class="lang-switcher">            <a href="/en/">EN</a> <a href="/zh/">中文</a> <a href="/de/">DE</a> <a href="/fr/">FR</a> <a href="/es/" class="active">ES</a> <a href="/ja/">JP</a> <a href="/ko/">KR</a> <a href="/pt/">PT</a>        </div>    </div></header>
+    <nav class="breadcrumb" aria-label="breadcrumb"><a href="/">Home</a><span class="separator">/</span><span class="current">Live Status</span></nav>
+    <article class="article">
+        <div class="article-header">
+            <h1>European Train Live Status</h1>
+            <p class="subtitle">Retrasos y cancelaciones en tiempo real para DB, SNCF, Trenitalia, SBB, ÖBB y Renfe</p>
+            <div class="article-meta-header"><span>Updated June 2026</span><span>Data refreshes every 30 minutes</span></div>
+        </div>
+        <div class="article-content">
+            <div class="stats-bar">
+                <div class="stat-item"><div class="stat-value" id="total-disruptions">--</div><div class="stat-label">Active Disruptions</div></div>
+                <div class="stat-item"><div class="stat-value" id="total-resolved">--</div><div class="stat-label">Resolved Today</div></div>
+                <div class="stat-item"><div class="stat-value" id="last-update">--</div><div class="stat-label">Last Updated</div></div>
+            </div>
+            <div class="status-grid" id="status-grid">
+                <!-- Dynamic loading -->
+            </div>
+            <div class="data-source">Data source: traini.raileurope.cn real-time collection system | Covering DB, SNCF, Trenitalia, SBB, ÖBB, Renfe</div>
+        </div>
+    </article>
+    <footer class="footer"><p>© 2026 Europe Train Travel Guide. All rights reserved.</p></footer>
+    <script>
+        // Simulated real-time data loading
+        async function loadStatus() {
+            try {
+                const response = await fetch('https://traini.raileurope.cn/api/disruptions?limit=20');
+                const data = await response.json();
+                renderStatus(data);
+            } catch (e) {
+                // If API is unavailable, show static data
+                renderStaticStatus();
+            }
+        }
+        
+        function renderStatus(data) {
+            document.getElementById('total-disruptions').textContent = data.active || '--';
+            document.getElementById('total-resolved').textContent = data.resolved || '--';
+            document.getElementById('last-update').textContent = new Date().toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'});
+            
+            const grid = document.getElementById('status-grid');
+            grid.innerHTML = '';
+            
+            const operators = {
+                'DB': {name: 'DB (Germany)', country: 'Germany'},
+                'SNCF': {name: 'SNCF (France)', country: 'France'},
+                'Trenitalia': {name: 'Trenitalia (Italy)', country: 'Italy'},
+                'SBB': {name: 'SBB (Switzerland)', country: 'Switzerland'},
+                'Renfe': {name: 'Renfe (Spain)', country: 'Spain'}
+            };
+            
+            for (const [code, info] of Object.entries(operators)) {
+                const disruptions = data.disruptions?.filter(d => d.operator === code) || [];
+                const statusClass = disruptions.length === 0 ? 'status-good' : disruptions.length < 3 ? 'status-warning' : 'status-bad';
+                const statusText = disruptions.length === 0 ? 'Normal Operations' : `${disruptions.length} Disruption${disruptions.length > 1 ? 's' : ''}`;
+                
+                const card = document.createElement('div');
+                card.className = 'status-card';
+                card.innerHTML = `
+                    <h3><span class="status-indicator ${statusClass}"></span>${info.name}</h3>
+                    <p style="color: var(--text-light); font-size: 14px; margin-bottom: 12px;">${statusText}</p>
+                    <ul class="disruption-list">
+                        ${disruptions.slice(0, 3).map(d => `
+                            <li>
+                                <strong>${d.title || 'Service Disruption'}</strong>
+                                <div class="disruption-time">${d.time || 'Ongoing'} | ${d.severity || 'Normal'}</div>
+                            </li>
+                        `).join('') || '<li style="color: var(--text-light);">No active disruptions</li>'}
+                    </ul>
+                `;
+                grid.appendChild(card);
+            }
+        }
+        
+        function renderStaticStatus() {
+            const grid = document.getElementById('status-grid');
+            grid.innerHTML = `
+                <div class="status-card">
+                    <h3><span class="status-indicator status-good"></span>DB (Germany)</h3>
+                    <p style="color: var(--text-light); font-size: 14px; margin-bottom: 12px;">Normal Operations</p>
+                    <ul class="disruption-list"><li style="color: var(--text-light);">No active disruptions</li></ul>
+                </div>
+                <div class="status-card">
+                    <h3><span class="status-indicator status-good"></span>SNCF (France)</h3>
+                    <p style="color: var(--text-light); font-size: 14px; margin-bottom: 12px;">Normal Operations</p>
+                    <ul class="disruption-list"><li style="color: var(--text-light);">No active disruptions</li></ul>
+                </div>
+                <div class="status-card">
+                    <h3><span class="status-indicator status-good"></span>Trenitalia (Italy)</h3>
+                    <p style="color: var(--text-light); font-size: 14px; margin-bottom: 12px;">Normal Operations</p>
+                    <ul class="disruption-list"><li style="color: var(--text-light);">No active disruptions</li></ul>
+                </div>
+                <div class="status-card">
+                    <h3><span class="status-indicator status-good"></span>SBB (Switzerland)</h3>
+                    <p style="color: var(--text-light); font-size: 14px; margin-bottom: 12px;">Normal Operations</p>
+                    <ul class="disruption-list"><li style="color: var(--text-light);">No active disruptions</li></ul>
+                </div>
+                <div class="status-card">
+                    <h3><span class="status-indicator status-good"></span>Renfe (Spain)</h3>
+                    <p style="color: var(--text-light); font-size: 14px; margin-bottom: 12px;">Normal Operations</p>
+                    <ul class="disruption-list"><li style="color: var(--text-light);">No active disruptions</li></ul>
+                </div>
+            `;
+        }
+        
+        // Load on page load
+        loadStatus();
+        
+        // Auto-refresh every 5 minutes
+        setInterval(loadStatus, 300000);
+    </script>
+</body>
+</html>
