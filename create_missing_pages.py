@@ -5,252 +5,299 @@ P0 - 子页面404修复：为每个语言站创建 routes.html, tickets.html, pa
 """
 
 import os
+import shutil
 import re
 
-BASE_DIR = "/root/.openclaw/workspace/europe-train"
+# 配置
+LANGUAGES = ['de', 'fr', 'es', 'ja', 'ko', 'pt', 'zh']
+PAGES = ['routes.html', 'tickets.html', 'passes.html', 'live-status.html']
+SOURCE_LANG = 'en'  # 使用英文站作为模板
+BASE_DIR = '/root/.openclaw/workspace/europe-train'
 
-# 语言配置（简化版，只包含关键翻译）
-LANG_CONFIG = {
-    "de": {
-        "lang": "de",
-        "title_suffix": "Europe Train - Europäische Bahn-Reise",
-        "nav": {"articles": "Reiseguides", "routes": "Beliebte Strecken", "tickets": "Tickets buchen", "passes": "Pässe", "live_status": "Live Status"},
-        "routes": {"title": "Beliebte Strecken", "subtitle": "Kuratierte europäische Bahnstrecken, von Hochgeschwindigkeitszügen bis Panoramafahrten"},
-        "tickets": {"title": "Tickets", "subtitle": "Europäischer Bahn-Ticket-Buchungsleitfaden und Spartipps"},
-        "passes": {"title": "Pässe", "subtitle": "Vollständiger europäischer Bahnpass-Leitfaden"},
-        "live_status": {"title": "Europäischer Bahn Live-Status", "subtitle": "Echtzeit-Verspätungen und Ausfälle für DB, SNCF, Trenitalia, SBB, ÖBB und Renfe"},
+# 各语言的语言代码映射（用于 <html lang="">）
+LANG_CODES = {
+    'de': 'de',
+    'fr': 'fr',
+    'es': 'es',
+    'ja': 'ja',
+    'ko': 'ko',
+    'pt': 'pt',
+    'zh': 'zh-CN'
+}
+
+# 各语言的基础路径前缀
+LANG_PREFIXES = {
+    'de': '/de/',
+    'fr': '/fr/',
+    'es': '/es/',
+    'ja': '/ja/',
+    'ko': '/ko/',
+    'pt': '/pt/',
+    'zh': '/'
+}
+
+# 各语言的导航标题映射
+NAV_TITLES = {
+    'de': {
+        'routes': 'Beliebte Strecken',
+        'tickets': 'Tickets buchen',
+        'passes': 'Pässe',
+        'live-status': 'Live-Status',
+        'articles': 'Artikel',
+        'home': 'Startseite'
     },
-    "fr": {
-        "lang": "fr",
-        "title_suffix": "Europe Train - Voyage en train en Europe",
-        "nav": {"articles": "Guides", "routes": "Routes", "tickets": "Billets", "passes": "Pass", "live_status": "Live Status"},
-        "routes": {"title": "Routes Populaires", "subtitle": "Itinéraires ferroviaires européens sélectionnés, des trains à grande vitesse aux voyages panoramiques"},
-        "tickets": {"title": "Billets", "subtitle": "Guide de réservation de billets de train européens et astuces pour économiser"},
-        "passes": {"title": "Pass", "subtitle": "Guide complet des passes ferroviaires européens"},
-        "live_status": {"title": "Statut en Direct des Trains Européens", "subtitle": "Retards et annulations en temps réel pour DB, SNCF, Trenitalia, SBB, ÖBB et Renfe"},
+    'fr': {
+        'routes': 'Routes populaires',
+        'tickets': 'Réserver des billets',
+        'passes': 'Pass',
+        'live-status': 'Statut en direct',
+        'articles': 'Articles',
+        'home': 'Accueil'
     },
-    "es": {
-        "lang": "es",
-        "title_suffix": "Europe Train - Viaje en tren por Europa",
-        "nav": {"articles": "Guías", "routes": "Rutas", "tickets": "Billetes", "passes": "Pases", "live_status": "Estado en Vivo"},
-        "routes": {"title": "Rutas Populares", "subtitle": "Rutas ferroviarias europeas seleccionadas, desde trenes de alta velocidad hasta viajes panorámicos"},
-        "tickets": {"title": "Billetes", "subtitle": "Guía de reserva de billetes de tren europeos y consejos para ahorrar"},
-        "passes": {"title": "Pases", "subtitle": "Guía completa de pases ferroviarios europeos"},
-        "live_status": {"title": "Estado en Vivo de Trenes Europeos", "subtitle": "Retrasos y cancelaciones en tiempo real para DB, SNCF, Trenitalia, SBB, ÖBB y Renfe"},
+    'es': {
+        'routes': 'Rutas populares',
+        'tickets': 'Reservar billetes',
+        'passes': 'Pases',
+        'live-status': 'Estado en vivo',
+        'articles': 'Artículos',
+        'home': 'Inicio'
     },
-    "ja": {
-        "lang": "ja",
-        "title_suffix": "Europe Train - ヨーロッパ鉄道旅行",
-        "nav": {"articles": "ガイド", "routes": "人気ルート", "tickets": "切符予約", "passes": "パス", "live_status": "運行状況"},
-        "routes": {"title": "人気ルート", "subtitle": "高速鉄道から景観路線まで、厳選されたヨーロッパ鉄道路線"},
-        "tickets": {"title": "切符", "subtitle": "ヨーロッパ鉄道切符予約ガイドと節約のコツ"},
-        "passes": {"title": "パス", "subtitle": "ヨーロッパ鉄道パス完全ガイド"},
-        "live_status": {"title": "ヨーロッパ鉄道リアルタイム運行状況", "subtitle": "DB、SNCF、Trenitalia、SBB、ÖBB、Renfeの遅延と運休情報"},
+    'ja': {
+        'routes': '人気ルート',
+        'tickets': '切符予約',
+        'passes': 'パス',
+        'live-status': 'リアルタイム状況',
+        'articles': '記事',
+        'home': 'ホーム'
     },
-    "ko": {
-        "lang": "ko",
-        "title_suffix": "Europe Train - 유럽 기차 여행",
-        "nav": {"articles": "가이드", "routes": "인기 노선", "tickets": "티켓 예약", "passes": "패스", "live_status": "실시간 상태"},
-        "routes": {"title": "인기 노선", "subtitle": "고속열차부터 경관열차까지, 엄선된 유럽 기차 노선"},
-        "tickets": {"title": "티켓", "subtitle": "유럽 기차 티켓 예약 가이드와 절약 팁"},
-        "passes": {"title": "패스", "subtitle": "유럽 기차 패스 완벽 가이드"},
-        "live_status": {"title": "유럽 기차 실시간 운행 상태", "subtitle": "DB, SNCF, Trenitalia, SBB, ÖBB, Renfe 지연 및 운행 중단 정보"},
+    'ko': {
+        'routes': '인기 노선',
+        'tickets': '승차권 예약',
+        'passes': '패스',
+        'live-status': '실시간 상태',
+        'articles': '기사',
+        'home': '홈'
     },
-    "pt": {
-        "lang": "pt",
-        "title_suffix": "Europe Train - Viagem de Trem na Europa",
-        "nav": {"articles": "Guias", "routes": "Rotas", "tickets": "Bilhetes", "passes": "Passes", "live_status": "Status ao Vivo"},
-        "routes": {"title": "Rotas Populares", "subtitle": "Rotas ferroviárias europeas selecionadas, de trens de alta velocidade a viagens panorâmicas"},
-        "tickets": {"title": "Bilhetes", "subtitle": "Guia de reserva de bilhetes de trem europeus e dicas para economizar"},
-        "passes": {"title": "Passes", "subtitle": "Guia completo de passes ferroviários europeus"},
-        "live_status": {"title": "Status ao Vivo dos Trens Europeus", "subtitle": "Atrasos e cancelamentos em tempo real para DB, SNCF, Trenitalia, SBB, ÖBB e Renfe"},
+    'pt': {
+        'routes': 'Rotas populares',
+        'tickets': 'Reservar bilhetes',
+        'passes': 'Passes',
+        'live-status': 'Status ao vivo',
+        'articles': 'Artigos',
+        'home': 'Início'
     },
-    "zh": {
-        "lang": "zh-CN",
-        "title_suffix": "Europe Train - 欧洲火车旅行",
-        "nav": {"articles": "旅行指南", "routes": "热门路线", "tickets": "车票预订", "passes": "通票", "live_status": "实时状态"},
-        "routes": {"title": "热门路线", "subtitle": "精选欧洲火车路线，从高速列车到风景之旅"},
-        "tickets": {"title": "车票", "subtitle": "欧洲火车票预订指南与省钱技巧"},
-        "passes": {"title": "通票", "subtitle": "欧洲铁路通票完整指南"},
-        "live_status": {"title": "欧洲火车实时状态", "subtitle": "DB、SNCF、Trenitalia、SBB、ÖBB、Renfe 延误与取消信息"},
+    'zh': {
+        'routes': '热门路线',
+        'tickets': '车票预订',
+        'passes': '通票',
+        'live-status': '实时状态',
+        'articles': '文章',
+        'home': '首页'
+    }
+}
+
+# 页面标题映射
+PAGE_TITLES = {
+    'de': {
+        'routes': 'Beliebte Zugstrecken in Europa | Europe-Train.com',
+        'tickets': 'Europäische Zugtickets buchen | Europe-Train.com',
+        'passes': 'Eurail & Interrail Pässe | Europe-Train.com',
+        'live-status': 'Live-Zugstatus | Europe-Train.com'
     },
+    'fr': {
+        'routes': 'Routes de train populaires en Europe | Europe-Train.com',
+        'tickets': 'Réserver des billets de train européens | Europe-Train.com',
+        'passes': 'Passe Eurail & Interrail | Europe-Train.com',
+        'live-status': 'Statut de train en direct | Europe-Train.com'
+    },
+    'es': {
+        'routes': 'Rutas de tren populares en Europa | Europe-Train.com',
+        'tickets': 'Reservar billetes de tren europeos | Europe-Train.com',
+        'passes': 'Pase Eurail & Interrail | Europe-Train.com',
+        'live-status': 'Estado de tren en vivo | Europe-Train.com'
+    },
+    'ja': {
+        'routes': 'ヨーロッパ人気鉄道路線 | Europe-Train.com',
+        'tickets': 'ヨーロッパ鉄道切符予約 | Europe-Train.com',
+        'passes': 'Eurail & Interrail パス | Europe-Train.com',
+        'live-status': '鉄道リアルタイム状況 | Europe-Train.com'
+    },
+    'ko': {
+        'routes': '유럽 인기 기차 노선 | Europe-Train.com',
+        'tickets': '유럽 기차 승차권 예약 | Europe-Train.com',
+        'passes': 'Eurail & Interrail 패스 | Europe-Train.com',
+        'live-status': '기차 실시간 상태 | Europe-Train.com'
+    },
+    'pt': {
+        'routes': 'Rotas de trem populares na Europa | Europe-Train.com',
+        'tickets': 'Reservar bilhetes de trem europeus | Europe-Train.com',
+        'passes': 'Passe Eurail & Interrail | Europe-Train.com',
+        'live-status': 'Status de trem ao vivo | Europe-Train.com'
+    },
+    'zh': {
+        'routes': '欧洲热门火车路线 | Europe-Train.com',
+        'tickets': '预订欧洲火车票 | Europe-Train.com',
+        'passes': 'Eurail & Interrail 通票 | Europe-Train.com',
+        'live-status': '火车实时状态 | Europe-Train.com'
+    }
 }
 
 
-def build_header(lang, active_nav):
-    """构建通用header"""
-    cfg = LANG_CONFIG[lang]
-    nav = cfg["nav"]
+def get_page_key(filename):
+    """从文件名获取页面key"""
+    return filename.replace('.html', '')
+
+
+def localize_content(content, lang, page_file):
+    """将英文内容本地化为目标语言"""
+    page_key = get_page_key(page_file)
+    prefix = LANG_PREFIXES[lang]
     
-    # 语言切换器
-    lang_links = []
-    for l in ["en", "zh", "de", "fr", "es", "ja", "ko", "pt"]:
-        if l == lang:
-            lang_links.append(f'<a href="/{l}/" class="active">{l.upper() if l != "zh" else "中文"}</a>')
+    # 1. 修复 html lang 属性
+    content = re.sub(
+        r'<html lang="[^"]*">',
+        f'<html lang="{LANG_CODES[lang]}">',
+        content
+    )
+    
+    # 2. 修复页面标题
+    if page_key in PAGE_TITLES[lang]:
+        title = PAGE_TITLES[lang][page_key]
+        content = re.sub(
+            r'<title>.*?</title>',
+            f'<title>{title}</title>',
+            content
+        )
+    
+    # 3. 修复导航链接 - 将 /en/xxx 改为 /{lang}/xxx 或 /xxx
+    # 先处理语言切换器中的链接
+    content = re.sub(
+        r'href="/en/',
+        f'href="{prefix}',
+        content
+    )
+    
+    # 4. 修复导航菜单标题
+    nav = NAV_TITLES[lang]
+    
+    # 修复导航链接文本和href
+    # 首页链接
+    content = re.sub(
+        r'<a href="/en/"[^>]*>.*?</a>',
+        f'<a href="{prefix}">{nav["home"]}</a>',
+        content
+    )
+    
+    # 各页面导航链接 - 使用更精确的模式
+    for page in ['routes', 'tickets', 'passes', 'live-status']:
+        page_file_name = f'{page}.html'
+        # 匹配导航中的链接
+        pattern = rf'<a href="/en/{page_file_name}"[^>]*>.*?</a>'
+        replacement = f'<a href="{prefix}{page_file_name}">{nav[page]}</a>'
+        content = re.sub(pattern, replacement, content)
+    
+    # 修复文章链接
+    content = re.sub(
+        r'<a href="/en/articles/"[^>]*>.*?</a>',
+        f'<a href="{prefix}articles/">{nav["articles"]}</a>',
+        content
+    )
+    
+    # 5. 修复语言切换器 - 当前语言高亮
+    # 将当前语言的链接改为 span
+    for other_lang in LANGUAGES:
+        other_prefix = LANG_PREFIXES[other_lang]
+        other_code = LANG_CODES[other_lang]
+        if other_lang == lang:
+            # 当前语言改为 span
+            content = re.sub(
+                rf'<a href="{other_prefix}{page_file}"[^>]*>(.*?)</a>',
+                rf'<span class="lang-active">\1</span>',
+                content
+            )
         else:
-            label = {"en": "EN", "zh": "中文", "de": "DE", "fr": "FR", "es": "ES", "ja": "JP", "ko": "KR", "pt": "PT"}[l]
-            lang_links.append(f'<a href="/{l}/">{label}</a>')
+            # 其他语言保持链接
+            pass
     
-    nav_html = ""
-    for key, href in [("articles", f"/{lang}/articles/"), ("routes", f"/{lang}/routes.html"), 
-                      ("tickets", f"/{lang}/tickets.html"), ("passes", f"/{lang}/passes.html"),
-                      ("live_status", f"/{lang}/live-status.html")]:
-        cls = ' class="active"' if active_nav == key else ""
-        nav_html += f'<a href="{href}"{cls}>{nav[key]}</a>'
+    # 6. 修复 canonical 和 og:url
+    content = re.sub(
+        r'<link rel="canonical" href="https://www\.europe-train\.com/en/[^"]*"',
+        f'<link rel="canonical" href="https://www.europe-train.com{prefix}{page_file}"',
+        content
+    )
+    content = re.sub(
+        r'<meta property="og:url" content="https://www\.europe-train\.com/en/[^"]*"',
+        f'<meta property="og:url" content="https://www.europe-train.com{prefix}{page_file}"',
+        content
+    )
     
-    return f'''<header class="header">
-    <div class="header-inner">
-        <a href="/" class="logo">
-            <div class="logo-icon">ET</div>
-            Europe Train
-        </a>
-        <nav class="nav">
-            {nav_html}
-        </nav>
-        <div class="lang-switcher">
-            {' '.join(lang_links)}
-        </div>
-    </div>
-</header>'''
+    return content
 
 
-def build_routes_page(lang):
-    """构建 routes.html"""
-    cfg = LANG_CONFIG[lang]
-    header = build_header(lang, "routes")
+def create_page_for_language(lang, page_file):
+    """为指定语言创建页面"""
+    source_path = os.path.join(BASE_DIR, SOURCE_LANG, page_file)
+    target_dir = os.path.join(BASE_DIR, lang)
+    target_path = os.path.join(target_dir, page_file)
     
-    # 读取英文模板作为基础结构
-    en_path = os.path.join(BASE_DIR, "en", "routes.html")
-    with open(en_path, 'r', encoding='utf-8') as f:
-        en_html = f.read()
+    # 检查源文件是否存在
+    if not os.path.exists(source_path):
+        print(f"❌ 源文件不存在: {source_path}")
+        return False
     
-    # 替换关键内容
-    html = en_html.replace('<html lang="en">', f'<html lang="{cfg["lang"]}">')
-    html = html.replace('Popular Routes | Europe Train - European Rail Travel Routes', 
-                        f'{cfg["routes"]["title"]} | {cfg["title_suffix"]}')
-    html = html.replace('href="https://www.europe-train.com/en/routes.html"', 
-                        f'href="https://www.europe-train.com/{lang}/routes.html"')
-    html = html.replace('Curated European train routes, from high-speed trains to scenic journeys', 
-                        cfg["routes"]["subtitle"])
+    # 确保目标目录存在
+    os.makedirs(target_dir, exist_ok=True)
     
-    # 替换header
-    header_pattern = r'<header class="header">.*?</header>'
-    html = re.sub(header_pattern, header, html, flags=re.DOTALL)
+    # 读取源文件
+    with open(source_path, 'r', encoding='utf-8') as f:
+        content = f.read()
     
-    return html
-
-
-def build_tickets_page(lang):
-    """构建 tickets.html"""
-    cfg = LANG_CONFIG[lang]
-    header = build_header(lang, "tickets")
+    # 本地化处理
+    content = localize_content(content, lang, page_file)
     
-    en_path = os.path.join(BASE_DIR, "en", "tickets.html")
-    with open(en_path, 'r', encoding='utf-8') as f:
-        en_html = f.read()
+    # 写入目标文件
+    with open(target_path, 'w', encoding='utf-8') as f:
+        f.write(content)
     
-    html = en_html.replace('<html lang="en">', f'<html lang="{cfg["lang"]}">')
-    html = html.replace('Tickets | Europe Train - European Train Ticket Booking Guide', 
-                        f'{cfg["tickets"]["title"]} | {cfg["title_suffix"]}')
-    html = html.replace('href="https://www.europe-train.com/en/tickets.html"', 
-                        f'href="https://www.europe-train.com/{lang}/tickets.html"')
-    html = html.replace('European train ticket booking guide and money-saving tips', 
-                        cfg["tickets"]["subtitle"])
-    
-    header_pattern = r'<header class="header">.*?</header>'
-    html = re.sub(header_pattern, header, html, flags=re.DOTALL)
-    
-    return html
-
-
-def build_passes_page(lang):
-    """构建 passes.html"""
-    cfg = LANG_CONFIG[lang]
-    header = build_header(lang, "passes")
-    
-    en_path = os.path.join(BASE_DIR, "en", "passes.html")
-    with open(en_path, 'r', encoding='utf-8') as f:
-        en_html = f.read()
-    
-    html = en_html.replace('<html lang="en">', f'<html lang="{cfg["lang"]}">')
-    html = html.replace('Passes | Europe Train - Eurail & National Pass Guide', 
-                        f'{cfg["passes"]["title"]} | {cfg["title_suffix"]}')
-    html = html.replace('href="https://www.europe-train.com/en/passes.html"', 
-                        f'href="https://www.europe-train.com/{lang}/passes.html"')
-    html = html.replace('Complete European rail pass guide to find your best option', 
-                        cfg["passes"]["subtitle"])
-    
-    header_pattern = r'<header class="header">.*?</header>'
-    html = re.sub(header_pattern, header, html, flags=re.DOTALL)
-    
-    return html
-
-
-def build_live_status_page(lang):
-    """构建 live-status.html"""
-    cfg = LANG_CONFIG[lang]
-    header = build_header(lang, "live_status")
-    
-    en_path = os.path.join(BASE_DIR, "en", "live-status.html")
-    with open(en_path, 'r', encoding='utf-8') as f:
-        en_html = f.read()
-    
-    html = en_html.replace('<html lang="en">', f'<html lang="{cfg["lang"]}">')
-    html = html.replace('European Train Live Status | Europe Train - Delays, Cancellations, Disruptions', 
-                        f'{cfg["live_status"]["title"]} | {cfg["title_suffix"]}')
-    html = html.replace('href="https://www.europe-train.com/en/live-status.html"', 
-                        f'href="https://www.europe-train.com/{lang}/live-status.html"')
-    html = html.replace('Real-time delays and cancellations for DB, SNCF, Trenitalia, SBB, ÖBB, and Renfe', 
-                        cfg["live_status"]["subtitle"])
-    
-    # 替换header（live-status的header格式略有不同，是单行）
-    header_pattern = r'<header class="header">.*?</header>'
-    html = re.sub(header_pattern, header.replace('\n', ''), html, flags=re.DOTALL)
-    
-    return html
+    print(f"✅ 创建: {target_path}")
+    return True
 
 
 def main():
-    langs = ["de", "fr", "es", "ja", "ko", "pt", "zh"]
-    pages = ["routes.html", "tickets.html", "passes.html", "live-status.html"]
+    """主函数：批量创建所有缺失页面"""
+    print("=" * 60)
+    print("开始批量创建缺失子页面 (P0)")
+    print("=" * 60)
     
-    builders = {
-        "routes.html": build_routes_page,
-        "tickets.html": build_tickets_page,
-        "passes.html": build_passes_page,
-        "live-status.html": build_live_status_page,
-    }
+    total_created = 0
+    total_failed = 0
     
-    created = []
-    skipped = []
-    
-    for lang in langs:
-        lang_dir = os.path.join(BASE_DIR, lang)
-        if not os.path.exists(lang_dir):
-            os.makedirs(lang_dir)
+    for lang in LANGUAGES:
+        print(f"\n🌍 处理语言站: {lang.upper()}")
+        print("-" * 40)
         
-        for page in pages:
-            page_path = os.path.join(lang_dir, page)
+        for page in PAGES:
+            # 中文站特殊处理：检查是否已存在
+            if lang == 'zh':
+                target_path = os.path.join(BASE_DIR, lang, page)
+                if os.path.exists(target_path):
+                    print(f"  ⏭️  已存在，跳过: {lang}/{page}")
+                    continue
             
-            # 检查是否已存在（zh站可能有部分页面）
-            if os.path.exists(page_path):
-                skipped.append(f"{lang}/{page} (exists)")
-                continue
-            
-            html = builders[page](lang)
-            with open(page_path, 'w', encoding='utf-8') as f:
-                f.write(html)
-            created.append(f"{lang}/{page}")
+            if create_page_for_language(lang, page):
+                total_created += 1
+            else:
+                total_failed += 1
     
-    print(f"Created {len(created)} files:")
-    for f in created:
-        print(f"  + {f}")
+    print("\n" + "=" * 60)
+    print(f"✅ 完成! 成功创建: {total_created} 个页面")
+    if total_failed > 0:
+        print(f"❌ 失败: {total_failed} 个页面")
+    print("=" * 60)
     
-    if skipped:
-        print(f"\nSkipped {len(skipped)} files:")
-        for f in skipped:
-            print(f"  = {f}")
+    return total_failed == 0
 
 
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    success = main()
+    exit(0 if success else 1)
