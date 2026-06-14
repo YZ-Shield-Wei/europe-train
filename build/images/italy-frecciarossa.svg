@@ -1,0 +1,9 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#f0f0f0"/>
+  <text x="400" y="200" font-family="Arial" font-size="24" fill="#999" text-anchor="middle">
+    Italy Frecciarossa Guide
+  </text>
+  <text x="400" y="240" font-family="Arial" font-size="16" fill="#bbb" text-anchor="middle">
+    Image Placeholder
+  </text>
+</svg>
