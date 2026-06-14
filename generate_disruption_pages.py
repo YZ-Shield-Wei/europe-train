@@ -1,99 +1,128 @@
 #!/usr/bin/env python3
 """
-批量生成 disruption 详情页
-为每个 disruption 创建独立的 SEO 友好页面
+Generate disruption detail pages from API data
+Uses Python string formatting instead of Handlebars templates to avoid syntax leakage
 """
 
+import requests
 import json
 import os
-import re
 from datetime import datetime
 
-# 创建输出目录
-output_dir = "/root/.openclaw/workspace/europe-train/disruption"
-os.makedirs(output_dir, exist_ok=True)
+# API endpoint
+API_URL = "https://traini.ainchina.com/api/disruptions?limit=1000"
 
-# 获取 disruption 数据
-import subprocess
-result = subprocess.run(
-    ["curl", "-s", "https://traini.ainchina.com/api/disruptions?limit=1000"],
-    capture_output=True, text=True
-)
-data = json.loads(result.stdout)
-disruptions = data.get("data", [])
+# Output directory
+OUTPUT_DIR = "/root/.openclaw/workspace/europe-train/disruption"
 
-print(f"Total disruptions: {len(disruptions)}")
+# Ensure output directory exists
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# 生成页面
-generated = 0
-for d in disruptions:
+# Operator mapping
+OPERATOR_MAP = {
+    'DB': {'name': 'Deutsche Bahn', 'country': 'Germany'},
+    'SNCF': {'name': 'SNCF', 'country': 'France'},
+    'Trenitalia': {'name': 'Trenitalia', 'country': 'Italy'},
+    'SBB': {'name': 'Swiss Federal Railways', 'country': 'Switzerland'},
+    'Renfe': {'name': 'Renfe', 'country': 'Spain'},
+    'NS': {'name': 'Nederlandse Spoorwegen', 'country': 'Netherlands'},
+    'NationalRail': {'name': 'National Rail', 'country': 'United Kingdom'},
+    'ÖBB': {'name': 'ÖBB', 'country': 'Austria'}
+}
+
+def get_status_color(status):
+    """Get color for status badge"""
+    status = status.lower() if status else 'unknown'
+    if status == 'active':
+        return '#e91e63'  # Pink/red for active
+    elif status == 'resolved':
+        return '#4caf50'  # Green for resolved
+    else:
+        return '#ff9800'  # Orange for unknown
+
+def format_datetime(dt_string):
+    """Format datetime string for display"""
+    if not dt_string:
+        return 'N/A'
     try:
-        # 准备替换数据
-        status = d.get("status", "unknown")
-        status_color = "#4caf50" if status == "resolved" else "#ff9800" if status == "active" else "#f44336"
-        
-        affected_stations = d.get("affectedStations", [])
-        affected_stations_str = ", ".join(affected_stations) if affected_stations else "Not specified"
-        
-        # 格式化时间
-        start_time = d.get("startTime", "")
-        try:
-            dt = datetime.fromisoformat(start_time.replace("Z", "+00:00"))
-            start_time_formatted = dt.strftime("%Y-%m-%d %H:%M UTC")
-        except:
-            start_time_formatted = start_time
-        
-        try:
-            published_dt = datetime.fromisoformat(d.get("publishedAt", "").replace("Z", "+00:00"))
-            published_at_formatted = published_dt.strftime("%B %d, %Y at %H:%M UTC")
-        except:
-            published_at_formatted = d.get("publishedAt", "")
-        
-        # 简短描述（前200字符）
-        desc = d.get("descriptionTranslated") or d.get("description", "")
-        description_short = desc[:200] + "..." if len(desc) > 200 else desc
-        
-        # 清理标题中的特殊字符
-        title = d.get("titleTranslated") or d.get("title", "")
-        title = re.sub(r'[^\w\s\-\(\)]', ' ', title).strip()
-        
-        # 生成 affected stations HTML
-        if affected_stations:
-            stations_html = "\n".join([
-                f'                    <span style="background: #e3f2fd; color: #1976d2; padding: 6px 12px; border-radius: 20px; font-size: 14px;">{s}</span>'
-                for s in affected_stations
-            ])
-            affected_stations_section = f'''
+        dt = datetime.fromisoformat(dt_string.replace('Z', '+00:00'))
+        return dt.strftime('%Y-%m-%d %H:%M UTC')
+    except:
+        return dt_string
+
+def generate_disruption_page(disruption):
+    """Generate HTML page for a single disruption"""
+    
+    # Extract data
+    disruption_id = disruption.get('id', 'unknown')
+    operator_code = disruption.get('operatorCode', 'Unknown')
+    operator_info = OPERATOR_MAP.get(operator_code, {'name': operator_code, 'country': 'Unknown'})
+    operator_name = operator_info['name']
+    country = operator_info['country']
+    
+    title = disruption.get('title', f'{operator_name} Service Disruption')
+    description = disruption.get('description', 'No description available.')
+    description_short = description[:150] + '...' if len(description) > 150 else description
+    
+    status = disruption.get('status', 'unknown')
+    status_color = get_status_color(status)
+    
+    disruption_type = disruption.get('type', 'unknown')
+    severity = disruption.get('severity', 'unknown')
+    
+    start_time = disruption.get('startTime', '')
+    start_time_formatted = format_datetime(start_time)
+    published_at = disruption.get('createdAt', start_time)
+    published_at_formatted = format_datetime(published_at)
+    
+    source_url = disruption.get('sourceUrl', '')
+    
+    # Handle affected stations
+    affected_stations = disruption.get('affectedStations', [])
+    if isinstance(affected_stations, str):
+        affected_stations = [s.strip() for s in affected_stations.split(',') if s.strip()]
+    elif not isinstance(affected_stations, list):
+        affected_stations = []
+    
+    # Build affected stations HTML
+    if affected_stations:
+        stations_html = '<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">'
+        for station in affected_stations:
+            stations_html += f'<span style="background: #e3f2fd; color: #1976d2; padding: 6px 12px; border-radius: 20px; font-size: 14px;">{station}</span>'
+        stations_html += '</div>'
+        affected_stations_section = f'''
             <div style="background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                 <h2>Affected Stations</h2>
-                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
-{stations_html}
-                </div>
-            </div>'''
-        else:
-            affected_stations_section = ""
-        
-        # 生成 source_url 按钮
-        source_url = d.get("sourceUrl", "")
-        if source_url:
-            source_button = f'''
-                <a href="{source_url}" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 12px; padding: 10px 20px; background: #e91e63; color: white; text-decoration: none; border-radius: 6px; font-weight: 600;">
-                    View Official Announcement →
-                </a>'''
-        else:
-            source_button = ""
-        
-        # 构建完整 HTML
-        html = f'''<!DOCTYPE html>
+                {stations_html}
+            </div>
+        '''
+        affected_stations_text = ', '.join(affected_stations)
+    else:
+        affected_stations_section = ''
+        affected_stations_text = 'No specific stations reported'
+    
+    # Build source URL section
+    if source_url:
+        source_section = f'''
+            <a href="{source_url}" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 12px; padding: 10px 20px; background: #e91e63; color: white; text-decoration: none; border-radius: 6px; font-weight: 600;">
+                View Official Announcement →
+            </a>
+        '''
+    else:
+        source_section = ''
+    
+    # Build HTML page
+    html = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title} | Europe Train Disruption Details</title>
-    <meta name="description" content="{description_short}. Affected stations: {affected_stations_str}. Status: {status}.">
-    <link rel="canonical" href="https://www.europe-train.com/disruption/{d.get('id', '')}.html">
+    <meta name="description" content="{description_short}. Affected stations: {affected_stations_text}. Status: {status}.">
+    <link rel="canonical" href="https://www.europe-train.com/disruption/{disruption_id}.html">
     <link rel="stylesheet" href="../css/global.css">
     
+    <!-- FAQ Structured Data -->
     <script type="application/ld+json">
     {{
         "@context": "https://schema.org",
@@ -101,7 +130,7 @@ for d in disruptions:
         "mainEntity": [
             {{
                 "@type": "Question",
-                "name": "What is the current status of {d.get('operatorName', '')} service disruption?",
+                "name": "What is the current status of {operator_name} service disruption?",
                 "acceptedAnswer": {{
                     "@type": "Answer",
                     "text": "The disruption is currently {status}. {description_short}"
@@ -112,7 +141,7 @@ for d in disruptions:
                 "name": "Which stations are affected by this disruption?",
                 "acceptedAnswer": {{
                     "@type": "Answer",
-                    "text": "Affected stations: {affected_stations_str}."
+                    "text": "Affected stations: {affected_stations_text}."
                 }}
             }},
             {{
@@ -120,21 +149,22 @@ for d in disruptions:
                 "name": "What type of disruption is this?",
                 "acceptedAnswer": {{
                     "@type": "Answer",
-                    "text": "This is a {d.get('disruptionType', '')} disruption with {d.get('severity', '')} severity."
+                    "text": "This is a {disruption_type} disruption with {severity} severity."
                 }}
             }}
         ]
     }}
     </script>
     
+    <!-- Article Structured Data -->
     <script type="application/ld+json">
     {{
         "@context": "https://schema.org",
         "@type": "NewsArticle",
         "headline": "{title}",
         "description": "{description_short}",
-        "datePublished": "{d.get('publishedAt', '')}",
-        "dateModified": "{d.get('publishedAt', '')}",
+        "datePublished": "{published_at}",
+        "dateModified": "{published_at}",
         "author": {{
             "@type": "Organization",
             "name": "Europe Train"
@@ -170,32 +200,35 @@ for d in disruptions:
                 {status}
             </div>
             <h1>{title}</h1>
-            <p class="subtitle">{d.get('operatorName', '')} | {d.get('country', '')}</p>
+            <p class="subtitle">{operator_name} | {country}</p>
             <div class="article-meta-header">
                 <span>Published: {published_at_formatted}</span>
-                <span>Type: {d.get('disruptionType', '')}</span>
-                <span>Severity: {d.get('severity', '')}</span>
+                <span>Type: {disruption_type}</span>
+                <span>Severity: {severity}</span>
             </div>
         </div>
 
         <div class="article-content">
+            <!-- Overview Card -->
             <div style="background: #f8f9fa; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
                 <h2>Overview</h2>
-                <p>{desc}</p>
+                <p>{description}</p>
             </div>
 
-{affected_stations_section}
+            <!-- Affected Stations -->
+            {affected_stations_section}
 
+            <!-- Impact Details -->
             <div style="background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                 <h2>Impact Details</h2>
                 <table style="width: 100%; margin-top: 12px;">
                     <tr>
                         <td style="padding: 8px 0; color: #666;">Disruption Type</td>
-                        <td style="padding: 8px 0; font-weight: 600;">{d.get('disruptionType', '')}</td>
+                        <td style="padding: 8px 0; font-weight: 600;">{disruption_type}</td>
                     </tr>
                     <tr>
                         <td style="padding: 8px 0; color: #666;">Severity</td>
-                        <td style="padding: 8px 0; font-weight: 600;">{d.get('severity', '')}</td>
+                        <td style="padding: 8px 0; font-weight: 600;">{severity}</td>
                     </tr>
                     <tr>
                         <td style="padding: 8px 0; color: #666;">Start Time</td>
@@ -208,12 +241,14 @@ for d in disruptions:
                 </table>
             </div>
 
+            <!-- Source -->
             <div style="background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                 <h2>Official Source</h2>
-                <p>This information is sourced from {d.get('operatorName', '')} official channels.</p>
-{source_button}
+                <p>This information is sourced from {operator_name} official channels.</p>
+                {source_section}
             </div>
 
+            <!-- FAQ Section for SEO -->
             <div style="background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                 <h2>Frequently Asked Questions</h2>
                 
@@ -224,7 +259,7 @@ for d in disruptions:
                 
                 <div style="margin-top: 16px;">
                     <h3 style="font-size: 16px; margin-bottom: 8px;">Which stations are affected?</h3>
-                    <p style="color: #666;">Affected stations: {affected_stations_str}.</p>
+                    <p style="color: #666;">Affected stations: {affected_stations_text}.</p>
                 </div>
                 
                 <div style="margin-top: 16px;">
@@ -240,19 +275,52 @@ for d in disruptions:
     </footer>
 </body>
 </html>'''
-        
-        # 写入文件
-        filename = f"{d.get('id', generated)}.html"
-        filepath = os.path.join(output_dir, filename)
-        with open(filepath, "w", encoding="utf-8") as f:
-            f.write(html)
-        
-        generated += 1
-        if generated % 100 == 0:
-            print(f"Generated {generated} pages...")
-            
-    except Exception as e:
-        print(f"Error generating page for disruption {d.get('id', 'unknown')}: {e}")
+    
+    return html
 
-print(f"\n✅ Generated {generated} disruption detail pages in {output_dir}/")
-print(f"Sample: https://europe-train.com/disruption/{disruptions[0].get('id', '1')}.html")
+def main():
+    """Main function to generate all disruption pages"""
+    
+    # Fetch disruptions from API
+    print(f"Fetching disruptions from {API_URL}...")
+    try:
+        response = requests.get(API_URL, timeout=30)
+        response.raise_for_status()
+        data = response.json()
+        
+        if isinstance(data, dict):
+            disruptions = data.get('disruptions', data.get('data', []))
+        else:
+            disruptions = data
+            
+        print(f"Total disruptions: {len(disruptions)}")
+    except Exception as e:
+        print(f"Error fetching disruptions: {e}")
+        return
+    
+    # Generate pages
+    generated = 0
+    for i, disruption in enumerate(disruptions):
+        try:
+            html = generate_disruption_page(disruption)
+            
+            # Write to file
+            filename = f"{disruption.get('id', i+1)}.html"
+            filepath = os.path.join(OUTPUT_DIR, filename)
+            
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(html)
+            
+            generated += 1
+            if generated % 100 == 0:
+                print(f"Generated {generated} pages...")
+                
+        except Exception as e:
+            print(f"Error generating page for disruption {disruption.get('id', i+1)}: {e}")
+            continue
+    
+    print(f"\n✅ Generated {generated} disruption detail pages in {OUTPUT_DIR}/")
+    print(f"Sample: https://europe-train.com/disruption/1.html")
+
+if __name__ == "__main__":
+    main()
