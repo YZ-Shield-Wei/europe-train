@@ -53,7 +53,7 @@
             <div class="status-grid" id="status-grid">
                 <!-- Dynamic loading -->
             </div>
-            <div class="data-source">Data source: traini.raileurope.cn real-time collection system | Covering DB, SNCF, Trenitalia, SBB, ÖBB, Renfe</div>
+            <div class="data-source">Data source: traini.ainchina.com real-time collection system | Covering DB, SNCF, Trenitalia, SBB, ÖBB, Renfe</div>
         </div>
     </article>
     <footer class="footer"><p>© 2026 Europe Train Travel Guide. All rights reserved.</p></footer>
@@ -61,7 +61,7 @@
         // Simulated real-time data loading
         async function loadStatus() {
             try {
-                const response = await fetch('https://traini.raileurope.cn/api/disruptions?limit=20');
+                const response = await fetch('https://traini.ainchina.com/api/disruptions?limit=20');
                 const data = await response.json();
                 renderStatus(data);
             } catch (e) {
