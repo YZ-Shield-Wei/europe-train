@@ -105,6 +105,7 @@
                             <li>
                                 <strong>${d.title || 'Service Disruption'}</strong>
                                 <div class="disruption-time">${d.severity || 'Normal'} | ${d.status || 'Active'}</div>
+                                <a href="/disruption/${d.id}.html" style="display: inline-block; margin-top: 8px; padding: 6px 12px; background: #e91e63; color: white; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: 600;">View Details →</a>
                             </li>
                         `).join('') || '<li style="color: var(--text-light);">No active disruptions</li>'}
                     </ul>

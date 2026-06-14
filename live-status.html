@@ -105,6 +105,7 @@
                             <li>
                                 <strong>${d.title || '服务中断'}</strong>
                                 <div class="disruption-time">${d.severity || '正常'} · ${d.status || '进行中'}</div>
+                                <a href="/disruption/${d.id}.html" style="display: inline-block; margin-top: 8px; padding: 6px 12px; background: #e91e63; color: white; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: 600;">查看详情 →</a>
                             </li>
                         `).join('') || '<li style="color: var(--text-light);">暂无中断信息</li>'}
                     </ul>
