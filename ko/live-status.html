@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>기차 실시간 상태 | Europe-Train.com</title>
-    <meta name="description" content="Real-time European train operational status: DB, SNCF, Trenitalia, SBB, Renfe delays, cancellations, and disruption information.">
+    <meta name="description" content="유럽 기차의 실시간 운행 상태: DB, SNCF, Trenitalia, SBB, Renfe의 지연, 운행 중단 및 장애 정보.">
     <link rel="canonical" href="https://www.europe-train.com/ko/live-status">
     <link rel="stylesheet" href="/css/global.css">
     <link rel="alternate" hreflang="en" href="https://www.europe-train.com/en/live-status">
@@ -71,23 +71,23 @@
         </div>
     </div>
 </header>
-    <nav class="breadcrumb" aria-label="breadcrumb"><a href="/">Home</a><span class="separator">/</span><span class="current">Live Status</span></nav>
+    <nav class="breadcrumb" aria-label="breadcrumb"><a href="/">Home</a><span class="separator">/</span><span class="current">실시간 상태</span></nav>
     <article class="article">
         <div class="article-header">
-            <h1>European Train Live Status</h1>
-            <p class="subtitle">Real-time delays and cancellations for DB, SNCF, Trenitalia, SBB, ÖBB, and Renfe</p>
+            <h1>유럽 기차 실시간 상태</h1>
+            <p class="subtitle">DB, SNCF, Trenitalia, SBB, ÖBB, Renfe의 실시간 지연 및 운행 중단 정보</p>
             <div class="article-meta-header"><span>Updated June 2026</span><span>Data refreshes every 30 minutes</span></div>
         </div>
         <div class="article-content">
             <div class="stats-bar">
-                <div class="stat-item"><div class="stat-value" id="total-disruptions">--</div><div class="stat-label">Active Disruptions</div></div>
-                <div class="stat-item"><div class="stat-value" id="total-resolved">--</div><div class="stat-label">Resolved Today</div></div>
-                <div class="stat-item"><div class="stat-value" id="last-update">--</div><div class="stat-label">Last Updated</div></div>
+                <div class="stat-item"><div class="stat-value" id="total-disruptions">--</div><div class="stat-label">활성 장애</div></div>
+                <div class="stat-item"><div class="stat-value" id="total-resolved">--</div><div class="stat-label">오늘 해결됨</div></div>
+                <div class="stat-item"><div class="stat-value" id="last-update">--</div><div class="stat-label">마지막 업데이트</div></div>
             </div>
             <div class="status-grid" id="status-grid">
                 <!-- Dynamic loading -->
             </div>
-            <div class="data-source">Data source: traini.ainchina.com real-time collection system | Covering DB, SNCF, Trenitalia, SBB, ÖBB, Renfe</div>
+            <div class="data-source">데이터 출처: traini.ainchina.com 실시간 수집 시스템 | DB, SNCF, Trenitalia, SBB, ÖBB, Renfe 커버</div>
         </div>
     </article>
     <footer class="footer"><p>© 2026 Europe Train Travel Guide. All rights reserved.</p></footer>
@@ -131,7 +131,7 @@
             for (const [code, info] of Object.entries(operators)) {
                 const ops = disruptions.filter(d => d.operatorCode === code) || [];
                 const statusClass = ops.length === 0 ? 'status-good' : ops.length < 3 ? 'status-warning' : 'status-bad';
-                const statusText = ops.length === 0 ? 'Normal Operations' : `${ops.length} Disruption${ops.length > 1 ? 's' : ''}`;
+                const statusText = ops.length === 0 ? '정상 운행' : `${ops.length} 장애${ops.length > 1 ? 's' : ''}`;
                 
                 const card = document.createElement('div');
                 card.className = 'status-card';
@@ -141,8 +141,8 @@
                     <ul class="disruption-list">
                         ${ops.slice(0, 3).map(d => `
                             <li>
-                                <strong>${d.title || 'Service Disruption'}</strong>
-                                <div class="disruption-time">${d.severity || 'Normal'} | ${d.status || 'Active'}</div>
+                                <strong>${d.title || '서비스 장애'}</strong>
+                                <div class="disruption-time">${d.severity || '보통'} | ${d.status || '활성'}</div>
                                 <a href="/disruption/${d.id}.html" style="display: inline-block; margin-top: 8px; padding: 6px 12px; background: #e91e63; color: white; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: 600;">View Details →</a>
                             </li>
                         `).join('') || '<li style="color: var(--text-light);">No active disruptions</li>'}
