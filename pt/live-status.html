@@ -74,20 +74,20 @@
     <nav class="breadcrumb" aria-label="breadcrumb"><a href="/">Home</a><span class="separator">/</span><span class="current">Live Status</span></nav>
     <article class="article">
         <div class="article-header">
-            <h1>European Train Live Status</h1>
-            <p class="subtitle">Real-time delays and cancellations for DB, SNCF, Trenitalia, SBB, ÖBB, and Renfe</p>
+            <h1>Status de trem europeu ao vivo</h1>
+            <p class="subtitle">Atrasos e cancelamentos em tempo real para DB, SNCF, Trenitalia, SBB, ÖBB e Renfe</p>
             <div class="article-meta-header"><span>Updated June 2026</span><span>Data refreshes every 30 minutes</span></div>
         </div>
         <div class="article-content">
             <div class="stats-bar">
-                <div class="stat-item"><div class="stat-value" id="total-disruptions">--</div><div class="stat-label">Active Disruptions</div></div>
-                <div class="stat-item"><div class="stat-value" id="total-resolved">--</div><div class="stat-label">Resolved Today</div></div>
-                <div class="stat-item"><div class="stat-value" id="last-update">--</div><div class="stat-label">Last Updated</div></div>
+                <div class="stat-item"><div class="stat-value" id="total-disruptions">--</div><div class="stat-label">Perturbações ativas</div></div>
+                <div class="stat-item"><div class="stat-value" id="total-resolved">--</div><div class="stat-label">Resolvido hoje</div></div>
+                <div class="stat-item"><div class="stat-value" id="last-update">--</div><div class="stat-label">Última atualização</div></div>
             </div>
             <div class="status-grid" id="status-grid">
                 <!-- Dynamic loading -->
             </div>
-            <div class="data-source">Data source: traini.ainchina.com real-time collection system | Covering DB, SNCF, Trenitalia, SBB, ÖBB, Renfe</div>
+            <div class="data-source">Fonte de dados: traini.ainchina.com sistema de coleta em tempo real | Cobertura de DB, SNCF, Trenitalia, SBB, ÖBB, Renfe</div>
         </div>
     </article>
     <footer class="footer"><p>© 2026 Europe Train Travel Guide. All rights reserved.</p></footer>
@@ -131,7 +131,7 @@
             for (const [code, info] of Object.entries(operators)) {
                 const ops = disruptions.filter(d => d.operatorCode === code) || [];
                 const statusClass = ops.length === 0 ? 'status-good' : ops.length < 3 ? 'status-warning' : 'status-bad';
-                const statusText = ops.length === 0 ? 'Normal Operations' : `${ops.length} Disruption${ops.length > 1 ? 's' : ''}`;
+                const statusText = ops.length === 0 ? 'Operações normais' : `${ops.length} Perturbação${ops.length > 1 ? 's' : ''}`;
                 
                 const card = document.createElement('div');
                 card.className = 'status-card';
@@ -141,8 +141,8 @@
                     <ul class="disruption-list">
                         ${ops.slice(0, 3).map(d => `
                             <li>
-                                <strong>${d.title || 'Service Disruption'}</strong>
-                                <div class="disruption-time">${d.severity || 'Normal'} | ${d.status || 'Active'}</div>
+                                <strong>${d.title || 'Perturbação de serviço'}</strong>
+                                <div class="disruption-time">${d.severity || 'Normal'} | ${d.status || 'Ativo'}</div>
                                 <a href="/disruption/${d.id}.html" style="display: inline-block; margin-top: 8px; padding: 6px 12px; background: #e91e63; color: white; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: 600;">View Details →</a>
                             </li>
                         `).join('') || '<li style="color: var(--text-light);">No active disruptions</li>'}
