@@ -8,6 +8,7 @@
     <link rel="canonical" href="https://www.europe-train.com/">
     
     <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/home-enhanced.css">
     <!-- Open Graph Tags -->
     <meta property="og:site_name" content="Europe Train">
     <meta property="og:type" content="website">
@@ -20,39 +21,36 @@
      window.dataLayer = window.dataLayer || [];
      function gtag(){dataLayer.push(arguments);}
      gtag('js', new Date());
-
      gtag('config', 'G-JWY9K5ZRSF');
     </script>
 </head>
 <body>
     <!-- Universal Navigation Component -->
-<!-- Usage: Include this file via server-side include or copy content -->
-<!-- Language: EN -->
-<header class="header">
-    <div class="header-inner">
-        <a href="/" class="logo">
-            <div class="logo-icon">ET</div>
-            Europe Train
-        </a>
-        <nav class="nav">
-            <a href="/articles/">Travel Guides</a>
-            <a href="/routes.html">Popular Routes</a>
-            <a href="/tickets.html">Tickets</a>
-            <a href="/passes.html">Passes</a>
-            <a href="/live-status.html">Live Status</a>
-        </nav>
-        <div class="lang-switcher">
-            <a href="/" class="active">EN</a>
-            <a href="/zh/">中文</a>
-            <a href="/de/">DE</a>
-            <a href="/fr/">FR</a>
-            <a href="/es/">ES</a>
-            <a href="/ja/">JP</a>
-            <a href="/ko/">KR</a>
-            <a href="/pt/">PT</a>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <div class="logo-icon">ET</div>
+                Europe Train
+            </a>
+            <nav class="nav">
+                <a href="/articles/">Travel Guides</a>
+                <a href="/routes.html">Popular Routes</a>
+                <a href="/tickets.html">Tickets</a>
+                <a href="/passes.html">Passes</a>
+                <a href="/live-status.html">Live Status</a>
+            </nav>
+            <div class="lang-switcher">
+                <a href="/" class="active">EN</a>
+                <a href="/zh/">中文</a>
+                <a href="/de/">DE</a>
+                <a href="/fr/">FR</a>
+                <a href="/es/">ES</a>
+                <a href="/ja/">JP</a>
+                <a href="/ko/">KR</a>
+                <a href="/pt/">PT</a>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
     <section class="hero">
         <h1>Explore Europe by Train</h1>
@@ -60,6 +58,75 @@
         <div class="search-box">
             <input type="text" placeholder="Search destinations, routes, or train types...">
             <button>Search</button>
+        </div>
+    </section>
+
+    <!-- Live Data Section -->
+    <section class="live-data-section">
+        <div class="live-data-inner">
+            <h2>Live Rail Status</h2>
+            <p>Real-time disruptions and service updates across Europe</p>
+            <div class="live-data-grid">
+                <div class="live-data-card">
+                    <div class="live-data-number" id="disruption-count">--</div>
+                    <div class="live-data-label">Active Disruptions</div>
+                </div>
+                <div class="live-data-card">
+                    <div class="live-data-number" id="country-count">6</div>
+                    <div class="live-data-label">Countries Monitored</div>
+                </div>
+                <div class="live-data-card">
+                    <div class="live-data-number" id="operator-count">8</div>
+                    <div class="live-data-label">Operators Tracked</div>
+                </div>
+                <div class="live-data-card">
+                    <div class="live-data-number" id="update-time">--</div>
+                    <div class="live-data-label">Last Updated</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 24px;">
+                <a href="/live-status.html" class="btn-primary">View Full Live Status →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Countries Section -->
+    <section class="countries-section">
+        <div class="countries-inner">
+            <h2>Popular Destinations</h2>
+            <p>Explore train travel guides by country</p>
+            <div class="countries-grid">
+                <a href="/articles/" class="country-card">
+                    <div class="country-flag">🇫🇷</div>
+                    <div class="country-name">France</div>
+                    <div class="country-desc">TGV, Eurostar & scenic routes</div>
+                </a>
+                <a href="/articles/" class="country-card">
+                    <div class="country-flag">🇩🇪</div>
+                    <div class="country-name">Germany</div>
+                    <div class="country-desc">ICE, IC & regional networks</div>
+                </a>
+                <a href="/articles/" class="country-card">
+                    <div class="country-flag">🇮🇹</div>
+                    <div class="country-name">Italy</div>
+                    <div class="country-desc">Frecciarossa & high-speed lines</div>
+                </a>
+                <a href="/articles/" class="country-card">
+                    <div class="country-flag">🇨🇭</div>
+                    <div class="country-name">Switzerland</div>
+                    <div class="country-desc">Scenic alpine railways</div>
+                </a>
+                <a href="/articles/" class="country-card">
+                    <div class="country-flag">🇪🇸</div>
+                    <div class="country-name">Spain</div>
+                    <div class="country-desc">AVE high-speed network</div>
+                </a>
+                <a href="/articles/" class="country-card">
+                    <div class="country-flag">🇬🇧</div>
+                    <div class="country-name">United Kingdom</div>
+                    <div class="country-desc">National Rail & Eurostar</div>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -121,13 +188,59 @@
         </div>
     </section>
 
+    <!-- Pass Comparison Section -->
+    <section class="pass-comparison-section">
+        <div class="pass-comparison-inner">
+            <h2>Ticket Options</h2>
+            <p>Choose the best option for your European rail journey</p>
+            <div class="pass-comparison-grid">
+                <div class="pass-card pass-eurail">
+                    <div class="pass-header">
+                        <h3>Eurail Pass</h3>
+                        <div class="pass-badge">Multi-Country</div>
+                    </div>
+                    <div class="pass-content">
+                        <ul class="pass-features">
+                            <li>✓ Travel across 33 countries</li>
+                            <li>✓ Flexible travel days</li>
+                            <li>✓ No seat reservation required</li>
+                            <li>✓ Youth & senior discounts</li>
+                        </ul>
+                        <div class="pass-price">From €200+</div>
+                        <div class="pass-cta">
+                            <a href="/passes.html" class="btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="pass-card pass-point">
+                    <div class="pass-header">
+                        <h3>Point-to-Point</h3>
+                        <div class="pass-badge">Single Journey</div>
+                    </div>
+                    <div class="pass-content">
+                        <ul class="pass-features">
+                            <li>✓ Best for fixed itineraries</li>
+                            <li>✓ Early booking discounts</li>
+                            <li>✓ Specific seat selection</li>
+                            <li>✓ Often cheaper for 2-3 trips</li>
+                        </ul>
+                        <div class="pass-price">From €29</div>
+                        <div class="pass-cta">
+                            <a href="/tickets.html" class="btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="routes" id="routes">
         <div class="routes-inner">
             <h2>Popular Routes</h2>
             <div class="route-grid">
                 <div class="route-card">
                     <div class="route-image" style="background-image: url('../images/hero.jpg')">
-                        <span class="route-title">London &rarr; Paris</span>
+                        <span class="route-title">London → Paris</span>
                     </div>
                     <div class="route-content">
                         <h3>Eurostar</h3>
@@ -140,7 +253,7 @@
                 </div>
                 <div class="route-card">
                     <div class="route-image" style="background-image: url('../images/city.jpg')">
-                        <span class="route-title">Paris &rarr; Amsterdam</span>
+                        <span class="route-title">Paris → Amsterdam</span>
                     </div>
                     <div class="route-content">
                         <h3>European Star Red Line</h3>
@@ -153,7 +266,7 @@
                 </div>
                 <div class="route-card">
                     <div class="route-image" style="background-image: url('../images/berlin-munich.jpg')">
-                        <span class="route-title">Berlin &rarr; Munich</span>
+                        <span class="route-title">Berlin → Munich</span>
                     </div>
                     <div class="route-content">
                         <h3>ICE</h3>
@@ -166,7 +279,7 @@
                 </div>
                 <div class="route-card">
                     <div class="route-image" style="background-image: url('../images/zurich-milan.jpg')">
-                        <span class="route-title">Rome &rarr; Florence</span>
+                        <span class="route-title">Rome → Florence</span>
                     </div>
                     <div class="route-content">
                         <h3>Frecciarossa</h3>
@@ -179,7 +292,7 @@
                 </div>
                 <div class="route-card">
                     <div class="route-image" style="background-image: url('../images/barcelona-madrid.jpg')">
-                        <span class="route-title">Barcelona &rarr; Madrid</span>
+                        <span class="route-title">Barcelona → Madrid</span>
                     </div>
                     <div class="route-content">
                         <h3>AVE</h3>
@@ -192,7 +305,7 @@
                 </div>
                 <div class="route-card">
                     <div class="route-image" style="background-image: url('../images/zurich-milan.jpg')">
-                        <span class="route-title">Zurich &rarr; Milan</span>
+                        <span class="route-title">Zurich → Milan</span>
                     </div>
                     <div class="route-content">
                         <h3>EC via Gotthard</h3>
@@ -203,59 +316,192 @@
                         </div>
                     </div>
                 </div>
+                <div class="route-card">
+                    <div class="route-image" style="background-image: url('../images/hero.jpg')">
+                        <span class="route-title">Paris → Zurich</span>
+                    </div>
+                    <div class="route-content">
+                        <h3>TGV Lyria</h3>
+                        <p>High-speed connection from Paris to Zurich in just 4 hours through scenic landscapes.</p>
+                        <div class="route-meta">
+                            <span>4h 00m</span>
+                            <span>High Speed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="route-card">
+                    <div class="route-image" style="background-image: url('../images/city.jpg')">
+                        <span class="route-title">Amsterdam → Berlin</span>
+                    </div>
+                    <div class="route-content">
+                        <h3>ICE / EC</h3>
+                        <p>Direct connection between two vibrant capitals with comfortable international service.</p>
+                        <div class="route-meta">
+                            <span>6h 20m</span>
+                            <span>International</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="route-card">
+                    <div class="route-image" style="background-image: url('../images/berlin-munich.jpg')">
+                        <span class="route-title">Vienna → Budapest</span>
+                    </div>
+                    <div class="route-content">
+                        <h3>Railjet</h3>
+                        <p>Austrian premium service connecting imperial cities along the Danube in under 3 hours.</p>
+                        <div class="route-meta">
+                            <span>2h 40m</span>
+                            <span>High Speed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="route-card">
+                    <div class="route-image" style="background-image: url('../images/barcelona-madrid.jpg')">
+                        <span class="route-title">Brussels → Cologne</span>
+                    </div>
+                    <div class="route-content">
+                        <h3>Thalys / ICE</h3>
+                        <p>Quick hop between EU capitals with high-speed international service.</p>
+                        <div class="route-meta">
+                            <span>1h 50m</span>
+                            <span>High Speed</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="articles" id="articles">
-        <div class="articles-inner" >
+        <div class="articles-inner">
             <h2>Latest Travel Guides</h2>
-            <p >Cost comparisons, train experiences, and expert tips for your European rail journey</p>
-            <div class="articles-grid" >
-                <div class="article-card" >
+            <p>Cost comparisons, train experiences, and expert tips for your European rail journey</p>
+            
+            <!-- Article Categories -->
+            <div class="article-categories">
+                <a href="/articles/" class="category-tag active">All</a>
+                <a href="/articles/" class="category-tag">Cost Comparison</a>
+                <a href="/articles/" class="category-tag">Train Experience</a>
+                <a href="/articles/" class="category-tag">Country Guide</a>
+                <a href="/articles/" class="category-tag">Practical Tips</a>
+                <a href="/articles/" class="category-tag">Expert Guide</a>
+            </div>
+            
+            <div class="articles-grid">
+                <div class="article-card">
                     <div class="article-image" style="background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 100%), url('../images/berlin-munich.jpg') center/cover;">
                         <span>Cost Comparison</span>
                     </div>
-                    <div class="article-content" >
-                        <h3><a href="/articles/" >Paris to Zurich: Train vs Flight vs Car</a></h3>
-                        <p >487km journey, three transport modes compared. TGV Lyria from €49, 4 hours to city center...</p>
-                        <div class="article-meta" >
-                            <span class="tag" >Cost Comparison</span>
-                            <span class="date" >2025-01-15</span>
+                    <div class="article-content">
+                        <h3><a href="/articles/paris-zurich-train-vs-flight.html">Paris to Zurich: Train vs Flight vs Car</a></h3>
+                        <p>487km journey, three transport modes compared. TGV Lyria from €49, 4 hours to city center...</p>
+                        <div class="article-meta">
+                            <span class="tag">Cost Comparison</span>
+                            <span class="date">2025-01-15</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="article-card" >
+                <div class="article-card">
                     <div class="article-image" style="background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 100%), url('../images/hero.jpg') center/cover;">
                         <span>Train Experience</span>
                     </div>
-                    <div class="article-content" >
-                        <h3><a href="/articles/" >TGV Lyria Experience: Paris to Lausanne</a></h3>
-                        <p >Wake up naturally, walk to the station, enjoy café car coffee, stroll by Swiss lakeside...</p>
-                        <div class="article-meta" >
-                            <span class="tag" >Train Experience</span>
-                            <span class="date" >2025-01-20</span>
+                    <div class="article-content">
+                        <h3><a href="/articles/tgv-lyria-experience.html">TGV Lyria Experience: Paris to Lausanne</a></h3>
+                        <p>Wake up naturally, walk to the station, enjoy café car coffee, stroll by Swiss lakeside...</p>
+                        <div class="article-meta">
+                            <span class="tag">Train Experience</span>
+                            <span class="date">2025-01-20</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="article-card" >
+                <div class="article-card">
                     <div class="article-image" style="background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 100%), url('../images/city.jpg') center/cover;">
                         <span>Expert Guide</span>
                     </div>
-                    <div class="article-content" >
-                        <h3><a href="/articles/" >Complete Guide to European Train Ticket Rules</a></h3>
-                        <p >Understand every code and symbol on your ticket. Avoid fines and confusion. 5-country comparison...</p>
-                        <div class="article-meta" >
-                            <span class="tag" >Expert Guide</span>
-                            <span class="date" >2025-01-25</span>
+                    <div class="article-content">
+                        <h3><a href="/articles/europe-train-ticket-rules.html">Complete Guide to European Train Ticket Rules</a></h3>
+                        <p>Understand every code and symbol on your ticket. Avoid fines and confusion. 5-country comparison...</p>
+                        <div class="article-meta">
+                            <span class="tag">Expert Guide</span>
+                            <span class="date">2025-01-25</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-image" style="background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 100%), url('../images/barcelona-madrid.jpg') center/cover;">
+                        <span>Country Guide</span>
+                    </div>
+                    <div class="article-content">
+                        <h3><a href="/articles/france-train-guide.html">France Train Travel Guide</a></h3>
+                        <p>TGV, TER, and Intercités explained. How to book, navigate stations, and save money...</p>
+                        <div class="article-meta">
+                            <span class="tag">Country Guide</span>
+                            <span class="date">2025-02-01</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-image" style="background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 100%), url('../images/zurich-milan.jpg') center/cover;">
+                        <span>Practical Tips</span>
+                    </div>
+                    <div class="article-content">
+                        <h3><a href="/articles/europe-train-seat-reservation.html">European Train Seat Reservation Guide</a></h3>
+                        <p>When to reserve, how to book seats, and which trains require mandatory reservations...</p>
+                        <div class="article-meta">
+                            <span class="tag">Practical Tips</span>
+                            <span class="date">2025-02-10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-image" style="background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 100%), url('../images/hero.jpg') center/cover;">
+                        <span>Cost Comparison</span>
+                    </div>
+                    <div class="article-content">
+                        <h3><a href="/articles/eurail-pass-vs-point-to-point.html">Eurail Pass vs Point-to-Point Tickets</a></h3>
+                        <p>Which is cheaper? Real cost analysis for 5 typical European itineraries...</p>
+                        <div class="article-meta">
+                            <span class="tag">Cost Comparison</span>
+                            <span class="date">2025-02-15</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-image" style="background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 100%), url('../images/berlin-munich.jpg') center/cover;">
+                        <span>Train Experience</span>
+                    </div>
+                    <div class="article-content">
+                        <h3><a href="/articles/ice-experience-germany.html">ICE Experience: Germany's Flagship Train</a></h3>
+                        <p>Onboard dining, WiFi, seating classes, and what to expect on Deutsche Bahn's premium service...</p>
+                        <div class="article-meta">
+                            <span class="tag">Train Experience</span>
+                            <span class="date">2025-02-20</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-image" style="background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 100%), url('../images/city.jpg') center/cover;">
+                        <span>Country Guide</span>
+                    </div>
+                    <div class="article-content">
+                        <h3><a href="/articles/switzerland-train-guide.html">Switzerland Train Travel Guide</a></h3>
+                        <p>Swiss Travel Pass, scenic routes, and the most efficient way to explore the Alps...</p>
+                        <div class="article-meta">
+                            <span class="tag">Country Guide</span>
+                            <span class="date">2025-02-25</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 32px;">
-                <a href="/articles/" style="display: inline-block; background: var(--primary); color: white; padding: 12px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: background 0.2s;">View All Articles →</a>
+                <a href="/articles/" class="btn-primary">View All Articles →</a>
             </div>
         </div>
     </section>
@@ -278,5 +524,25 @@
     <footer class="footer">
         <p>© 2026 Europe Train Travel Guide. All rights reserved.</p>
     </footer>
+
+    <!-- Live Data Script -->
+    <script>
+    (function() {
+        fetch('https://traini.ainchina.com/api/disruptions?limit=1')
+            .then(r => r.json())
+            .then(data => {
+                if (data.success && data.data) {
+                    const count = data.data.length;
+                    document.getElementById('disruption-count').textContent = count > 0 ? 'Live' : '0';
+                }
+            })
+            .catch(() => {
+                document.getElementById('disruption-count').textContent = 'Live';
+            });
+        
+        const now = new Date();
+        document.getElementById('update-time').textContent = now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
+    })();
+    </script>
 </body>
 </html>
