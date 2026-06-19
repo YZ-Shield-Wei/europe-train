@@ -267,14 +267,23 @@ def translate_tickets(lang):
     # Update hreflang links
     content = content.replace('hreflang="en"', f'hreflang="{lang}"')
     
-    # Update navigation links
-    content = content.replace('href="/"', f'href="/{lang}/"')
-    content = content.replace('href="/guides/"', f'href="/{lang}/guides/"')
+    # Update navigation links - use relative paths in source, then add lang prefix
+    # First handle the specific /en/ paths in the source
+    content = content.replace('href="/en/articles/"', f'href="/{lang}/articles/"')
+    content = content.replace('href="/en/guides/"', f'href="/{lang}/guides/"')
+    content = content.replace('href="/en/live-status.html"', f'href="/{lang}/live-status.html"')
+    content = content.replace('href="/en/tickets.html"', f'href="/{lang}/tickets.html"')
+    content = content.replace('href="/en/passes.html"', f'href="/{lang}/passes.html"')
+    content = content.replace('href="/en/routes.html"', f'href="/{lang}/routes.html"')
+    content = content.replace('href="/en/"', f'href="/{lang}/"')
+    # Then handle generic paths (for pages that don't use /en/ prefix)
     content = content.replace('href="/articles/"', f'href="/{lang}/articles/"')
+    content = content.replace('href="/guides/"', f'href="/{lang}/guides/"')
     content = content.replace('href="/live-status.html"', f'href="/{lang}/live-status.html"')
     content = content.replace('href="/tickets.html"', f'href="/{lang}/tickets.html"')
     content = content.replace('href="/passes.html"', f'href="/{lang}/passes.html"')
     content = content.replace('href="/routes.html"', f'href="/{lang}/routes.html"')
+    content = content.replace('href="/"', f'href="/{lang}/"')
     
     # Update article links
     content = content.replace('href="/articles/', f'href="/{lang}/articles/')
