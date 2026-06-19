@@ -1,0 +1,506 @@
+/* ============================================
+   Europe Train - Tickets Page Enhanced Styles
+   购票指南增强样式
+   ============================================ */
+
+/* Page Hero */
+.page-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 80px 24px 64px;
+    text-align: center;
+}
+
+.page-hero h1 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: white;
+}
+
+.page-hero p {
+    font-size: 18px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    color: white;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px 64px;
+}
+
+/* Page Navigation */
+.page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    padding: 24px 0;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 64px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+.page-nav a {
+    padding: 8px 20px;
+    background: var(--bg-light);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    border: 1px solid var(--border);
+}
+
+.page-nav a:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Content Sections */
+.content-section {
+    margin-bottom: 64px;
+}
+
+.content-section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+.section-intro {
+    font-size: 16px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+/* Buy Options */
+.buy-options {
+    display: grid;
+    gap: 32px;
+}
+
+.buy-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.buy-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+}
+
+.buy-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text);
+}
+
+.buy-pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.buy-pros-cons .pros,
+.buy-pros-cons .cons {
+    padding: 16px;
+    border-radius: var(--radius);
+}
+
+.buy-pros-cons .pros {
+    background: #e8f5e9;
+    border-left: 4px solid var(--secondary);
+}
+
+.buy-pros-cons .cons {
+    background: #ffebee;
+    border-left: 4px solid #e53935;
+}
+
+.buy-pros-cons strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.buy-pros-cons .pros strong {
+    color: var(--secondary);
+}
+
+.buy-pros-cons .cons strong {
+    color: #e53935;
+}
+
+.buy-pros-cons ul {
+    margin: 0;
+    padding-left: 16px;
+}
+
+.buy-pros-cons li {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: var(--text);
+}
+
+.buy-platforms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.platform-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--bg-light);
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    border: 1px solid var(--border);
+}
+
+.platform-link:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.buy-note {
+    background: var(--bg-light);
+    padding: 16px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+/* Price Table */
+.price-table-wrapper {
+    overflow-x: auto;
+    margin: 24px 0;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.price-table th {
+    background: var(--primary);
+    color: white;
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.price-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+}
+
+.price-table tr:hover {
+    background: var(--bg-light);
+}
+
+.price-low {
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.price-mid {
+    color: var(--text);
+}
+
+.price-note {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    padding: 20px;
+    border-radius: var(--radius);
+    border-left: 4px solid #1976d2;
+    font-size: 14px;
+    margin-top: 16px;
+}
+
+/* Steps */
+.steps {
+    display: grid;
+    gap: 32px;
+}
+
+.step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.step-number {
+    width: 48px;
+    height: 48px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.step-content h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.step-content p {
+    color: var(--text-light);
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.step-content ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.step-content li {
+    margin-bottom: 6px;
+    color: var(--text);
+}
+
+.fare-types {
+    display: grid;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.fare-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--bg-light);
+    border-radius: var(--radius);
+    font-size: 14px;
+}
+
+.fare-type strong {
+    color: var(--text);
+}
+
+.fare-type span {
+    color: var(--text-light);
+}
+
+/* Station Grid */
+.station-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.station-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.station-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+}
+
+.station-list {
+    display: grid;
+    gap: 12px;
+}
+
+.station-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.station-item strong {
+    font-size: 14px;
+    color: var(--text);
+}
+
+.station-item span {
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+/* Tips Grid */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.tip-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.tip-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.tip-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.tip-card p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.tip-action {
+    background: var(--bg-light);
+    padding: 10px 16px;
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.tip-action a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.tip-action a:hover {
+    text-decoration: underline;
+}
+
+/* FAQ */
+.faq-section {
+    background: var(--bg-light);
+    padding: 48px 32px;
+    border-radius: var(--radius-lg);
+    margin-top: 48px;
+}
+
+.faq-list {
+    display: grid;
+    gap: 24px;
+}
+
+.faq-item {
+    background: white;
+    padding: 24px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.faq-item h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.faq-item p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-hero h1 {
+        font-size: 28px;
+    }
+    
+    .page-hero p {
+        font-size: 16px;
+    }
+    
+    .page-nav {
+        gap: 8px;
+        padding: 16px 0;
+    }
+    
+    .page-nav a {
+        padding: 6px 14px;
+        font-size: 13px;
+    }
+    
+    .buy-pros-cons {
+        grid-template-columns: 1fr;
+    }
+    
+    .step {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .price-table {
+        font-size: 13px;
+    }
+    
+    .price-table th,
+    .price-table td {
+        padding: 10px 12px;
+    }
+    
+    .station-grid,
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+}
