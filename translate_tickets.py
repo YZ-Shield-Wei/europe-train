@@ -267,8 +267,11 @@ def translate_tickets(lang):
     # Update hreflang links
     content = content.replace('hreflang="en"', f'hreflang="{lang}"')
     
-    # Update navigation links - use relative paths in source, then add lang prefix
-    # First handle the specific /en/ paths in the source
+    # Update canonical URL
+    content = content.replace('href="https://www.europe-train.com/en/tickets"', f'href="https://www.europe-train.com/{lang}/tickets"')
+    content = content.replace('href="https://www.europe-train.com/tickets.html"', f'href="https://www.europe-train.com/{lang}/tickets.html"')
+    
+    # Update navigation links - handle /en/ prefix in source
     content = content.replace('href="/en/articles/"', f'href="/{lang}/articles/"')
     content = content.replace('href="/en/guides/"', f'href="/{lang}/guides/"')
     content = content.replace('href="/en/live-status.html"', f'href="/{lang}/live-status.html"')
@@ -276,18 +279,8 @@ def translate_tickets(lang):
     content = content.replace('href="/en/passes.html"', f'href="/{lang}/passes.html"')
     content = content.replace('href="/en/routes.html"', f'href="/{lang}/routes.html"')
     content = content.replace('href="/en/"', f'href="/{lang}/"')
-    # Then handle generic paths (for pages that don't use /en/ prefix)
-    content = content.replace('href="/articles/"', f'href="/{lang}/articles/"')
-    content = content.replace('href="/guides/"', f'href="/{lang}/guides/"')
-    content = content.replace('href="/live-status.html"', f'href="/{lang}/live-status.html"')
-    content = content.replace('href="/tickets.html"', f'href="/{lang}/tickets.html"')
-    content = content.replace('href="/passes.html"', f'href="/{lang}/passes.html"')
-    content = content.replace('href="/routes.html"', f'href="/{lang}/routes.html"')
-    content = content.replace('href="/"', f'href="/{lang}/"')
-    
-    # Update article links
-    content = content.replace('href="/articles/', f'href="/{lang}/articles/')
-    content = content.replace('href="/guides/', f'href="/{lang}/guides/')
+    # Also handle logo/home link
+    content = content.replace('href="/" class="logo"', f'href="/{lang}/" class="logo"')
     
     # Update language switcher active state
     content = content.replace(f'href="/{lang}/" class="active"', f'href="/{lang}/"')
