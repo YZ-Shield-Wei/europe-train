@@ -51,9 +51,13 @@ def check_page(url, expected_lang):
         
         html = resp.text
         
-        # Check 1: Language attribute
-    if f'lang="{expected_lang}"' not in html and f'lang="{expected_lang}-CN"' not in html:
-            issues.append(f"Wrong lang attribute")
+        # Check 1: Language attribute (allow zh-CN for zh)
+        if expected_lang == "zh":
+            if 'lang="zh"' not in html and 'lang="zh-CN"' not in html:
+                issues.append(f"Wrong lang attribute")
+        else:
+            if f'lang="{expected_lang}"' not in html:
+                issues.append(f"Wrong lang attribute")
         
         # Check 2: Navigation links point to correct language
         if expected_lang != "en":
