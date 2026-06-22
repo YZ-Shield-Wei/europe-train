@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Europe Train - 欧洲火车旅行指南</title>
-    <meta name="description" content="Europe Train 欧洲火车旅行完整指南：费用对比、列车体验、深度攻略，助你规划完美的欧洲火车之旅。">
+    <title>Europe Train | 欧洲火车旅行指南 – 路线、车票、通票</title>
+    <meta name="description" content="欧洲火车旅行的完整指南。查找路线、比较车票，发现最适合您旅程的铁路通票。">
     <link rel="canonical" href="https://www.europe-train.com/zh/">
+    
     <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/home-enhanced.css">
+    <!-- Open Graph Tags -->
     <meta property="og:site_name" content="Europe Train">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Europe Train - 欧洲火车旅行指南">
-    <meta property="og:description" content="Europe Train 欧洲火车旅行完整指南">
     <meta property="og:image" content="https://www.europe-train.com/images/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.europe-train.com/images/og-image.jpg">
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWY9K5ZRSF"></script>
     <script>
      window.dataLayer = window.dataLayer || [];
      function gtag(){dataLayer.push(arguments);}
      gtag('js', new Date());
+
      gtag('config', 'G-JWY9K5ZRSF');
     </script>
     <link rel="alternate" hreflang="en" href="https://www.europe-train.com/index.html">
-    <link rel="alternate" hreflang="zh" href="https://www.europe-train.com/zh/index.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.europe-train.com/zh/index.html">
     <link rel="alternate" hreflang="de" href="https://www.europe-train.com/de/index.html">
     <link rel="alternate" hreflang="fr" href="https://www.europe-train.com/fr/index.html">
     <link rel="alternate" hreflang="es" href="https://www.europe-train.com/es/index.html">
@@ -32,20 +34,23 @@
     <link rel="alternate" hreflang="it" href="https://www.europe-train.com/it/index.html">
 </head>
 <body>
-    <header class="header">
-        <div class="header-inner">
-            <a href="/zh/" class="logo">
-                <div class="logo-icon">ET</div>
-                Europe Train
-            </a>
-            <nav class="nav">
+    <!-- Universal Navigation Component -->
+<!-- Usage: Include this file via server-side include or copy content -->
+<!-- Language: EN -->
+<header class="header">
+    <div class="header-inner">
+        <a href="/zh/" class="logo">
+            <div class="logo-icon">ET</div>
+            Europe Train
+        </a>
+        <nav class="nav">
                 <a href="/zh/articles/">旅行指南</a>
                 <a href="/zh/routes.html">热门路线</a>
                 <a href="/zh/tickets.html">车票预订</a>
                 <a href="/zh/passes.html">铁路通票</a>
                 <a href="/zh/live-status.html">实时状态</a>
             </nav>
-            <div class="lang-switcher">
+        <div class="lang-switcher">
                 <a href="/en/">EN</a>
                 <a href="/de/">DE</a>
                 <a href="/fr/">FR</a>
@@ -54,87 +59,234 @@
                 <a href="/ja/">JP</a>
                 <a href="/ko/">KR</a>
                 <a href="/pt/">PT</a>
-                <a href="/zh/" class="active">中文</a>
+                <a href="/zh/">中文</a>
+            </div>
+    </div>
+</header>
+
+    <section class="hero">
+        <h1>Explore Europe by Train</h1>
+        <p>Your complete guide to European rail travel. Find routes, compare tickets, and discover the best passes for your journey.</p>
+        <div class="search-box">
+            <input type="text" placeholder="Search destinations, routes, or train types...">
+            <button>Search</button>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>Why Travel by Train?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-image" style="background-image: url('../images/hero.jpg')"></div>
+                <div class="feature-content">
+                    <h3>🌱 Eco-Friendly</h3>
+                    <p>Trains produce up to 90% less emissions than flights. Travel sustainably across Europe and reduce your carbon footprint.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-image" style="background-image: url('../images/berlin-munich.jpg')"></div>
+                <div class="feature-content">
+                    <h3>🛋️ Comfortable</h3>
+                    <p>Spacious seats, dining cars, and free WiFi. Enjoy the journey as much as the destination, not just endure it.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-image" style="background-image: url('../images/city.jpg')"></div>
+                <div class="feature-content">
+                    <h3>🏙️ City Center to City Center</h3>
+                    <p>No airport transfers needed. Arrive directly in the heart of every European city, saving time and hassle.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-image" style="background-image: url('../images/barcelona-madrid.jpg')"></div>
+                <div class="feature-content">
+                    <h3>💰 Cost Effective</h3>
+                    <p>Save money with rail passes and early booking discounts. Flexible options for every budget and travel style.</p>
+                </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <main class="main">
-        <section class="hero">
-            <h1>欧洲火车旅行指南</h1>
-            <p>探索欧洲最舒适的旅行方式</p>
-            <a href="/zh/tickets.html" class="cta-button">立即预订车票</a>
-        </section>
-
-        <section class="features">
-            <h2>为什么选择火车旅行？</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>🚄 高速便捷</h3>
-                    <p>欧洲高铁网络覆盖主要城市，巴黎到伦敦仅需2小时15分钟</p>
+    <section class="stats" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 64px 24px; text-align: center;">
+        <div style="max-width: var(--max-width); margin: 0 auto;">
+            <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 48px; color: white;">European Rail Travel Data</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px;">
+                <div>
+                    <div style="font-size: 48px; font-weight: 700; margin-bottom: 8px;">33</div>
+                    <div style="font-size: 16px; opacity: 0.9;">Countries Covered</div>
                 </div>
-                <div class="feature-card">
-                    <h3>🌍 沿途风景</h3>
-                    <p>穿越阿尔卑斯山、莱茵河谷，欣赏欧洲最美的风景</p>
+                <div>
+                    <div style="font-size: 48px; font-weight: 700; margin-bottom: 8px;">250,000+</div>
+                    <div style="font-size: 16px; opacity: 0.9;">Kilometers of Rail Network</div>
                 </div>
-                <div class="feature-card">
-                    <h3>💰 性价比高</h3>
-                    <p>提前预订可享优惠票价，家庭出行更划算</p>
+                <div>
+                    <div style="font-size: 48px; font-weight: 700; margin-bottom: 8px;">9,000+</div>
+                    <div style="font-size: 16px; opacity: 0.9;">Daily Train Services</div>
                 </div>
-                <div class="feature-card">
-                    <h3>🌱 环保出行</h3>
-                    <p>火车是欧洲最环保的旅行方式，减少碳足迹</p>
+                <div>
+                    <div style="font-size: 48px; font-weight: 700; margin-bottom: 8px;">90%</div>
+                    <div style="font-size: 16px; opacity: 0.9;">Less Carbon vs Flights</div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="popular-routes">
-            <h2>热门路线</h2>
+    <section class="routes" id="routes">
+        <div class="routes-inner">
+            <h2>Popular Routes</h2>
             <div class="route-grid">
                 <div class="route-card">
-                    <h3>巴黎 → 罗马</h3>
-                    <p>经典欧洲之旅，穿越阿尔卑斯山</p>
-                    <a href="/zh/articles/paris-to-rome-train-guide.html">查看指南</a>
+                    <div class="route-image" style="background-image: url('../images/hero.jpg')">
+                        <span class="route-title">London &rarr; Paris</span>
+                    </div>
+                    <div class="route-content">
+                        <h3>Eurostar</h3>
+                        <p>Travel from London to Paris in just 2 hours 15 minutes through the Channel Tunnel.</p>
+                        <div class="route-meta">
+                            <span>2h 15m</span>
+                            <span>High Speed</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="route-card">
-                    <h3>柏林 → 慕尼黑</h3>
-                    <p>德国高速走廊，ICE体验</p>
-                    <a href="/zh/articles/berlin-to-munich-train-guide.html">查看指南</a>
+                    <div class="route-image" style="background-image: url('../images/city.jpg')">
+                        <span class="route-title">Paris &rarr; Amsterdam</span>
+                    </div>
+                    <div class="route-content">
+                        <h3>European Star Red Line</h3>
+                        <p>Connect these two beautiful capitals in just 3 hours 20 minutes.</p>
+                        <div class="route-meta">
+                            <span>3h 20m</span>
+                            <span>High Speed</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="route-card">
-                    <h3>伦敦 → 巴黎</h3>
-                    <p>欧洲之星穿越英吉利海峡</p>
-                    <a href="/zh/articles/london-paris-eurostar-guide.html">查看指南</a>
+                    <div class="route-image" style="background-image: url('../images/berlin-munich.jpg')">
+                        <span class="route-title">Berlin &rarr; Munich</span>
+                    </div>
+                    <div class="route-content">
+                        <h3>ICE</h3>
+                        <p>Germany's flagship high-speed service connecting major cities at 300km/h.</p>
+                        <div class="route-meta">
+                            <span>3h 58m</span>
+                            <span>High Speed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="route-card">
+                    <div class="route-image" style="background-image: url('../images/zurich-milan.jpg')">
+                        <span class="route-title">Rome &rarr; Florence</span>
+                    </div>
+                    <div class="route-content">
+                        <h3>Frecciarossa</h3>
+                        <p>Italy's high-speed rail connecting historic cities in under 90 minutes.</p>
+                        <div class="route-meta">
+                            <span>1h 30m</span>
+                            <span>High Speed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="route-card">
+                    <div class="route-image" style="background-image: url('../images/barcelona-madrid.jpg')">
+                        <span class="route-title">Barcelona &rarr; Madrid</span>
+                    </div>
+                    <div class="route-content">
+                        <h3>AVE</h3>
+                        <p>Spain's high-speed network linking Barcelona and Madrid in 2.5 hours.</p>
+                        <div class="route-meta">
+                            <span>2h 30m</span>
+                            <span>High Speed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="route-card">
+                    <div class="route-image" style="background-image: url('../images/zurich-milan.jpg')">
+                        <span class="route-title">Zurich &rarr; Milan</span>
+                    </div>
+                    <div class="route-content">
+                        <h3>EC via Gotthard</h3>
+                        <p>Scenic route through the Swiss Alps with breathtaking mountain views.</p>
+                        <div class="route-meta">
+                            <span>3h 26m</span>
+                            <span>Scenic</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="latest-guides">
-            <h2>最新指南</h2>
-            <div class="articles-grid">
-                <div class="article-card">
-                    <h3>法国TGV高铁完全指南</h3>
-                    <p>法国高速铁路网络详解，从预订技巧到座位选择</p>
-                    <a href="/zh/articles/france-tgv-guide.html">阅读更多</a>
+    <section class="articles" id="articles">
+        <div class="articles-inner" >
+            <h2>Latest Travel Guides</h2>
+            <p >Cost comparisons, train experiences, and expert tips for your European rail journey</p>
+            <div class="articles-grid" >
+                <div class="article-card" >
+                    <div class="article-image" style="background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 100%), url('../images/berlin-munich.jpg') center/cover;">
+                        <span>Cost Comparison</span>
+                    </div>
+                    <div class="article-content" >
+                        <h3><a href="/en/articles/" >Paris to Zurich: Train vs Flight vs Car</a></h3>
+                        <p >487km journey, three transport modes compared. TGV Lyria from €49, 4 hours to city center...</p>
+                        <div class="article-meta" >
+                            <span class="tag" >Cost Comparison</span>
+                            <span class="date" >2025-01-15</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="article-card">
-                    <h3>欧洲火车座位预订指南</h3>
-                    <p>何时预订、如何选座、各国费用详解</p>
-                    <a href="/zh/articles/seat-reservation-guide.html">阅读更多</a>
+
+                <div class="article-card" >
+                    <div class="article-image" style="background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 100%), url('../images/hero.jpg') center/cover;">
+                        <span>Train Experience</span>
+                    </div>
+                    <div class="article-content" >
+                        <h3><a href="/en/articles/" >TGV Lyria Experience: Paris to Lausanne</a></h3>
+                        <p >Wake up naturally, walk to the station, enjoy café car coffee, stroll by Swiss lakeside...</p>
+                        <div class="article-meta" >
+                            <span class="tag" >Train Experience</span>
+                            <span class="date" >2025-01-20</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="article-card">
-                    <h3>瑞士景观列车完全指南</h3>
-                    <p>冰川快车、伯尔尼纳快线、黄金列车线</p>
-                    <a href="/zh/articles/swiss-scenic-trains.html">阅读更多</a>
+
+                <div class="article-card" >
+                    <div class="article-image" style="background: linear-gradient(135deg, rgba(255,111,0,0.8) 0%, rgba(255,143,0,0.8) 100%), url('../images/city.jpg') center/cover;">
+                        <span>Expert Guide</span>
+                    </div>
+                    <div class="article-content" >
+                        <h3><a href="/en/articles/" >Complete Guide to European Train Ticket Rules</a></h3>
+                        <p >Understand every code and symbol on your ticket. Avoid fines and confusion. 5-country comparison...</p>
+                        <div class="article-meta" >
+                            <span class="tag" >Expert Guide</span>
+                            <span class="date" >2025-01-25</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+            <div style="text-align: center; margin-top: 32px;">
+                <a href="/en/articles/" style="display: inline-block; background: var(--primary); color: white; padding: 12px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: background 0.2s;">View All Articles →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="languages" style="display:none;">
+        <h2>8 Languages Available</h2>
+        <p>Choose your preferred language to explore European train travel</p>
+        <div class="lang-grid">
+            <a href="/en/" class="lang-btn">🇺🇸 English</a>
+            <a href="/zh/" class="lang-btn">🇨🇳 中文</a>
+            <a href="/de/" class="lang-btn">🇩🇪 Deutsch</a>
+            <a href="/fr/" class="lang-btn">🇫🇷 Français</a>
+            <a href="/es/" class="lang-btn">🇪🇸 Español</a>
+            <a href="/ja/" class="lang-btn">🇯🇵 日本語</a>
+            <a href="/ko/" class="lang-btn">🇰🇷 한국어</a>
+            <a href="/pt/" class="lang-btn">🇵🇹 Português</a>
+        </div>
+    </section>
 
     <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2026 Europe Train Travel Guide. 版权所有。</p>
-        </div>
+        <p>© 2026 Europe Train Travel Guide. All rights reserved.</p>
     </footer>
 </body>
 </html>
