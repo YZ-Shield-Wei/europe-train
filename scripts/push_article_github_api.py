@@ -10,8 +10,17 @@ import base64
 import os
 from datetime import datetime
 
-# 配置
-TOKEN = "TOKEN_REDACTED"
+# 配置 - 从环境变量或本地文件读取 Token
+TOKEN = os.environ.get("GITHUB_TOKEN_EUROPE_TRAIN", "")
+
+# 如果环境变量未设置，尝试读取本地文件
+if not TOKEN:
+    try:
+        with open(".github_token", "r") as f:
+            TOKEN = f.read().strip()
+    except:
+        pass
+
 REPO = "YZ-Shield-Wei/europe-train"
 BRANCH = "main"
 API_BASE = f"https://api.github.com/repos/{REPO}"
@@ -56,6 +65,11 @@ def push_file(local_path, repo_path, message):
 
 def main():
     today = datetime.now().strftime('%Y-%m-%d')
+    
+    # 检查 Token 是否配置
+    if not TOKEN:
+        print("❌ GITHUB_TOKEN_EUROPE_TRAIN 环境变量未设置，且 .github_token 文件不存在")
+        return False
     
     # 只推送手动写的完整文章
     files_to_push = [
