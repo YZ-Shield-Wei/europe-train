@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.europe-train.com/sitemap.xml
+Sitemap: https://europe-train.com/sitemap.xml
