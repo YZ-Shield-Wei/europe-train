@@ -1,141 +1,116 @@
 #!/usr/bin/env python3
-"""
-使用 GitHub API 批量推送 europe-train 所有文章文件
-避免 git push 被 SIGKILL 的问题
+"""Preview explicitly selected articles; publish only with --publish --expect-head SHA.
+
+No local hash cache, home-directory credentials, or alternate repository targets.
+All selected content is validated before a single atomic, non-forced branch update.
 """
 
-import requests
-import json
-import base64
-import os
+import argparse
 import hashlib
-from datetime import datetime
+import json
+import os
+import re
+import sys
+from urllib.error import HTTPError, URLError
+from urllib.request import HTTPRedirectHandler, Request, build_opener
 
-# 配置
-TOKEN = "TOKEN_REDACTED"
-REPO = "raileurope/website-raileurope-cn"
+from publication_guard import ROOT, article_paths, prepare_files
+
+REPO = "YZ-Shield-Wei/europe-train"
 BRANCH = "main"
 API_BASE = f"https://api.github.com/repos/{REPO}"
 
-# 远程路径前缀（仓库中的实际路径）
-REMOTE_PREFIX = "www/europe-train"
 
-# 缓存文件：记录已推送文件的哈希
-HASH_CACHE_FILE = ".push_cache.json"
+class NoRedirect(HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None  # Never forward the Authorization header to another URL.
 
-headers = {
-    "Authorization": f"token {TOKEN}",
-    "Accept": "application/vnd.github.v3+json"
-}
 
-def load_hash_cache():
-    """加载已推送文件的哈希缓存"""
-    if os.path.exists(HASH_CACHE_FILE):
+class GitHubAPI:
+    def __init__(self, token):
+        self.token = token
+        self.opener = build_opener(NoRedirect())
+
+    def __call__(self, method, path, data=None):
+        payload = None if data is None else json.dumps(data).encode("utf-8")
+        request = Request(API_BASE + path, data=payload, method=method, headers={
+            "Authorization": f"Bearer {self.token}",
+            "Accept": "application/vnd.github+json",
+            "Content-Type": "application/json",
+            "User-Agent": "europe-train-article-publisher",
+        })
         try:
-            with open(HASH_CACHE_FILE, 'r') as f:
-                return json.load(f)
-        except:
-            pass
-    return {}
+            with self.opener.open(request, timeout=30) as response:
+                return json.load(response)
+        except HTTPError as error:
+            raise RuntimeError(f"GitHub {method} {path} failed (HTTP {error.code}); stopped.") from None
+        except (URLError, TimeoutError, OSError, ValueError):
+            raise RuntimeError(
+                f"GitHub {method} {path} did not return a confirmed result; "
+                "inspect the remote branch before retrying."
+            ) from None
 
-def save_hash_cache(cache):
-    """保存哈希缓存"""
-    with open(HASH_CACHE_FILE, 'w') as f:
-        json.dump(cache, f)
 
-def compute_file_hash(filepath):
-    """计算文件 MD5 哈希"""
-    with open(filepath, 'rb') as f:
-        return hashlib.md5(f.read()).hexdigest()
+def blob_sha(content):
+    data = content.encode("utf-8")
+    return hashlib.sha1(b"blob " + str(len(data)).encode("ascii") + b"\0" + data).hexdigest()
 
-def get_file_sha(path):
-    """获取文件当前 SHA（如果不存在返回 None）"""
-    url = f"{API_BASE}/contents/{path}?ref={BRANCH}"
-    resp = requests.get(url, headers=headers)
-    if resp.status_code == 200:
-        return resp.json().get("sha")
-    return None
 
-def push_file(local_path, repo_path, message):
-    """推送单个文件到 GitHub"""
-    with open(local_path, "rb") as f:
-        content = base64.b64encode(f.read()).decode()
-    
-    sha = get_file_sha(repo_path)
-    
-    data = {
-        "message": message,
-        "content": content,
-        "branch": BRANCH
-    }
-    if sha:
-        data["sha"] = sha
-    
-    url = f"{API_BASE}/contents/{repo_path}"
-    resp = requests.put(url, headers=headers, json=data)
-    
-    if resp.status_code in (200, 201):
-        print(f"✅ 已推送: {repo_path}")
-        return True
-    else:
-        print(f"❌ 推送失败 {repo_path}: {resp.status_code} - {resp.text[:200]}")
-        return False
+def publish(files, expected_head, api):
+    head = api("GET", f"/git/ref/heads/{BRANCH}")["object"]["sha"]
+    if head != expected_head:
+        raise RuntimeError("Remote main differs from --expect-head; fetch and review before publishing.")
+    base_tree = api("GET", f"/git/commits/{head}")["tree"]["sha"]
+    tree = api("GET", f"/git/trees/{base_tree}?recursive=1")
+    if tree.get("truncated"):
+        raise RuntimeError("Remote tree is truncated; cannot safely compare selected files.")
+    current = {entry["path"]: entry["sha"] for entry in tree["tree"]}
+    changes = [{"path": path, "mode": "100644", "type": "blob", "content": content}
+               for path, content in files.items() if current.get(path) != blob_sha(content)]
+    if not changes:
+        print("No changes: selected files already match remote main.")
+        return head
+    tree_sha = api("POST", "/git/trees", {"base_tree": base_tree, "tree": changes})["sha"]
+    commit = api("POST", "/git/commits", {
+        "message": f"content: publish {len(changes)} validated article files",
+        "tree": tree_sha, "parents": [head],
+    })["sha"]
+    # A racing branch update must fail; no force, retry, or partial per-file commits.
+    result = api("PATCH", f"/git/refs/heads/{BRANCH}", {"sha": commit, "force": False})
+    if result["object"]["sha"] != commit:
+        raise RuntimeError("Branch update was not confirmed; inspect remote main before retrying.")
+    print(f"Published {len(changes)} files in commit {commit}. Verify Pages deployment separately.")
+    return commit
 
-def main():
-    today = datetime.now().strftime('%Y-%m-%d')
-    
-    # 加载哈希缓存
-    hash_cache = load_hash_cache()
-    new_cache = {}
-    
-    # 所有语言的文章目录
-    languages = ['en', 'de', 'fr', 'es', 'ja', 'ko', 'pt', 'zh']
-    
-    success = True
-    total = 0
-    skipped = 0
-    
-    for lang in languages:
-        articles_dir = f"{lang}/articles"
-        if not os.path.exists(articles_dir):
-            continue
-            
-        for filename in os.listdir(articles_dir):
-            if not filename.endswith('.html'):
-                continue
-                
-            local_path = os.path.join(articles_dir, filename)
-            
-            # 计算当前文件哈希
-            current_hash = compute_file_hash(local_path)
-            cache_key = f"{lang}/{filename}"
-            new_cache[cache_key] = current_hash
-            
-            # 检查是否与缓存相同（未变更）
-            if cache_key in hash_cache and hash_cache[cache_key] == current_hash:
-                skipped += 1
-                continue
-            
-            # 构建远程路径（加 www/europe-train 前缀）
-            repo_path = f"{REMOTE_PREFIX}/{articles_dir}/{filename}"
-            message = f"Daily update: {filename} {today}"
-            
-            if push_file(local_path, repo_path, message):
-                total += 1
-            else:
-                success = False
-    
-    # 保存新的哈希缓存
-    save_hash_cache(new_cache)
-    
-    print(f"\n📊 推送统计:")
-    print(f"  ✅ 新推送: {total} 个文件")
-    print(f"  ⏭️  跳过（未变更）: {skipped} 个文件")
-    return success
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--publish", action="store_true", help="explicitly enable remote writes")
+    parser.add_argument("--expect-head", help="reviewed 40-character main commit SHA; required to publish")
+    parser.add_argument("files", nargs="*", help="explicit <language>/articles/*.html paths")
+    args = parser.parse_args(argv)
+    if args.publish and (not args.files or not re.fullmatch(r"[0-9a-f]{40}", args.expect_head or "")):
+        parser.error("publication requires explicit file paths and --expect-head <reviewed commit SHA>")
+    try:
+        files = prepare_files(args.files or article_paths(), ROOT)
+        print(f"Target: {REPO}:{BRANCH}; paths are relative to repository root.")
+        for path in files:
+            print(f"  {path}")
+        if not args.publish:
+            print("CHECK ONLY: no network requests or changes. Translation/fact review is still required.")
+            return 0
+        token = os.environ.get("GITHUB_TOKEN_EUROPE_TRAIN", "").strip()
+        if not token:
+            raise ValueError("GITHUB_TOKEN_EUROPE_TRAIN is required for publication; no credential files are read.")
+        publish(files, args.expect_head, GitHubAPI(token))
+    except (ValueError, RuntimeError, KeyError, TypeError) as error:
+        if isinstance(error, (KeyError, TypeError)):
+            print("Publication stopped: unexpected GitHub response; inspect remote main before retrying.", file=sys.stderr)
+        else:
+            print(error, file=sys.stderr)
+        return 1
+    return 0
+
 
 if __name__ == "__main__":
-    if main():
-        print("✅ 所有文章已同步到 GitHub")
-    else:
-        print("❌ 部分文件同步失败")
-        exit(1)
+    sys.exit(main())

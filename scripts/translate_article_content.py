@@ -220,30 +220,11 @@ def translate_article_content(lang, article_file):
     return True
 
 def main():
-    print("Starting article content translation...")
-    print()
-    
-    # Get list of all article files
-    articles_dir = os.path.join(BASE_DIR, "articles")
-    article_files = [f for f in os.listdir(articles_dir) if f.endswith('.html') and f != 'index.html']
-    
-    for lang in LANGS:
-        print(f"\n=== {lang.upper()} ===")
-        success = 0
-        
-        for article_file in article_files:
-            if translate_article_content(lang, article_file):
-                success += 1
-                print(f"  ✅ {article_file}")
-            else:
-                print(f"  ❌ {article_file}")
-        
-        print(f"  {success}/{len(article_files)} articles translated")
-    
-    print()
-    print("=" * 50)
-    print("Content translation complete!")
-    print("=" * 50)
+    """Phrase replacement is not a complete article translation."""
+    raise SystemExit(
+        "Automatic translation disabled: this legacy script only replaces common phrases. "
+        "Review complete translations, including Italian and Chinese, before publication."
+    )
 
 if __name__ == "__main__":
     main()

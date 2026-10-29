@@ -134,32 +134,11 @@ def generate_article_html(topic, lang):
     return html
 
 def main():
-    """Main function to generate daily article"""
-    topic = get_today_topic()
-    
-    # Generate for all languages
-    languages = ['en', 'de', 'fr', 'es', 'zh']
-    
-    for lang in languages:
-        # Create directory if not exists
-        article_dir = f'/root/.openclaw/workspace/europe-train/{lang}/articles'
-        os.makedirs(article_dir, exist_ok=True)
-        
-        # Generate filename from English title
-        filename = topic['en'].lower().replace(' ', '-').replace(':', '') + '.html'
-        filepath = os.path.join(article_dir, filename)
-        
-        # Generate HTML
-        html = generate_article_html(topic, lang)
-        
-        # Write file
-        with open(filepath, 'w', encoding='utf-8') as f:
-            f.write(html)
-        
-        print(f"Generated: {filepath}")
-    
-    print(f"\n✅ Daily article generated: {topic['en']}")
-    print(f"Languages: {', '.join(languages)}")
+    """Disabled: the old generator only produced empty, public-facing scaffolds."""
+    raise SystemExit(
+        "Generation disabled: this script produces placeholders, not complete articles. "
+        "Write and review sourced content before running scripts/daily_article_full.sh."
+    )
 
 if __name__ == '__main__':
     main()
