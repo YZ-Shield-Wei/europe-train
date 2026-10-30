@@ -1,0 +1,15 @@
+/* Editorial buying paths; independent of the six-route guide selector. */
+.buying-paths{padding-block:12px 36px}
+.buying-paths-heading{max-width:760px;margin-bottom:22px}
+.buying-paths-heading .section-kicker{margin-bottom:10px}
+.buying-paths-heading h2{font-size:clamp(25px,3vw,32px)}
+.buying-paths-heading>p:last-child{margin-top:12px;color:var(--muted);font-size:14px}
+.buying-entry-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.buying-entry{display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:22px;border:1px solid var(--line);border-top:3px solid var(--accent);background:var(--paper);text-decoration:none;overflow-wrap:anywhere}
+.buying-entry-number{font-size:11px;letter-spacing:1.4px;color:var(--accent);margin-bottom:13px}
+.buying-entry h3{font-size:21px;line-height:1.3;letter-spacing:-.35px}
+.buying-entry p{font-size:13px;color:var(--muted);margin-top:12px;margin-bottom:16px}
+.buying-entry-cta{display:flex;align-items:center;gap:12px;margin-top:auto;min-height:44px;color:var(--accent);font-size:13px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
+.buying-entry:hover{border-color:var(--accent);background:#fff}
+.buying-entry:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+@media(max-width:760px){.buying-entry-grid{grid-template-columns:1fr;gap:12px}.buying-entry{padding:18px}.buying-entry-number{margin-bottom:8px}.buying-entry h3{font-size:20px}.buying-entry p{margin-block:10px}.buying-paths{padding-block:8px 28px}}
