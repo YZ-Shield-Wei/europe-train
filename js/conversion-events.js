@@ -12,7 +12,7 @@
     var data = link.dataset;
     var affiliate = Boolean(data.conversionProduct);
     var params = {
-      content_group: 'swiss_round1',
+      content_group: data.conversionGroup || 'swiss_round1',
       entry_point: data.conversionEntry || data.conversionFamily || 'unknown',
       placement: data.conversionPlacement || 'unknown',
       content_language: data.conversionLanguage || document.documentElement.lang,

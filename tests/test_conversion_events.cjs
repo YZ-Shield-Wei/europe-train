@@ -19,3 +19,5 @@ s=setup(undefined);assert.doesNotThrow(()=>s.handlers.click(event({conversionEnt
 s=setup(()=>{throw Error('blocked')});assert.doesNotThrow(()=>s.handlers.click(event({conversionEntry:'swiss-buy'})));
 assert.ok(!/localStorage|sessionStorage|document\.cookie|fetch\(/.test(code));
 console.log('PASS: conversion click, affiliate metadata, middle-click, right-click exclusion, duplicate load, no-op, blocked analytics, no storage');
+
+let grouped=[];s=setup((...a)=>grouped.push(a));s.handlers.click(event({conversionProduct:"swiss-travel-pass",conversionGroup:"swiss_content_expansion"}));assert.equal(grouped[0][2].content_group,"swiss_content_expansion");console.log("PASS: content expansion uses its own event group");
