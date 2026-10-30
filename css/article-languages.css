@@ -1,0 +1,11 @@
+/* Same-article language navigation. No JavaScript or external dependency. */
+.article-languages{margin:0 0 30px;padding:0 0 22px;border-bottom:1px solid #ddd;max-width:100%;font-size:13px;line-height:1.5}
+.article-languages-label{margin:0 0 10px;color:#626569;font-weight:600}
+.article-languages-links{display:flex;flex-wrap:wrap;gap:8px}
+.article-languages-links a,.article-languages-links span{display:inline-block;padding:7px 11px;border:1px solid #d9d9d6;border-radius:4px;background:#fff;color:#75401f;text-decoration:none;white-space:nowrap}
+.article-languages-links a:hover{border-color:#b34e17;background:#fff7f1}
+.article-languages-links a:focus-visible{outline:3px solid #b34e17;outline-offset:3px}
+.article-languages-links [aria-current=page]{border-color:#b34e17;background:#b34e17;color:#fff;font-weight:600}
+.article-languages-note{margin:10px 0 0;color:#626569;font-size:12px}
+@media(max-width:480px){.article-languages{margin-bottom:24px;padding-bottom:18px}.article-languages-links{gap:7px}.article-languages-links a,.article-languages-links span{padding:7px 9px}}
+@media print{.article-languages{display:none}}
