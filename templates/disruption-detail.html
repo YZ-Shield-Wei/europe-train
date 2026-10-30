@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}} | Europe Train Disruption Details</title>
-    <meta name="description" content="{{description_short}}. Affected stations: {{affected_stations}}. Status: {{status}}.">
-    <link rel="canonical" href="https://www.europe-train.com/disruption/{{id}}.html">
+    <title>{{title}} | Europe Train Historical Disruption Record</title>
+    <meta name="description" content="Historical record: {{description_short}}. Stations recorded: {{affected_stations}}. Status at publication: {{status}}. Not live operational information.">
+    <link rel="canonical" href="https://europe-train.com/disruption/{{id}}.html">
     <link rel="stylesheet" href="/css/global.css">
     
     <!-- FAQ Structured Data -->
@@ -16,26 +16,26 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "What is the current status of {{operator_name}} service disruption?",
+                "name": "What status was recorded for {{operator_name}} at publication?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "The disruption is currently {{status}}. {{description_short}}"
+                    "text": "The status recorded at {{published_at}} was {{status}}. {{description_short}} This historical record does not establish current service conditions."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Which stations are affected by this disruption?",
+                "name": "Which stations were listed in this record?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Affected stations: {{affected_stations}}."
+                    "text": "Stations listed in the historical record: {{affected_stations}}."
                 }
             },
             {
                 "@type": "Question",
-                "name": "What type of disruption is this?",
+                "name": "What disruption type was recorded?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "This is a {{disruption_type}} disruption with {{severity}} severity."
+                    "text": "The record described a {{disruption_type}} disruption with {{severity}} severity."
                 }
             }
         ]
@@ -46,9 +46,9 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "NewsArticle",
+        "@type": "Article",
         "headline": "{{title}}",
-        "description": "{{description_short}}",
+        "description": "Historical disruption record, not live status: {{description_short}}",
         "datePublished": "{{published_at}}",
         "dateModified": "{{published_at}}",
         "author": {
@@ -60,7 +60,7 @@
             "name": "Europe Train",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.europe-train.com/images/logo.png"
+                "url": "https://europe-train.com/images/brand/europe-train-logo-ink.png"
             }
         }
     }
@@ -97,6 +97,7 @@
 </header>
 
     <article class="article">
+        <aside aria-label="Historical record" style="border-left:4px solid #b34e17;background:#fff6ef;padding:20px;margin:24px 0;"><strong>Historical disruption record — not live status</strong><p>The information below describes the record at publication. It does not confirm that a disruption is ongoing or that service has resumed. Check current official railway information before travelling.</p><a href="/live-status.html">Check current railway sources →</a></aside>
         <div class="article-header">
             <div style="display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 16px; background: {{status_color}}; color: white;">
                 {{status}}
@@ -104,7 +105,7 @@
             <h1>{{title}}</h1>
             <p class="subtitle">{{operator_name}} | {{country}}</p>
             <div class="article-meta-header">
-                <span>Published: {{published_at_formatted}}</span>
+                <span>Recorded: {{published_at_formatted}}</span>
                 <span>Type: {{disruption_type}}</span>
                 <span>Severity: {{severity}}</span>
             </div>
@@ -113,14 +114,14 @@
         <div class="article-content">
             <!-- Overview Card -->
             <div style="background: #f8f9fa; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
-                <h2>Overview</h2>
+                <h2>Recorded overview</h2>
                 <p>{{description}}</p>
             </div>
 
             <!-- Affected Stations -->
             {{#if affected_stations}}
             <div style="background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                <h2>Affected Stations</h2>
+                <h2>Stations listed in this record</h2>
                 <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
                     {{#each affected_stations}}
                     <span style="background: #e3f2fd; color: #1976d2; padding: 6px 12px; border-radius: 20px; font-size: 14px;">{{this}}</span>
@@ -131,7 +132,7 @@
 
             <!-- Impact Details -->
             <div style="background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                <h2>Impact Details</h2>
+                <h2>Recorded impact details</h2>
                 <table style="width: 100%; margin-top: 12px;">
                     <tr>
                         <td style="padding: 8px 0; color: #666;">Disruption Type</td>
@@ -146,7 +147,7 @@
                         <td style="padding: 8px 0; font-weight: 600;">{{start_time_formatted}}</td>
                     </tr>
                     <tr>
-                        <td style="padding: 8px 0; color: #666;">Status</td>
+                        <td style="padding: 8px 0; color: #666;">Status at publication</td>
                         <td style="padding: 8px 0; font-weight: 600;">{{status}}</td>
                     </tr>
                 </table>
@@ -154,11 +155,11 @@
 
             <!-- Source -->
             <div style="background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                <h2>Official Source</h2>
-                <p>This information is sourced from {{operator_name}} official channels.</p>
+                <h2>Source recorded with the report</h2>
+                <p>The original record attributed this report to {{operator_name}}. The linked source may have changed; this archived entry is not a current confirmation.</p>
                 {{#if source_url}}
-                <a href="{{source_url}}" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 12px; padding: 10px 20px; background: #e91e63; color: white; text-decoration: none; border-radius: 6px; font-weight: 600;">
-                    View Official Announcement →
+                <a href="{{source_url}}" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 12px; padding: 10px 20px; background: #b34e17; color: white; text-decoration: none; border-radius: 6px; font-weight: 600;">
+                    View the recorded source →
                 </a>
                 {{/if}}
             </div>
@@ -168,18 +169,18 @@
                 <h2>Frequently Asked Questions</h2>
                 
                 <div style="margin-top: 16px;">
-                    <h3 style="font-size: 16px; margin-bottom: 8px;">What is the current status of this disruption?</h3>
-                    <p style="color: #666;">This disruption is currently {{status}}. {{description_short}}</p>
+                    <h3 style="font-size: 16px; margin-bottom: 8px;">What status was recorded at publication?</h3>
+                    <p style="color: #666;">The recorded status was {{status}}. {{description_short}} This does not establish current conditions.</p>
                 </div>
                 
                 <div style="margin-top: 16px;">
-                    <h3 style="font-size: 16px; margin-bottom: 8px;">Which stations are affected?</h3>
-                    <p style="color: #666;">Affected stations: {{affected_stations}}.</p>
+                    <h3 style="font-size: 16px; margin-bottom: 8px;">Which stations were listed?</h3>
+                    <p style="color: #666;">Stations listed in the historical record: {{affected_stations}}.</p>
                 </div>
                 
                 <div style="margin-top: 16px;">
-                    <h3 style="font-size: 16px; margin-bottom: 8px;">How long will this disruption last?</h3>
-                    <p style="color: #666;">The disruption started on {{start_time_formatted}}. Please check the official source for the latest updates on expected resolution time.</p>
+                    <h3 style="font-size: 16px; margin-bottom: 8px;">Does this record show when the disruption ended?</h3>
+                    <p style="color: #666;">The record gives a start time of {{start_time_formatted}}, but does not establish an end time. Check the operator’s current information rather than treating this archived record as a forecast.</p>
                 </div>
             </div>
         </div>

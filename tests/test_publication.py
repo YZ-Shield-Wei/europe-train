@@ -196,12 +196,22 @@ class EntryPointTests(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(before, {p: hashlib.sha256((root / p).read_bytes()).hexdigest() for p in guard.index_paths()})
 
-    def test_daily_entrypoint_fails_closed_on_existing_placeholder(self):
-        result = subprocess.run(["bash", str(SCRIPTS / "daily_article_full.sh"),
-                                 "en/articles/berlin-to-munich-by-train-complete-guide.html"],
-                                cwd="/tmp", capture_output=True, text=True)
-        self.assertNotEqual(result.returncode, 0)
-        self.assertIn("placeholder", result.stderr)
+    def test_daily_entrypoint_fails_closed_on_isolated_placeholder(self):
+        # Keep the regression independent of production articles, which may be repaired.
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            scripts = root / "scripts"
+            scripts.mkdir()
+            for name in ("daily_article_full.sh", "push_all_articles_api.py", "publication_guard.py"):
+                (scripts / name).write_bytes((SCRIPTS / name).read_bytes())
+            article = root / "en/articles/fixture.html"
+            article.parent.mkdir(parents=True)
+            article.write_text(page(body="Article content coming soon."), encoding="utf-8")
+            result = subprocess.run(["bash", str(scripts / "daily_article_full.sh"),
+                                     "en/articles/fixture.html"],
+                                    cwd="/tmp", capture_output=True, text=True)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("placeholder", result.stderr)
 
     def test_legacy_generation_and_phrase_translation_disabled(self):
         for script in ("generate_daily_article.py", "translate_article_content.py"):

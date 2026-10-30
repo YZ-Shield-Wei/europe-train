@@ -2,11 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://europe-train.com/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/" />
   </url>
   <url>
@@ -35,47 +42,114 @@
   </url>
   <url>
     <loc>https://europe-train.com/de/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://europe-train.com/fr/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://europe-train.com/es/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://europe-train.com/ja/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://europe-train.com/ko/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://europe-train.com/pt/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://europe-train.com/zh/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/" />
+  </url>
+  <url>
+    <loc>https://europe-train.com/fr/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/" />
+  </url>
+  <url>
+    <loc>https://europe-train.com/es/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/" />
+  </url>
+  <url>
+    <loc>https://europe-train.com/ja/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/" />
+  </url>
+  <url>
+    <loc>https://europe-train.com/ko/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/" />
+  </url>
+  <url>
+    <loc>https://europe-train.com/pt/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/" />
+  </url>
+  <url>
+    <loc>https://europe-train.com/zh/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/" />
   </url>
   <url>
@@ -1322,8 +1396,115 @@
   </url>
   <url>
     <loc>https://europe-train.com/it/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/" />
   </url>
   <url>
     <loc>https://europe-train.com/it/articles/</loc>
+  </url>
+  <url>
+    <loc>https://europe-train.com/de/articles/european-train-dining-food-lovers-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://europe-train.com/de/articles/london-to-edinburgh-by-train-lner-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://europe-train.com/en/articles/european-train-dining-food-lovers-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://europe-train.com/en/articles/london-to-edinburgh-by-train-lner-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://europe-train.com/es/articles/european-train-dining-food-lovers-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://europe-train.com/es/articles/interrail-vs-eurail-which-rail-pass-is-right-for-you.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://europe-train.com/es/articles/london-to-edinburgh-by-train-lner-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://europe-train.com/fr/articles/european-train-dining-food-lovers-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://europe-train.com/fr/articles/interrail-vs-eurail-which-rail-pass-is-right-for-you.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://europe-train.com/fr/articles/london-to-edinburgh-by-train-lner-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://europe-train.com/ja/articles/amsterdam-to-berlin-train-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://europe-train.com/ko/articles/amsterdam-to-berlin-train-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://europe-train.com/pt/articles/amsterdam-to-berlin-train-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://europe-train.com/zh/articles/european-train-dining-food-lovers-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://europe-train.com/zh/articles/interrail-vs-eurail-which-rail-pass-is-right-for-you.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://europe-train.com/zh/articles/london-to-edinburgh-by-train-lner-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
