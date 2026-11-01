@@ -170,15 +170,10 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://europe-train.com/en/articles/berlin-to-munich-by-train-complete-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  
   <url>
     <loc>https://europe-train.com/en/articles/berlin-to-munich-train-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -368,15 +363,10 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://europe-train.com/de/articles/berlin-to-munich-by-train-complete-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  
   <url>
     <loc>https://europe-train.com/de/articles/berlin-to-munich-train-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -550,7 +540,7 @@
   </url>
   <url>
     <loc>https://europe-train.com/fr/articles/berlin-to-munich-train-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -712,7 +702,7 @@
   </url>
   <url>
     <loc>https://europe-train.com/es/articles/berlin-to-munich-train-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -856,7 +846,7 @@
   </url>
   <url>
     <loc>https://europe-train.com/ja/articles/berlin-to-munich-train-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -982,7 +972,7 @@
   </url>
   <url>
     <loc>https://europe-train.com/ko/articles/berlin-to-munich-train-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1108,7 +1098,7 @@
   </url>
   <url>
     <loc>https://europe-train.com/pt/articles/berlin-to-munich-train-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1252,7 +1242,7 @@
   </url>
   <url>
     <loc>https://europe-train.com/zh/articles/berlin-to-munich-train-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2301,7 +2291,7 @@
   </url>
   <url>
     <loc>https://europe-train.com/it/articles/berlin-to-munich-train-guide.html</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/en/articles/berlin-to-munich-train-guide.html" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/articles/berlin-to-munich-train-guide.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/articles/berlin-to-munich-train-guide.html" />
