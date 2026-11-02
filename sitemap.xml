@@ -282,7 +282,7 @@
   </url>
   <url>
     <loc>https://europe-train.com/en/articles/seat-reservation-guide.html</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -469,7 +469,7 @@
   </url>
   <url>
     <loc>https://europe-train.com/de/articles/seat-reservation-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -631,7 +631,7 @@
   </url>
   <url>
     <loc>https://europe-train.com/fr/articles/seat-reservation-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -793,7 +793,7 @@
   </url>
   <url>
     <loc>https://europe-train.com/es/articles/seat-reservation-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -919,7 +919,7 @@
   </url>
   <url>
     <loc>https://europe-train.com/ja/articles/seat-reservation-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1045,7 +1045,7 @@
   </url>
   <url>
     <loc>https://europe-train.com/ko/articles/seat-reservation-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1171,7 +1171,7 @@
   </url>
   <url>
     <loc>https://europe-train.com/pt/articles/seat-reservation-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1333,7 +1333,7 @@
   </url>
   <url>
     <loc>https://europe-train.com/zh/articles/seat-reservation-guide.html</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2423,6 +2423,7 @@
   </url>
   <url>
     <loc>https://europe-train.com/it/articles/seat-reservation-guide.html</loc>
+    <lastmod>2026-11-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/en/articles/seat-reservation-guide.html" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/articles/seat-reservation-guide.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/articles/seat-reservation-guide.html" />
