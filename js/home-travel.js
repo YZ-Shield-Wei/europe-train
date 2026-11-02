@@ -39,7 +39,7 @@
     });
     filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.regionFilter === region)));
     const query = from && to ? `${cityName(origin)} → ${cityName(destination)} · ` : from ? `${cityName(origin)} · ` : to ? `${cityName(destination)} · ` : '';
-    status.textContent = query + (zh ? `显示 ${visible.length} 条路线指南（共 ${cards.length} 条）` : `${visible.length} of ${cards.length} route guides shown`);
+    status.textContent = query + (zh ? `显示 ${visible.length} 条路线（共 ${cards.length} 条）` : `${visible.length} of ${cards.length} routes shown`);
     empty.hidden = visible.length !== 0;
     if (expand && visible.length === 1) visible[0].querySelector('details').open = true;
     if (scroll) {
