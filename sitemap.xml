@@ -159,12 +159,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://europe-train.com/en/articles/amsterdam-to-berlin-by-train-the-perfect-route.html</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://europe-train.com/en/articles/barcelona-to-madrid-by-ave-spain's-high-speed-experience.html</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -330,18 +324,6 @@
   </url>
   <url>
     <loc>https://europe-train.com/en/articles/zurich-to-milan-train-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://europe-train.com/de/articles/amsterdam-to-berlin-by-train-complete-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://europe-train.com/de/articles/amsterdam-to-berlin-by-train-the-perfect-route.html</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -516,12 +498,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://europe-train.com/fr/articles/amsterdam-to-berlin-by-train-complete-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://europe-train.com/fr/articles/amsterdam-to-berlin-train-guide.html</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -673,12 +649,6 @@
   </url>
   <url>
     <loc>https://europe-train.com/fr/articles/zurich-to-milan-train-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://europe-train.com/es/articles/amsterdam-to-berlin-by-train-complete-guide.html</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -1213,12 +1183,6 @@
   </url>
   <url>
     <loc>https://europe-train.com/pt/articles/zurich-to-milan-train-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://europe-train.com/zh/articles/amsterdam-to-berlin-by-train-complete-guide.html</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
