@@ -29,10 +29,148 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://europe-train.com/routes.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <loc>https://europe-train.com/en/routes.html</loc>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/en/routes.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/routes.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/routes.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/routes.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/routes.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/routes.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/routes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/en/routes.html" />
+  </url>
+  <url>
+    <loc>https://europe-train.com/zh/routes.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/en/routes.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/routes.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/routes.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/routes.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/routes.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/routes.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/routes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/en/routes.html" />
+  </url>
+  <url>
+    <loc>https://europe-train.com/de/routes.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/en/routes.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/routes.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/routes.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/routes.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/routes.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/routes.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/routes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/en/routes.html" />
+  </url>
+  <url>
+    <loc>https://europe-train.com/fr/routes.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/en/routes.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/routes.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/routes.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/routes.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/routes.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/routes.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/routes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/en/routes.html" />
+  </url>
+  <url>
+    <loc>https://europe-train.com/es/routes.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/en/routes.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/routes.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/routes.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/routes.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/routes.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/routes.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/routes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/en/routes.html" />
+  </url>
+  <url>
+    <loc>https://europe-train.com/it/routes.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/en/routes.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/routes.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/routes.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/routes.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/routes.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/routes.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/routes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/en/routes.html" />
+  </url>
+  <url>
+    <loc>https://europe-train.com/ja/routes.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/en/routes.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/routes.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/routes.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/routes.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/routes.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/routes.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/routes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/en/routes.html" />
+  </url>
+  <url>
+    <loc>https://europe-train.com/ko/routes.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/en/routes.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/routes.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/routes.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/routes.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/routes.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/routes.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/routes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/en/routes.html" />
+  </url>
+  <url>
+    <loc>https://europe-train.com/pt/routes.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://europe-train.com/en/routes.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://europe-train.com/zh/routes.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://europe-train.com/de/routes.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://europe-train.com/fr/routes.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://europe-train.com/es/routes.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://europe-train.com/it/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://europe-train.com/ja/routes.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://europe-train.com/ko/routes.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://europe-train.com/pt/routes.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://europe-train.com/en/routes.html" />
   </url>
   <url>
     <loc>https://europe-train.com/live-status.html</loc>
