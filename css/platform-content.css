@@ -1,0 +1,206 @@
+/* Platform: retained guide, directory, archive and service-information templates.
+   Presentation only. Scoped to existing shells; no content or control replacement. */
+body:is(.rail-section,.legacy-rail),
+body:has(> .guide-header),body:has(> .archive-header) {
+  --ink:#0e1a2b; --accent:#0e1a2b; --muted:#59616b;
+  --line:#d8d9d4; --paper:#eeede7; --primary:#0e1a2b;
+  --primary-dark:#0e1a2b; --secondary:#0e1a2b; --text:#0e1a2b;
+  --text-light:#59616b; --bg:#f6f5f1; --bg-light:#eeede7;
+  --border:#d8d9d4; --shadow:none; --shadow-lg:none;
+  --radius:2px; --radius-lg:2px;
+  background:#f6f5f1!important; color:#0e1a2b!important;
+  font-family:"Archivo",Arial,"PingFang SC","Hiragino Sans","Microsoft YaHei",sans-serif!important;
+}
+:is(.guide-shell,.status-wrap,.legacy-rail,.rail-section,#archive-content,:is(.articles-inner,.article:has(.archive-heading))) {
+  overflow-wrap:break-word;
+}
+:is(.guide-header,.archive-header,.section-header,.legacy-header) {
+  background:#0e1a2b; color:#f6f5f1; border-top:6px solid #f5c400;
+  border-bottom:1px solid #34404e; max-width:none;
+}
+:is(.archive-header,.section-header,.legacy-header) {
+  padding-left:max(24px,calc((100% - 1160px)/2));
+  padding-right:max(24px,calc((100% - 1160px)/2));
+}
+.archive-header:has(.archive-header-inner) {padding:0;border-top-width:6px}
+:is(.guide-header,.archive-header,.section-header,.legacy-header) a {color:#f6f5f1}
+:is(.guide-header,.archive-header,.section-header,.legacy-header) a:hover {color:#f5c400}
+:is(.section-brand-row,.archive-top,.legacy-top) {flex-wrap:wrap}
+:is(.section-brand-row > a:last-child,.archive-home,.legacy-home) {color:#d7dbe0}
+:is(.guide-brand-tagline,.archive-header .archive-home) {color:#d7dbe0}
+:is(.archive-languages,.section-nav,.legacy-nav) {border-color:#34404e}
+:is(.archive-languages,.section-nav,.legacy-nav) a {color:#f6f5f1}
+.archive-languages [aria-current] {color:#f5c400}
+/* Retain the existing logo artwork, masks, proportions and colours on a light tile. */
+:is(.guide-logo-crop,.archive-logo,.archive-logo-crop,.section-logo,.legacy-brand) {
+  background-color:#f6f5f1; outline:8px solid #f6f5f1; border-radius:2px; flex-shrink:0;
+}
+:is(.guide-shell,.status-wrap,:is(.articles-inner,.article:has(.archive-heading))) {padding-top:40px}
+:is(.guide-heading,.archive-heading,#archive-content .article-header) {
+  background:#0e1a2b; color:#f6f5f1; border-top:6px solid #f5c400;
+  padding:36px; max-width:none; margin-bottom:36px;
+}
+.guide-heading h1,.archive-heading h1,#archive-content .article-header h1 {
+  color:#f6f5f1; font-size:clamp(34px,4.6vw,62px); line-height:1.06;
+  font-weight:850; font-stretch:85%; letter-spacing:-.035em;
+}
+.guide-heading :is(.guide-intro,.guide-updated),
+.archive-heading > p:not(.archive-eyebrow),
+#archive-content .article-header :is(.subtitle,.article-meta-header) {color:#cdd2d8}
+.guide-heading :is(.guide-back,.guide-eyebrow),
+.archive-heading .archive-eyebrow,#archive-content .article-header .eyebrow {color:#f5c400!important}
+.archive-heading .archive-notice {background:#1d293a;color:#e0e3e6;border-color:#f5c400}
+.guide-eyebrow,.archive-eyebrow,.status-kicker,.eyebrow {
+  font-family:"Archivo",Arial,sans-serif; font-weight:750; letter-spacing:.13em;
+}
+:is(.guide-body,.status-wrap,#archive-content,:is(.articles-inner,.article:has(.archive-heading))) :is(h2,h3),
+.legacy-rail :is(h1,h2,h3),.rail-section :is(h1,h2,h3) {
+  font-family:"Archivo",Arial,"PingFang SC","Hiragino Sans","Microsoft YaHei",sans-serif;
+  font-weight:800!important; font-stretch:85%; letter-spacing:-.025em;
+}
+:is(.guide-body,.status-wrap,#archive-content,:is(.articles-inner,.article:has(.archive-heading))) h2 {font-size:clamp(25px,2.7vw,32px);line-height:1.2}
+.guide-layout {border-color:#d8d9d4;gap:48px;grid-template-columns:210px minmax(0,740px);padding-top:32px}
+.guide-toc {border-left:2px solid #d8d9d4;padding-left:18px}
+.guide-toc a {color:#59616b;line-height:1.5;padding:10px 0}
+.guide-toc a:hover {color:#0e1a2b;text-decoration:underline;text-decoration-color:#f5c400;text-decoration-thickness:3px}
+.guide-body section {border-bottom:1px solid #d8d9d4;padding-bottom:28px;margin-bottom:36px}
+.guide-body section:last-child {border-bottom:0}
+:is(.guide-note,.status-notice,#archive-content .archive-notice,.legacy-notice,.section-notice) {
+  background:#eeede7; border-left:5px solid #f5c400; color:#0e1a2b; border-radius:2px; box-shadow:none;
+}
+:is(.legacy-notice,.section-notice) :is(strong,a),.status-kicker {color:#0e1a2b}
+:is(.guide-body,.guide-sources,.status-wrap,#archive-content) a {color:#0e1a2b;text-decoration-color:#a4a9ae}
+:is(.guide-body,.guide-sources,.status-wrap,#archive-content) a:hover {text-decoration-color:#0e1a2b;text-decoration-thickness:2px}
+.guide-sources {color:#59616b;border-color:#d8d9d4}
+/* Article listings retain the original labels, order and language URLs. */
+:is(.articles-inner,.article:has(.archive-heading)) .category-title {border-top:3px solid #0e1a2b;padding:20px 0;font-size:26px}
+:is(.articles-inner,.article:has(.archive-heading)) .articles-grid {gap:0 32px}
+:is(.articles-inner,.article:has(.archive-heading)) .article-card {border-top:1px solid #bfc3c6;padding:28px 0;border-radius:0;box-shadow:none;background:transparent}
+:is(.articles-inner,.article:has(.archive-heading)) .article-card h3 {font-weight:800;font-size:27px;line-height:1.16}
+:is(.articles-inner,.article:has(.archive-heading)) .article-card h3 a {color:#0e1a2b}
+:is(.articles-inner,.article:has(.archive-heading)) .article-card h3 a:hover {text-decoration:underline;text-decoration-color:#b28d00;text-underline-offset:5px}
+:is(.articles-inner,.article:has(.archive-heading)) :is(.article-image,.tag) {color:#0e1a2b}
+:is(.articles-inner,.article:has(.archive-heading)) .image-title {border-left:5px solid #f5c400;padding-left:9px;font-weight:750}
+:is(.articles-inner,.article:has(.archive-heading)) :is(.article-card p,.article-meta) {color:#59616b}
+/* Existing section templates use important declarations; match their scope. */
+.rail-section :is(.article,main,.breadcrumb) {background:#f6f5f1!important}
+.rail-section :is(h1,h2,h3) {color:#0e1a2b!important}
+.rail-section .article-header {border-bottom:3px solid #0e1a2b;padding-bottom:24px!important;margin-bottom:28px}
+.rail-section :is(.hero-image,.hero,.hero-banner,.page-hero) {
+  background:#0e1a2b!important;color:#f6f5f1!important;border-top:6px solid #f5c400;border-radius:2px!important;
+}
+.rail-section :is(.hero-image,.hero,.hero-banner,.page-hero) :is(h1,h2,h3,p) {color:#f6f5f1!important}
+.rail-section [class$="-card"],.rail-section :is(.faq-item,.step,.tip) {
+  border-color:#d8d9d4!important;background:#f6f5f1!important;color:#0e1a2b!important;border-radius:2px!important;
+}
+.rail-section :is(.info-box,.quick-summary,.recommendation-box,.buy-note,.entry-actions) {
+  background:#eeede7!important;color:#0e1a2b!important;border-color:#d8d9d4!important;border-left:5px solid #f5c400!important;border-radius:2px!important;
+}
+.rail-section :is(button,.btn,.btn-primary,.booking-button,.step-number),
+.feed-panel button,.legacy-rail :is(.cta-button,a.cta-button) {
+  background:#f5c400!important;color:#0e1a2b!important;border-radius:2px!important;box-shadow:none!important;
+  font-weight:750;white-space:normal;max-width:100%;min-height:44px;
+}
+.rail-section :is(.price,.tag,.badge,.price-tag,.price-low,.price-mid) {color:#0e1a2b!important}
+.rail-section th {background:#eeede7!important;color:#0e1a2b!important}
+.rail-section thead th {background:#0e1a2b!important;color:#f6f5f1!important}
+.rail-section thead th a {color:#f6f5f1!important}
+/* Status copy, alerts, timestamps and loading states remain unchanged. */
+.status-wrap h1 {font-weight:850;line-height:1.06;font-stretch:85%;color:#0e1a2b}
+.status-intro,#feed-timing,#feed-records p {color:#59616b}
+.operator-links {gap:0 28px;border-bottom:1px solid #d8d9d4}
+.operator-links a {border-color:#d8d9d4;font-weight:750;color:#0e1a2b}
+.operator-links span {background:#f5c400;color:#0e1a2b;border-radius:2px;padding:2px 8px}
+.feed-panel {border-top:4px solid #0e1a2b}
+.feed-panel button:hover:not(:disabled) {background:#e5b800!important}
+#feed-records article {border-color:#d8d9d4}
+/* Retained legacy article layouts and image treatments. */
+.legacy-rail .article-header {border-bottom:3px solid #0e1a2b;padding-bottom:26px}
+.legacy-rail :is(h1,.article-content h3,.article-content p) {color:#0e1a2b}
+.legacy-rail .article-content h2 {border-color:#d8d9d4}
+.legacy-rail .article-content a {color:#0e1a2b}
+.legacy-rail :is(.quick-summary,.info-box,.tips-list,.author-box,.highlight-box,.tip-box,.warning-box) {
+  background:#eeede7;color:#0e1a2b;border-left:5px solid #f5c400;border-radius:2px;
+}
+.legacy-rail .hero-image:not([style*="url("]) {background:#f6f5f1!important}
+.legacy-rail .cta-box,.rail-section .cta-box,.current-information {
+  background:#0e1a2b!important;color:#f6f5f1!important;border-top:5px solid #f5c400;border-radius:2px!important;box-shadow:none;
+}
+.legacy-rail .cta-box :is(h3,p),.rail-section .cta-box :is(h2,h3,p) {color:#f6f5f1!important}
+.current-information :is(a,.eyebrow) {color:#f5c400}
+.legacy-rail th {background:#0e1a2b}
+.legacy-rail .tag {background:#eeede7;color:#0e1a2b;border-radius:2px}
+:is(.guide-footer,.archive-footer,.section-footer,.status-footer,.legacy-footer),
+.legacy-rail .footer,body:has(> .archive-header) > .footer {
+  max-width:none;background:#0e1a2b;color:#d7dbe0;border-top:5px solid #f5c400;
+  padding:32px max(24px,calc((100% - 1160px)/2));box-shadow:none;
+}
+:is(.guide-footer,.archive-footer,.section-footer,.status-footer,.legacy-footer) a,
+.legacy-rail .footer a,body:has(> .archive-header) > .footer a {color:#f5c400!important}
+:is(.guide-footer,.archive-footer,.section-footer,.status-footer,.legacy-footer) strong {color:#f6f5f1}
+:is(.guide-shell,.status-wrap,.legacy-rail,.rail-section,#archive-content,:is(.articles-inner,.article:has(.archive-heading))) :is(a,button,input,select):focus-visible,
+:is(.guide-header,.archive-header,.legacy-header,.section-header) a:focus-visible {
+  outline:3px solid #b28d00;outline-offset:5px;
+}
+:is(.guide-header,.archive-header,.legacy-header,.section-header) a:focus-visible {outline-color:#f5c400}
+@media(max-width:800px) {
+  .guide-layout {display:block}
+  .guide-toc {border-left:0;padding-left:0}
+  :is(.guide-heading,.archive-heading,#archive-content .article-header) {padding:28px 24px}
+}
+@media(max-width:560px) {
+  :is(.archive-header,.section-header,.legacy-header) {padding-left:20px;padding-right:20px}
+  .archive-header:has(.archive-header-inner) {padding:0}
+  :is(.archive-top,.section-brand-row,.legacy-top) {gap:24px}
+  :is(.guide-heading,.archive-heading,#archive-content .article-header) {padding:26px 20px;margin-bottom:28px}
+  .guide-heading h1,.archive-heading h1,#archive-content .article-header h1 {font-size:clamp(29px,8.4vw,40px);letter-spacing:-.025em}
+  .guide-intro {font-size:17px}
+  .guide-header nav {flex-wrap:wrap;justify-content:flex-start;gap:12px 20px}
+  :is(.articles-inner,.article:has(.archive-heading)) .articles-grid {grid-template-columns:1fr}
+  .rail-section :is(button,.btn,.btn-primary,.booking-button),.legacy-rail .cta-button {overflow-wrap:anywhere}
+}
+@media(prefers-reduced-motion:reduce) {
+  html:has(.guide-header,.archive-header,.legacy-header,.section-header) {scroll-behavior:auto}
+  :is(.guide-shell,.status-wrap,.legacy-rail,.rail-section,#archive-content,:is(.articles-inner,.article:has(.archive-heading))) * {animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+@media print {
+  body:is(.rail-section,.legacy-rail),body:has(> .guide-header),body:has(> .archive-header) {background:#fff!important;color:#000!important}
+  :is(.guide-heading,.archive-heading,#archive-content .article-header,.current-information) {background:#fff!important;color:#000!important;border-color:#555;padding:0}
+  :is(.guide-heading,.archive-heading,#archive-content .article-header,.current-information) :is(h1,p,a,.subtitle,.article-meta-header) {color:#000!important}
+  .status-footer,.section-header,.section-footer {display:none}
+}
+
+/* Later same-article navigation CSS must not restore the old orange palette. */
+:is(.guide-shell,.legacy-rail,.rail-section) .article-languages {border-color:#d8d9d4}
+:is(.guide-shell,.legacy-rail,.rail-section) .article-languages-links :is(a,span) {
+  background:#f6f5f1;color:#0e1a2b;border-color:#d8d9d4;border-radius:2px;
+}
+:is(.guide-shell,.legacy-rail,.rail-section) .article-languages-links [aria-current="page"] {
+  background:#f5c400;border-color:#f5c400;color:#0e1a2b;font-weight:750;
+}
+:is(.guide-shell,.legacy-rail,.rail-section) .article-languages-links a:hover {border-color:#0e1a2b;background:#eeede7}
+:is(.guide-shell,.legacy-rail,.rail-section) .article-languages-links a:focus-visible {outline:3px solid #b28d00;outline-offset:3px}
+.rail-section .cta-box a:not(.btn):not(.btn-primary):not(.booking-button),
+.legacy-rail .cta-box a:not(.cta-button) {color:#f5c400!important}
+
+/* Preserve affiliate destinations and events while matching the primary action treatment. */
+:is(.rail-section,.guide-shell,.legacy-rail) .swiss-decision {
+  background:#f6f5f1;border-color:#d8d9d4;border-left:5px solid #f5c400;border-radius:2px;
+}
+:is(.rail-section,.guide-shell,.legacy-rail) .swiss-decision .swiss-cta {
+  background:#f5c400;color:#0e1a2b;border:1px solid #f5c400;border-radius:2px;font-weight:750;
+}
+:is(.rail-section,.guide-shell,.legacy-rail) .swiss-decision .swiss-cta:hover {
+  background:#ffdb45;color:#0e1a2b;border-color:#ffdb45;
+}
+:is(.rail-section,.guide-shell,.legacy-rail) .swiss-decision .swiss-cta:focus-visible {
+  outline:3px solid #0e1a2b;outline-offset:4px;
+}
+@media print {
+ :is(.rail-section,.guide-shell,.legacy-rail) .swiss-decision .swiss-cta {background:none;color:#000;border-color:#777}
+}
+
+/* Archive CTAs sit on navy; override the higher-specificity general archive link rule. */
+#archive-content .current-information :is(a,.eyebrow) {color:#f5c400}
+#archive-content .current-information a:hover {color:#ffdb45;text-decoration-color:currentColor}
+#archive-content .current-information a:focus-visible {outline-color:#f5c400}
